@@ -14,8 +14,8 @@
                 <h1>Cerca il tuo appartamento</h1>
                 <h2>Ce ne sono per tutti i gusti</h2>
                 <form class="tg-formtheme tg-formtrip">
-                  <fieldset>
-                    <div class="form-group">
+                  <fieldset class="search-form-wrapper">
+                    <div class="form-group a">
                       <div class="tg-input">
                         <input type="text" name="address" class="tg-input-text" placeholder="Dove vuoi alloggiare?">
                       </div>
@@ -37,7 +37,7 @@
                           data-live-search="true"
                           data-width="100%"
                         >
-                          <option data-tokens="adulti">Adulti</option>
+                          <option data-tokens="adul>ti">Adulti</option>
                           <option data-tokens="2 persone">  2 persone </option>
                           <option data-tokens="3 persone">  3 persone </option>
                           <option data-tokens="4 persone">  4 persone </option>
@@ -50,7 +50,7 @@
                         </select>
                       </div>
                     </div>
-                    <div class="form-group">
+                    <div id="tg-search-submit">
                       <button class="tg-btn" type="submit">
                         <span>find tours</span>
                       </button>
