@@ -11,27 +11,23 @@
           <div class="container">
             <div class="row">
               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <h1>Experience the Wonder</h1>
-                <h2>People don’t take trips, trips take People</h2>
+                <h1>Cerca il tuo appartamento</h1>
+                <h2>Ce ne sono per tutti i gusti</h2>
                 <form class="tg-formtheme tg-formtrip">
                   <fieldset>
                     <div class="form-group">
-                      <div class="tg-select">
-                        <select
-                          class="selectpicker"
-                          data-live-search="true"
-                          data-width="100%"
-                        >
-                          <option data-tokens="Destinations">
-                            Destinations
-                          </option>
-                          <option data-tokens="All Areas">All Areas</option>
-                          <option data-tokens="Bayonne">Bayonne</option>
-                          <option data-tokens="Greenville">Greenville</option>
-                          <option data-tokens="Manhattan">Manhattan</option>
-                          <option data-tokens="Queens">Queens</option>
-                          <option data-tokens="The Heights">The Heights</option>
-                        </select>
+                      <div class="tg-input">
+                        <input type="text" name="address" class="tg-input-text" placeholder="Dove vuoi alloggiare?">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="tg-date">
+                        <input type="date" name="" id="" class="tg-input-date">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="tg-date">
+                        <input type="date" name="" id="" class="tg-input-date">
                       </div>
                     </div>
                     <div class="form-group">
@@ -41,63 +37,16 @@
                           data-live-search="true"
                           data-width="100%"
                         >
-                          <option data-tokens="Adventure Type">
-                            Adventure Type
-                          </option>
-                          <option data-tokens="Ice Adventure Vacations">
-                            Ice Adventure Vacations
-                          </option>
-                          <option data-tokens="National Park">
-                            National Park
-                          </option>
-                          <option data-tokens="Adult Vacations">
-                            Adult Vacations
-                          </option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <div class="tg-select">
-                        <select
-                          class="selectpicker"
-                          data-live-search="true"
-                          data-width="100%"
-                        >
-                          <option data-tokens="Travel Month">
-                            Travel Month
-                          </option>
-                          <option data-tokens="January">January</option>
-                          <option data-tokens="February">February</option>
-                          <option data-tokens="March">March</option>
-                          <option data-tokens="April">April</option>
-                          <option data-tokens="May">May</option>
-                          <option data-tokens="June">June</option>
-                          <option data-tokens="July">July</option>
-                          <option data-tokens="August">August</option>
-                          <option data-tokens="September">September</option>
-                          <option data-tokens="October">October</option>
-                          <option data-tokens="November">November</option>
-                          <option data-tokens="December">December</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <div class="tg-select">
-                        <select
-                          class="selectpicker"
-                          data-live-search="true"
-                          data-width="100%"
-                        >
-                          <option data-tokens="Duration">Duration</option>
-                          <option data-tokens="2 weeks">2 weeks</option>
-                          <option data-tokens="3 weeks">3 weeks</option>
-                          <option data-tokens="4 weeks">4 weeks</option>
-                          <option data-tokens="5 weeks">5 weeks</option>
-                          <option data-tokens="6 weeks">6 weeks</option>
-                          <option data-tokens="7 weeks">7 weeks</option>
-                          <option data-tokens="8 weeks">8 weeks</option>
-                          <option data-tokens="9 weeks">9 weeks</option>
-                          <option data-tokens="10 weeks">10 weeks</option>
+                          <option data-tokens="adulti">Adulti</option>
+                          <option data-tokens="2 persone">  2 persone </option>
+                          <option data-tokens="3 persone">  3 persone </option>
+                          <option data-tokens="4 persone">  4 persone </option>
+                          <option data-tokens="5 persone">  5 persone </option>
+                          <option data-tokens="6 persone">  6 persone </option>
+                          <option data-tokens="7 persone">  7 persone </option>
+                          <option data-tokens="8 persone">  8 persone </option>
+                          <option data-tokens="9 persone">  9 persone </option>
+                          <option data-tokens="10 persone"> 10 persone </option>
                         </select>
                       </div>
                     </div>
