@@ -11,13 +11,27 @@
           <div class="container">
             <div class="row">
               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <h1>Cerca il tuo appartamento</h1>
-                <h2>Ce ne sono per tutti i gusti</h2>
+                <h1>Experience the Wonder</h1>
+                <h2>People don’t take trips, trips take People</h2>
                 <form class="tg-formtheme tg-formtrip">
                   <fieldset>
                     <div class="form-group">
-                      <div class="tg-input">
-                        <input type="text" name="address" id="address" placeholder="Dove vuoi alloggiare?">
+                      <div class="tg-select">
+                        <select
+                          class="selectpicker"
+                          data-live-search="true"
+                          data-width="100%"
+                        >
+                          <option data-tokens="Destinations">
+                            Destinations
+                          </option>
+                          <option data-tokens="All Areas">All Areas</option>
+                          <option data-tokens="Bayonne">Bayonne</option>
+                          <option data-tokens="Greenville">Greenville</option>
+                          <option data-tokens="Manhattan">Manhattan</option>
+                          <option data-tokens="Queens">Queens</option>
+                          <option data-tokens="The Heights">The Heights</option>
+                        </select>
                       </div>
                     </div>
                     <div class="form-group">
