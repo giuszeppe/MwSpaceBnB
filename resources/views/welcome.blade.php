@@ -65,7 +65,7 @@
         <li>
           <a href="javascript:void(0);">Home</a>
           <ul>
-            <li><a href="index.html">Home ~ Modern</a></li>
+            <li><a href="">Home ~ Modern</a></li>
             <li><a href="indexv2.html">Home ~ Full Screen</a></li>
             <li><a href="indexv3.html">Home ~ Creative</a></li>
             <li><a href="indexv4.html">Home ~ Simple</a></li>
