@@ -437,7 +437,7 @@
                                     </nav>
                                 </div>
                             </div>
-                            <div class="tg-navigationarea tg-headerfixed">
+                            <div class="tg-navigationarea tg-headerfixed border border-dark">
                                 <strong class="tg-logo"
                                     ><a href="index.html"
                                         ><img
