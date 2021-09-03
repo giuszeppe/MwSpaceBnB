@@ -1,5 +1,5 @@
 @extends('layouts.app') @section('content')
-<section class="tg-sectionspace">
+<section class="tg-sectionspace" style="padding-bottom:30px">
     <div class="container">
         <div class="row">
             <form class="tg-formtheme tg-formtrip">
