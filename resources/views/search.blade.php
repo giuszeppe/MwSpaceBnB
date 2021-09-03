@@ -84,14 +84,14 @@
 </section>
 
 <section class="tg-sectionspace tg-haslayout" style="padding-top:30px;">
-    <div class="container">
+    <div class="container-fluid" id="myContainer">
         <div class="row">
             <a href="#">Home</a>
-            >
+             > 
             <a href="#">Foligno</a>
-            >
+             >
             <a href="#">Centro</a>
-            >
+             >
             <a href="#">Mondo</a>
             <hr class="path-separator">
         </div>
@@ -103,7 +103,7 @@
                     <img src="/images/img-01.jpg">
             </div>
             <div class="col-xs-8 d-flex flex-column justify-content-between">
-                <div class="container search-result">
+                <div class="container search-result bg-light pb-2">
                     <div>
                         <h3>33 Strutture trovate</h3>
                         <p>Prezzi calcolati per 1 notte (data odierna) per 1 ospite</p>
@@ -128,38 +128,42 @@
         <div class="row mt-5">
             <div class="col-xs-4">
                 <form action="#" class="bg-light p-5">
-                    <div class="filtri-row">
-                        <div class="filtri-label">Numero minimo di stanze</div>
-                        <div class="filtri-limit"><input type="number" name="" id=""></div>
-                    </div>
-                    <div class="filtri-row">
-                        <div class="filtri-label">Numero minimo di posti letto</div>
-                        <div class="filtri-limit"><input type="number" name="" id=""></div>
-                    </div>
-                    <div class="filtri-row">
-                        <div class="filtri-label">Servizi</div>
-                        <div class="filtri-chechbox">
-                            <label for="servizio-0"> Servizio 1
-                                <input type="checkbox" name="" id="servizio-0">
-                            </label>
+                    <div class="form-group">
 
+                        <div class="filtri-row">
+                            <div class="filtri-label">Numero minimo di stanze</div>
+                            <div class="filtri-limit"><input type="number" name="" id="" class="form-control"></div>
                         </div>
-                        <div class="filtri-chechbox">
-                            <label for="servizio-1"> Servizio 2
-                                <input type="checkbox" name="" id="servizio-1">
-                            </label>
+                        <div class="filtri-row">
+                            <div class="filtri-label">Numero minimo di posti letto</div>
+                            <div class="filtri-limit"><input type="number" name="" id="" class="form-control"></div>
+                        </div>
+                        <div class="filtri-row">
+                            <div class="filtri-label">Servizi</div>
+                            <div class="filtri-chechbox">
+                                <label for="servizio-0"> Servizio 1
+                                    <input type="checkbox" name="" id="servizio-0">
+                                </label>
+                                
+                            </div>
+                            <div class="filtri-chechbox">
+                                <label for="servizio-1"> Servizio 2
+                                    <input type="checkbox" name="" id="servizio-1">
 
-                        </div>
-                        <div class="filtri-chechbox">
-                            <label for="servizio-2">Servizio 3
-                                <input type="checkbox" name="" id="servizio-2">
-                            </label>
-
-                        </div>
-                        <div class="filtri-chechbox">
-                            <label for="servizio-3">Servizio 4
-                                <input type="checkbox" name="" id="servizio-3">
-                            </label>
+                                </label>
+                                
+                            </div>
+                            <div class="filtri-chechbox">
+                                <label for="servizio-2">Servizio 3
+                                    <input type="checkbox" name=""  id="servizio-2">
+                                </label>
+                                
+                            </div>
+                            <div class="filtri-chechbox">
+                                <label for="servizio-3">Servizio 4
+                                    <input type="checkbox" name=""id="servizio-3">
+                                </label>
+                            </div>
                         </div>
                     </div>
                     <div class="filtri-btn d-flex justify-content-center">
@@ -217,12 +221,12 @@
                     <hr>
                     <div class="row ">
                         <div class="col d-flex flex-row justify-content-around ">
-                            <div class="m-2 rb-action d-flex flex-row justify-content-between px-5">
+                            <div class="rb-action d-flex flex-row justify-content-between px-5">
 
                                 <span>
-                                    <a href="#" class="">Contatta il proprietario</a>
+                                    <a href="#" class="">Contatta</a>
                                 </span>
-                                <span><a href="#" class="">Scrivi una recensione</a></span>
+                                <span><a href="#" class="">Recensione</a></span>
                                 
                             </div>
                                 <a href="#" class="btn btn-danger d-flex flex-row align-items-center">
@@ -278,12 +282,12 @@
                     <hr>
                     <div class="row ">
                         <div class="col d-flex flex-row justify-content-around ">
-                            <div class="m-2 rb-action d-flex flex-row justify-content-between px-5">
+                            <div class="rb-action d-flex flex-row justify-content-between px-5">
 
                                 <span>
-                                    <a href="#" class="">Contatta il proprietario</a>
+                                    <a href="#" class="">Contatta</a>
                                 </span>
-                                <span><a href="#" class="">Scrivi una recensione</a></span>
+                                <span><a href="#" class="">Recensione</a></span>
                                 
                             </div>
                                 <a href="#" class="btn btn-danger d-flex flex-row align-items-center">
@@ -307,7 +311,7 @@
                                     <h3>Le Flaneur</h3>
                             <div class="row">
                                 <div class="col-6">
-                                    <div> 8 Stanze</div>
+                                    <div>8 Stanze</div>
                                     <div>3 Posti letto</div>
                                     <div>5 bagni</div>
                                     <div>95 metri quadrati</div>
@@ -338,12 +342,12 @@
                     <hr>
                     <div class="row ">
                         <div class="col d-flex flex-row justify-content-around ">
-                            <div class="m-2 rb-action d-flex flex-row justify-content-between px-5">
+                            <div class="rb-action d-flex flex-row justify-content-between px-5">
 
                                 <span>
-                                    <a href="#" class="">Contatta il proprietario</a>
+                                    <a href="#" class="">Contatta</a>
                                 </span>
-                                <span><a href="#" class="">Scrivi una recensione</a></span>
+                                <span><a href="#" class="">Recensione</a></span>
                                 
                             </div>
                                 <a href="#" class="btn btn-danger d-flex flex-row align-items-center">
