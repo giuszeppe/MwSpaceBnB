@@ -30,6 +30,7 @@ html,
 body{
 	/* height:100%;
 	position:relative; */
+	scroll-behavior: smooth;
 }
 body {
 	color: #676767;
@@ -5382,6 +5383,10 @@ body.tg-hidescroll{overflow:hidden;}
 }
 @media screen and (min-width:992px) {
 	#myContainer{
+		padding-left:20%;
+		padding-right:20%;
+	}
+	.myContainer{
 		padding-left:20%;
 		padding-right:20%;
 	}
