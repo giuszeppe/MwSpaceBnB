@@ -95,17 +95,70 @@
 
 -->
 
-<section class="tg-sectionspace tg-haslayout" style="padding-top:30px;">
+<section class="tg-sectionspace tg-haslayout bg-light" style="padding-top:30px; padding-bottom:30px">
     <div class="container-fluid" id="myContainer">
         <div class="row">
-            <a href="#">Home</a>
+            <a href="#" class="path-separator-text">Home</a>
              > 
-            <a href="#">Foligno</a>
+            <a href="#" class="path-separator-text">Foligno</a>
              >
-            <a href="#">Centro</a>
+            <a href="#" class="path-separator-text">Centro</a>
              >
-            <a href="#">Mondo</a>
+            <a href="#" class="path-separator-text">Mondo</a>
+            >
+            <span style="color:gray" class="path-separator-text">Appartamento</span>
             <hr class="path-separator">
+        </div>
+        <div class="row">
+            <div class="appartment-header">
+                <div class="appartment-title">
+                    <h1 class="m-0 p-0">Appartamento</h1>
+                        <span class="tags-wrapper">
+                            <span class="tag mx-5">Bed and Breakfast</span>
+                        </span>
+                </div>
+                <div class="appartment-address d-flex flex-row align-items-center justify-content-between">
+                    <span>VIA XX SETTEMBRE, 10 - <strong>Montaleghe(TO)</strong></span>
+                    <a href="#" class="btn btn-danger d-flex flex-row align-items-center">
+                        <i class="fa fa-bolt" aria-hidden="true"></i>
+                        <span class="ml-1"> PRENOTA </span>
+                    </a>
+                </div>
+            </div>
+            
+            <hr class="path-separator">
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <ul>
+                    <li>Numero di stanze: 3</li>
+                    <li>Numero di posti letto: 8 </li>
+                    <li>Numero di bagni: 2</li>
+                    <li>Indirizzo: Via della pescara</li>
+                    <li>Metri quadrati: 60mq</li>
+                    <li>Servizi aggiuntivi:
+                        <div>
+                            <i class="fa fa-check" aria-hidden="true"></i>
+                            Wi-Fi
+                        </div>
+                        <div>
+                            <i class="fa fa-check" aria-hidden="true"></i>
+                            Riscaldamento
+                        </div>
+                        <div>
+                            <i class="fa fa-check" aria-hidden="true"></i>
+                            Parcheggio coperto
+                        </div>
+                        <div>
+                            <i class="fa fa-check" aria-hidden="true"></i>
+                            Piscina
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-6">
+                <img src="/images/img-01.jpg" alt="immagine rappresentativa appartamento" class="detail-img ml-2">
+            </div>
         </div>
     </div>
 </section>
