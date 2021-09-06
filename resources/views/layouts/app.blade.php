@@ -27,6 +27,16 @@
         <link rel="stylesheet" href="/css/color.css" />
         <link rel="stylesheet" href="/css/responsive.css" />
         <script src="/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+        <meta charset="utf-8">
+        <!-- CSRF Token -->
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <title>{{ config('app.name', 'Laravel') }}</title>
+        <!-- Scripts -->
+        <!-- Fonts -->
+        <link rel="dns-prefetch" href="//fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+        <!-- Styles -->
+
     </head>
     <body class="tg-home tg-homevone">
         <!--[if lt IE 8]>
