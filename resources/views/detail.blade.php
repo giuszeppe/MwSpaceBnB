@@ -119,7 +119,7 @@
                 </div>
                 <div class="appartment-address d-flex flex-row align-items-center justify-content-between">
                     <span>VIA XX SETTEMBRE, 10 - <strong>Montaleghe(TO)</strong></span>
-                    <a href="#" class="btn btn-danger d-flex flex-row align-items-center">
+                    <a href="#contact-form" class="btn btn-danger d-flex flex-row align-items-center">
                         <i class="fa fa-bolt" aria-hidden="true"></i>
                         <span class="ml-1"> PRENOTA </span>
                     </a>
@@ -158,6 +158,27 @@
             </div>
             <div class="col-6">
                 <img src="/images/img-01.jpg" alt="immagine rappresentativa appartamento" class="detail-img ml-2">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="tg-sectionspace tg-haslayout" style="padding-top:30px" >
+    <div class="container-fluid myContainer" id="contact-form">
+        <h1>Contatta il venditore!</h1>
+        <div class="row">
+            <div class="col-12">
+                <form action="#">
+                    <div class="form-group">
+                        <label for="emailField">Email (verrai ricontattato qui) </label>
+                        <input type="email" name="email" id="emailField" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Messaggio</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                    <input class="btn btn-primary" type="submit" value="Invia messaggio">
+                </form>
             </div>
         </div>
     </div>
