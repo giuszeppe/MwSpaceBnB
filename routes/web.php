@@ -31,3 +31,6 @@ Route::get('/stats', function () {
 Route::get('/stats/stat', function () {
     return view('appartamenti.stats.stat');
 });
+Route::get('/create', function () {
+    return view('appartamenti.create');
+});
