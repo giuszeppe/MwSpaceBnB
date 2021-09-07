@@ -23,3 +23,11 @@ Route::get('/search', function () {
 Route::get('/detail', function () {
     return view('detail');
 });
+
+Route::get('/stats', function () {
+    return view('stats.stats');
+});
+
+Route::get('/stats/stat', function () {
+    return view('stats.stat');
+});
