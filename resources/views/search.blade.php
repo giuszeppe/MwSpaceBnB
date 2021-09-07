@@ -41,7 +41,7 @@
                                 data-live-search="true"
                                 data-width="100%"
                             >
-                                <option data-tokens="adul>ti">Adulti</option>
+                                <option data-tokens="adulti">Adulti</option>
                                 <option data-tokens="2 persone">
                                     2 persone
                                 </option>

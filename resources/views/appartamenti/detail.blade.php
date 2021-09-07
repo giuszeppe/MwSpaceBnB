@@ -20,26 +20,7 @@
                             />
                         </div>
                     </div>
-                    <div class="form-group">
-                        <div class="tg-date">
-                            <input
-                                type="date"
-                                name=""
-                                id=""
-                                class="tg-input-date"
-                            />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="tg-date">
-                            <input
-                                type="date"
-                                name=""
-                                id=""
-                                class="tg-input-date"
-                            />
-                        </div>
-                    </div>
+        
                     <div class="form-group">
                         <div class="tg-select">
                             <select

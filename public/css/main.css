@@ -263,19 +263,6 @@ address { font-style: italic; }
 	position: relative;
 	text-transform:uppercase;
 }
-.tg-select:after {
-	top: 0;
-	right: 15px;
-	z-index: 2;
-	color: #676767;
-	display: block;
-	content: '\f107';
-	position: absolute;
-	text-align:center;
-	font-size: inherit;
-	line-height: 42px;
-	font-family: 'FontAwesome';
-}
 .tg-select select {
 	z-index: 100 !important;
 	width: 100%;
@@ -1223,7 +1210,7 @@ li.tg-rss a { background:#ff6600; }
 }
 .tg-formtrip fieldset {
 	position: relative;
-	padding: 0 175px 0 0;
+	padding: 0 0 0 0;
 }
 .tg-formtrip .form-group {
 	margin: 0;
@@ -1245,7 +1232,6 @@ li.tg-rss a { background:#ff6600; }
 	right: 0;
 	height: 50px;
 	padding: 0 45px;
-	position: absolute;
 	line-height: 50px;
 	border-radius: 5px;
 }
@@ -5303,7 +5289,7 @@ body.tg-hidescroll{overflow:hidden;}
 .search-form-wrapper{
 	display: flex;
 	flex-direction: row;
-	justify-content: space-evenly;
+	justify-content: center;
 	align-items: center;
 }
 #tg-search-submit{
