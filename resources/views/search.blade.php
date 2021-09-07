@@ -14,26 +14,7 @@
                             />
                         </div>
                     </div>
-                    <div class="form-group">
-                        <div class="tg-date">
-                            <input
-                                type="date"
-                                name=""
-                                id=""
-                                class="tg-input-date"
-                            />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="tg-date">
-                            <input
-                                type="date"
-                                name=""
-                                id=""
-                                class="tg-input-date"
-                            />
-                        </div>
-                    </div>
+        
                     <div class="form-group">
                         <div class="tg-select">
                             <select
@@ -41,7 +22,7 @@
                                 data-live-search="true"
                                 data-width="100%"
                             >
-                                <option data-tokens="adulti">Adulti</option>
+                                <option data-tokens="adul>ti">Adulti</option>
                                 <option data-tokens="2 persone">
                                     2 persone
                                 </option>
