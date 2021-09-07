@@ -49,7 +49,6 @@ body h6 {
 	font-weight: 400;
 	line-height: 1.5;
 	font-style: normal;
-	text-transform: capitalize;
 	font-family: 'Montserrat', Arial, Helvetica, sans-serif;
 }
 h1 { font-size: 48px; }
@@ -5390,4 +5389,21 @@ body.tg-hidescroll{overflow:hidden;}
 		padding-left:20%;
 		padding-right:20%;
 	}
+}
+
+@media screen and (max-width:576px) {
+	.form-number{
+		display:flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		flex-wrap: wrap;
+	}
+	.form-number>div{
+		flex-basis:50%;
+	}
+}
+.submit-form{
+	padding-left:33%;
+	padding-right:33%;
 }
