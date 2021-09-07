@@ -105,9 +105,20 @@
                                 </a>
                             </div>
                         </div>
-
+                        
                         <div class="col">
-                                    <h3>Le Flaneur</h3>
+                            <div class="d-flex flex-row justify-content-between">
+                                <h3>Le Flaneur</h3>
+                                <div class="btn-wrapper">
+                                    <a href="" class="btn btn-danger">
+                                        <i class="fa fa-trash" aria-hidden="true"></i>
+                                    </a>
+                                    <a href="" class="btn btn-warning">
+                                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                                    </a>
+                                    <input type="checkbox" checked data-toggle="toggle" data-size="md">
+                                </div>
+                            </div>
                             <div class="row">
                                 <div class="col-6">
                                     <div> 8 Stanze</div>
