@@ -21,13 +21,13 @@ Route::get('/search', function () {
 });
 
 Route::get('/detail', function () {
-    return view('detail');
+    return view('appartamenti.detail');
 });
 
 Route::get('/stats', function () {
-    return view('stats.stats');
+    return view('appartamenti.stats.stats');
 });
 
 Route::get('/stats/stat', function () {
-    return view('stats.stat');
+    return view('appartamenti.stats.stat');
 });
