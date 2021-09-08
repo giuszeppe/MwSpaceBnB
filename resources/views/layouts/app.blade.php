@@ -339,83 +339,47 @@
                                             src="/images/logo.png"
                                             alt="company logo here" /></a
                                 ></strong>
-                                <div class="tg-socialsignin">
-                                    <ul class="tg-socialicons">
-                                        <li>
-                                            <a href="javascript:void(0);"
-                                                ><i
-                                                    class="
-                                                        icon-facebook-logo-outline
-                                                    "
-                                                ></i
-                                            ></a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0);"
-                                                ><i
-                                                    class="
-                                                        icon-instagram-social-outlined-logo
-                                                    "
-                                                ></i
-                                            ></a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0);"
-                                                ><i
-                                                    class="
-                                                        icon-twitter-social-outlined-logo
-                                                    "
-                                                ></i
-                                            ></a>
-                                        </li>
-                                    </ul>
-                                    <div class="tg-userbox">
-                                        <a
-                                            id="tg-btnsignin"
-                                            class="tg-btn"
-                                            href="#tg-loginsingup"
-                                            ><span>sign in</span></a
-                                        >
-                                        <div class="dropdown tg-dropdown">
-                                            <button
-                                                class="tg-btndropdown"
-                                                id="tg-dropdowndashboard"
-                                                type="button"
-                                                data-toggle="dropdown"
-                                            >
-                                                <img
-                                                    src="/images/author/img-01.jpg"
-                                                    alt="image description"
-                                                />
-                                                <span>john smith</span>
-                                                <i class="fa fa-caret-down"></i>
-                                            </button>
-                                            <ul
-                                                class="
-                                                    dropdown-menu
-                                                    tg-dropdownusermenu
-                                                "
-                                                aria-labelledby="tg-dropdowndashboard"
-                                            >
-                                                <li>
-                                                    <a href="dashboard.html"
-                                                        >Dashboard</a
-                                                    >
-                                                </li>
-                                                <li>
-                                                    <a href="dashboard.html"
-                                                        >Edit Profile</a
-                                                    >
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:void(0);"
-                                                        >Sign Out</a
-                                                    >
-                                                </li>
-                                            </ul>
+                                @guest
+                                    <div class="tg-socialsignin">
+                                        <div class="tg-userbox">
+                                            <a
+                                                id="tg-btnsignin"
+                                                class="tg-btn"
+                                                href="{{route('register')}}"
+                                                ><span>Register</span>
+                                            </a>
+                                        </div>
+
+                                        <div class="tg-userbox">
+                                            <a
+                                                id="tg-btnsignin"
+                                                class="tg-btn"
+                                                href="{{route('login')}}"
+                                                ><span>Login</span>
+                                            </a>
                                         </div>
                                     </div>
-                                </div>
+                                @endguest
+                                @auth
+                                    <div class="tg-socialsignin">
+                                        <div class="tg-userbox">
+                                            <a
+                                                id="tg-btnsignin"
+                                                class="tg-btn"
+                                                href="#"
+                                                onclick="document.getElementById('logout-form').submit();"
+                                            >
+                                                <span>
+                                                   Logout 
+                                                </span>
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                    @csrf
+                                                    @method('POST')
+                                                </form>
+                                            </a>
+                                        </div>
+                                    </div>
+                                @endauth
                                 <nav id="tg-nav" class="tg-nav">
                                     <div class="navbar-header">
                                         <a
@@ -439,16 +403,25 @@
                                         "
                                     >
                                         <ul>
-                                            <li
-                                                class="
-                                                    menu-item-has-children
-                                                    current-menu-item
-                                                "
-                                            >
-                                                <a href="javascript:void(0);"
-                                                    >Home</a
-                                                >
+                                            <li class="menu-item-has-children current-menu-item">
+                                                <a href="{{route('home')}}">
+                                                    Home
+                                                </a>
+
                                             </li>
+                                            @auth
+                                                <li class="menu-item-has-childer current-menu-item">
+                                                    <a href="{{route('stats')}}">
+                                                        I tuoi appartamenti
+                                                    </a>
+                                                </li>
+                                                <li class="menu-item-has-childer current-menu-item">
+                                                    <a href="{{route('search')}}">
+                                                        Cerca
+                                                    </a>
+                                                </li>
+
+                                            @endauth
 
                                         </ul>
                                     </div>
