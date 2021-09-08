@@ -164,7 +164,7 @@
                         </div>
 
                         <div class="col">
-                                    <h3>Le Flaneur</h3>
+                                    <h3><a href="{{route('detail')}}">Le Flaneur</a></h3>
                             <div class="row">
                                 <div class="col-6">
                                     <div> 8 Stanze</div>
@@ -225,7 +225,7 @@
                         </div>
 
                         <div class="col">
-                                    <h3>Le Flaneur</h3>
+                                    <h3><a href="{{route('detail')}}">Le Flaneur</a></h3>
                             <div class="row">
                                 <div class="col-6">
                                     <div> 8 Stanze</div>
@@ -285,7 +285,7 @@
                         </div>
 
                         <div class="col">
-                                    <h3>Le Flaneur</h3>
+                                    <h3><a href="{{route('detail')}}">Le Flaneur</a></h3>
                             <div class="row">
                                 <div class="col-6">
                                     <div>8 Stanze</div>

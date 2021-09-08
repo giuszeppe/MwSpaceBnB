@@ -22,7 +22,7 @@ Route::get('/search', function () {
 
 Route::get('/detail', function () {
     return view('appartamenti.detail');
-});
+})->name('detail');
 
 Route::get('/stats', function () {
     return view('appartamenti.stats.stats');
