@@ -165,7 +165,7 @@
                             </div>
                                 <a href="#" class="btn btn-danger d-flex flex-row align-items-center">
                                     <i class="fa fa-bolt" aria-hidden="true"></i>
-                                    <span class="ml-1"> STATISTICHE </span>
+                                    <span class="ml-1"> <a href="{{ route('stat') }}"> STATISTICHE </a></span>
                                 </a>
                         </div>
                     </div>
