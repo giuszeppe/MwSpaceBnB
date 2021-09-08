@@ -49,7 +49,6 @@ body h6 {
 	font-weight: 400;
 	line-height: 1.5;
 	font-style: normal;
-	text-transform: capitalize;
 	font-family: 'Montserrat', Arial, Helvetica, sans-serif;
 }
 h1 { font-size: 48px; }
@@ -129,7 +128,6 @@ input[type="color"],
 	display: inline-block;
 	vertical-align: middle;
 	border: 1px solid #dbdbdb;
-	text-transform: capitalize;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
@@ -250,7 +248,6 @@ address { font-style: italic; }
 	float:left;
 	width: 100%;
 	position: relative;
-	text-transform:uppercase;
 }
 .tg-input, .tg-input-text, .tg-date, .tg-input-date {
 	width: 100%;
@@ -262,7 +259,6 @@ address { font-style: italic; }
 	float:left;
 	width: 100%;
 	position: relative;
-	text-transform:uppercase;
 }
 .tg-select:after {
 	top: 0;
@@ -1318,7 +1314,6 @@ li.tg-rss a { background:#ff6600; }
 	height: 160px;
 	list-style: none;
 	padding: 0 0 15px;
-	text-transform: capitalize;
 	font:400 14px/30px 'Roboto', Arial, Helvetica, sans-serif;
 }
 .tg-select .bootstrap-select.btn-group .dropdown-menu.inner li {
