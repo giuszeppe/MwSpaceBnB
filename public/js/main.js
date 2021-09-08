@@ -381,10 +381,6 @@ jQuery(document).on('ready', function() {
 			jQuery(this).removeClass('open');
 		}
 	});
-	jQuery('form').submit(function(event) {
-		event.preventDefault();
-		return false;
-	});
 	jQuery('.tg-search button.close').on('click', function(){
 		jQuery(this).parents('.tg-search').removeClass('open');
 	});
