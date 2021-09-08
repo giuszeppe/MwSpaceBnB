@@ -263,11 +263,7 @@
                           </p>
                         </div>
                         <div class="tg-populartourfoot">
-                        
-                          <div class="tg-pricearea">
-                            <del>$2,800</del>
-                            <h4>$2,500</h4>
-                          </div>
+                    
                         </div>
                       </div>
                     </div>
@@ -294,10 +290,7 @@
                           </p>
                         </div>
                         <div class="tg-populartourfoot">
-                          <div class="tg-pricearea">
-                            <span>from</span>
-                            <h4>$600</h4>
-                          </div>
+
                         </div>
                       </div>
                     </div>
@@ -325,10 +318,7 @@
                         </div>
                         <div class="tg-populartourfoot">
                          
-                          <div class="tg-pricearea">
-                            <span>from</span>
-                            <h4>$1,430</h4>
-                          </div>
+
                         </div>
                       </div>
                     </div>
@@ -355,15 +345,7 @@
                           </p>
                         </div>
                         <div class="tg-populartourfoot">
-                          <div class="tg-durationrating">
-                            <span class="tg-tourduration">7 Days</span>
-                            <span class="tg-stars"><span></span></span>
-                            <em>(3 Review)</em>
-                          </div>
-                          <div class="tg-pricearea">
-                            <span>from</span>
-                            <h4>$600</h4>
-                          </div>
+
                         </div>
                       </div>
                     </div>
