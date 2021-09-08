@@ -190,10 +190,6 @@
                                         <i class="fa fa-check" aria-hidden="true"></i>
                                         Piscina
                                     </div>
-                                    <div>
-                                        <h3 class="mb-0">355€</h3>
-                                        <p class="m-0"><i>1 notte, 1 persona</i></p>
-                                    </div>
                                 </div>
                             </div>
                         </div>
