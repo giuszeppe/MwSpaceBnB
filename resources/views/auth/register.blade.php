@@ -41,7 +41,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="birthday" class="col-md-4 col-form-label text-md-right">Surname</label>
+                                <label for="birthday" class="col-md-4 col-form-label text-md-right">Data di nascita</label>
                                 
                                 <div class="col-md-6">
                                     <input id="birthday" type="date" class="form-control @error('birthday') is-invalid @enderror" name="name" value="{{ old('birthday') }}" required autocomplete="birthday" autofocus>
