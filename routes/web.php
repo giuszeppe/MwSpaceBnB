@@ -15,10 +15,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('homepage');
-});
+})->name('home');
 Route::get('/search', function () {
     return view('search');
-});
+})->name('search');
 
 Route::get('/detail', function () {
     return view('appartamenti.detail');
@@ -26,7 +26,7 @@ Route::get('/detail', function () {
 
 Route::get('/stats', function () {
     return view('appartamenti.stats.stats');
-});
+})->name('stats');
 
 Route::get('/stats/stat', function () {
     return view('appartamenti.stats.stat');
