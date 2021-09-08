@@ -114,10 +114,10 @@
                         />
                         <div class="tg-hoverbox">
                           <div class="tg-adventuretitle">
-                            <h2>Ice Adventure Vacations</h2>
+                            <h2>Appartamento in riva al mare</h2>
                           </div>
                           <div class="tg-description">
-                            <p>your best vacation ever</p>
+                            <p>Vista mozzafiato</p>
                           </div>
                         </div>
                       </a>
@@ -132,7 +132,7 @@
                         />
                         <div class="tg-hoverbox">
                           <div class="tg-adventuretitle">
-                            <h2>National Park</h2>
+                            <h2>Montagna</h2>
                           </div>
                         </div>
                       </a>
@@ -147,7 +147,7 @@
                         />
                         <div class="tg-hoverbox">
                           <div class="tg-adventuretitle">
-                            <h2>Adult Vacations</h2>
+                            <h2>Collina</h2>
                           </div>
                         </div>
                       </a>
@@ -171,7 +171,7 @@
                 <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                   <div class="tg-feature">
                     <div class="tg-featuretitle">
-                      <h2><span>01</span>Luxury Hotels</h2>
+                      <h2><span>01</span>Appartamento in riva al mare</h2>
                     </div>
                     <div class="tg-description">
                       <p>
@@ -185,7 +185,7 @@
                 <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                   <div class="tg-feature">
                     <div class="tg-featuretitle">
-                      <h2><span>02</span>Tourist Guide</h2>
+                      <h2><span>02</span>Montagna</h2>
                     </div>
                     <div class="tg-description">
                       <p>
@@ -199,7 +199,7 @@
                 <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                   <div class="tg-feature">
                     <div class="tg-featuretitle">
-                      <h2><span>03</span>Flights Tickets</h2>
+                      <h2><span>03</span>Collina</h2>
                     </div>
                     <div class="tg-description">
                       <p>
@@ -231,9 +231,9 @@
               <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                   <div class="tg-sectiontitle tg-sectiontitleleft">
-                    <h2>Popular Tours</h2>
+                    <h2>Appartamenti in tendenza</h2>
                     <a class="tg-btnvtwo" href="javascript:void(0);"
-                      >All Tours</a
+                      >Tutti gli appartamenti</a
                     >
                   </div>
                   <div
@@ -247,7 +247,6 @@
                             src="/images/tours/img-01.jpg"
                             alt="image destinations"
                         /></a>
-                        <span class="tg-descount">25% Off</span>
                       </figure>
                       <div class="tg-populartourcontent">
                         <div class="tg-populartourtitle">
@@ -264,11 +263,7 @@
                           </p>
                         </div>
                         <div class="tg-populartourfoot">
-                          <div class="tg-durationrating">
-                            <span class="tg-tourduration">7 Days</span>
-                            <span class="tg-stars"><span></span></span>
-                            <em>(3 Review)</em>
-                          </div>
+                        
                           <div class="tg-pricearea">
                             <del>$2,800</del>
                             <h4>$2,500</h4>
@@ -299,11 +294,6 @@
                           </p>
                         </div>
                         <div class="tg-populartourfoot">
-                          <div class="tg-durationrating">
-                            <span class="tg-tourduration">7 Days</span>
-                            <span class="tg-stars"><span></span></span>
-                            <em>(3 Review)</em>
-                          </div>
                           <div class="tg-pricearea">
                             <span>from</span>
                             <h4>$600</h4>
@@ -334,11 +324,7 @@
                           </p>
                         </div>
                         <div class="tg-populartourfoot">
-                          <div class="tg-durationrating">
-                            <span class="tg-tourduration">7 Days</span>
-                            <span class="tg-stars"><span></span></span>
-                            <em>(3 Review)</em>
-                          </div>
+                         
                           <div class="tg-pricearea">
                             <span>from</span>
                             <h4>$1,430</h4>
