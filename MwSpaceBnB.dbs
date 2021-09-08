@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="MwSpaceBnB" id="Project_1e2e" database="LogicalDesign" >
+	<comment><![CDATA[Logical abstraction of MwSpaceBnB project]]></comment>
+	<schema name="MwSpaceBnB" >
+		<table name="appartamento" prior="Entity" >
+			<column name="id" type="int" jt="4" mandatory="y" unsigned="y" >
+				<column_options><![CDATA[auto-increment]]></column_options>
+			</column>
+			<column name="title" type="varchar" length="255" jt="12" mandatory="y" />
+			<column name="numero_stanze" type="int" jt="4" mandatory="y" unsigned="y" />
+			<column name="numero_bagni" type="int" jt="4" mandatory="y" unsigned="y" />
+			<column name="numero_letti" type="int" jt="4" mandatory="y" unsigned="y" />
+			<column name="metri_quadrati" type="int" jt="4" mandatory="y" unsigned="y" />
+			<column name="indirizzo" type="varchar" length="255" jt="12" mandatory="y" />
+			<column name="immagine" type="varchar" length="255" jt="12" mandatory="y" >
+				<defo><![CDATA['default.png']]></defo>
+			</column>
+			<column name="servizi aggiuntivi" type="text" jt="-1" >
+				<comment><![CDATA[comma separated value]]></comment>
+			</column>
+			<column name="active" type="int" jt="4" mandatory="y" >
+				<defo><![CDATA[1]]></defo>
+			</column>
+			<column name="id_user" type="bigint" jt="-5" mandatory="y" unsigned="y" />
+			<column name="latitudine" type="decimal" length="8" decimal="6" jt="3" mandatory="y" />
+			<column name="longitudine" type="decimal" length="9" decimal="6" jt="3" />
+			<index name="Pk_appartamento_id" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<fk name="fk_appartamento_users" to_schema="MwSpaceBnB" to_table="users" type="Identifying" delete_action="cascade" >
+				<fk_column name="id_user" pk="id" />
+			</fk>
+		</table>
+		<table name="messaggio" prior="Entity" >
+			<column name="id" type="bigint" jt="-5" mandatory="y" />
+			<column name="corpo" type="text" jt="-1" mandatory="y" />
+			<column name="email_mittente" type="varchar" length="255" jt="12" mandatory="y" />
+			<column name="id_appartamento" type="bigint" jt="-5" mandatory="y" unsigned="y" />
+			<index name="Pk_messaggio_id" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<fk name="fk_messaggio_appartamento" to_schema="MwSpaceBnB" to_table="appartamento" type="Identifying" delete_action="cascade" update_action="cascade" >
+				<fk_column name="id_appartamento" pk="id" />
+			</fk>
+		</table>
+		<table name="users" prior="Users" spec="" >
+			<comment><![CDATA[Utenti registrati alla piattaforma.
+Tipi di utenti:
+ Utente proprietario (UP): un utente che ha intenzione di inserire un appartamento in
+MwSpaceBnB ma non ha ancora effettuato la registrazione
+ Utente proprietario registrato (UPR): un utente proprietario che ha effettuato la
+registrazione
+ Utente proprietario registrato con appartamento (UPRA): un utente che ha effettuato la
+registrazione e ha inserito nel sistema almeno una appartamento
+ Utente interessato (UI): un qualsiasi utente del sito, non registrato]]></comment>
+			<column name="id" type="bigint" jt="-5" mandatory="y" unsigned="y" />
+			<column name="email" type="varchar" length="255" jt="12" mandatory="y" >
+				<column_options><![CDATA[unique]]></column_options>
+			</column>
+			<column name="password" type="varchar" length="60" jt="12" mandatory="y" >
+				<comment><![CDATA[hashed]]></comment>
+			</column>
+			<column name="nome" prior="Nome" type="varchar" length="255" jt="12" mandatory="y" >
+				<comment><![CDATA[nome dell'utente]]></comment>
+			</column>
+			<column name="cognome" type="varchar" length="255" jt="12" mandatory="y" />
+			<column name="data di nascita" type="date" jt="91" mandatory="y" />
+			<index name="Pk_users_id" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+		</table>
+	</schema>
+	<layout name="Default Layout" id="Layout_1eaf" show_relation="columns" >
+		<entity schema="MwSpaceBnB" name="appartamento" color="C1D8EE" x="176" y="384" />
+		<entity schema="MwSpaceBnB" name="messaggio" color="C1D8EE" x="672" y="496" />
+		<entity schema="MwSpaceBnB" name="users" color="C1D8EE" x="464" y="208" />
+		<callout x="48" y="48" pointer="Round" >
+			<comment><![CDATA[Right-click the layout to create entities or shapes, create relations using drag and drop.
+Save the design to file. Use the Convert menu option to convert the model to a physical model.]]></comment>
+		</callout>
+	</layout>
+</project>

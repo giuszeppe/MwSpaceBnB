@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('homepage');
 });
 Route::get('/search', function () {
     return view('search');
@@ -34,3 +34,12 @@ Route::get('/stats/stat', function () {
 Route::get('/create', function () {
     return view('appartamenti.create');
 });
+Route::get('/stats', function () {
+    return view('stats.stats');
+});
+
+Route::get('/stats/stat', function () {
+    return view('stats.stat');
+});
+
+Auth::routes();
