@@ -30,7 +30,7 @@
                                 <label for="surname" class="col-md-4 col-form-label text-md-right">Surname</label>
                                 
                                 <div class="col-md-6">
-                                    <input id="surname" type="text" class="form-control @error('surname') is-invalid @enderror" name="name" value="{{ old('surname') }}" required autocomplete="surname" autofocus>
+                                    <input id="surname" type="text" class="form-control @error('surname') is-invalid @enderror" name="surname" value="{{ old('surname') }}" required autocomplete="surname" autofocus>
                                     
                                     @error('surname')
                                     <span class="invalid-feedback" role="alert">
@@ -44,7 +44,7 @@
                                 <label for="birthday" class="col-md-4 col-form-label text-md-right">Data di nascita</label>
                                 
                                 <div class="col-md-6">
-                                    <input id="birthday" type="date" class="form-control @error('birthday') is-invalid @enderror" name="name" value="{{ old('birthday') }}" required autocomplete="birthday" autofocus>
+                                    <input id="birthday" type="date" class="form-control @error('birthday') is-invalid @enderror" name="birthday" value="{{ old('birthday') }}" required autocomplete="birthday" autofocus>
                                     
                                     @error('birthday')
                                     <span class="invalid-feedback" role="alert">
