@@ -4,7 +4,7 @@
     SEARCH BAR START
 
 -->
-<x-navbar> </x-navbar>
+<x-searchbar> </x-searchbar>
 
 <!--
 

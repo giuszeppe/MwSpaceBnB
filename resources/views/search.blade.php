@@ -1,7 +1,7 @@
 @extends('layouts.app') @section('content')
 
 
-<x-navbar> </x-navbar>
+<x-searchbar> </x-searchbar>
 
 
 <section class="tg-sectionspace tg-haslayout" style="padding-top:30px;">
