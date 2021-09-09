@@ -20,26 +20,6 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <div class="tg-date">
-                            <input
-                                type="date"
-                                name=""
-                                id=""
-                                class="tg-input-date"
-                            />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="tg-date">
-                            <input
-                                type="date"
-                                name=""
-                                id=""
-                                class="tg-input-date"
-                            />
-                        </div>
-                    </div>
-                    <div class="form-group">
                         <div class="tg-select">
                             <select
                                 class="selectpicker"
@@ -145,8 +125,7 @@
                                         Piscina
                                     </div>
                                     <div>
-                                        <h3 class="mb-0">355€</h3>
-                                        <p class="m-0"><i>1 notte, 1 persona</i></p>
+
                                     </div>
                                 </div>
                             </div>

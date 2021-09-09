@@ -97,134 +97,11 @@
 				Home Slider End
 		*************************************-->
 
-    <!--************************************
-					Advantures Start
-		*************************************-->
-        <section class="tg-sectionspace tg-haslayout">
-          <div class="container">
-            <div class="row">
-              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="tg-toursdestinations">
-                  <div class="tg-tourdestination tg-tourdestinationbigbox">
-                    <figure>
-                      <a href="javascript:void(0);">
-                        <img
-                          src="/images/destination/img-01.jpg"
-                          alt="image destinations"
-                        />
-                        <div class="tg-hoverbox">
-                          <div class="tg-adventuretitle">
-                            <h2>Appartamento in riva al mare</h2>
-                          </div>
-                          <div class="tg-description">
-                            <p>Vista mozzafiato</p>
-                          </div>
-                        </div>
-                      </a>
-                    </figure>
-                  </div>
-                  <div class="tg-tourdestination">
-                    <figure>
-                      <a href="javascript:void(0);">
-                        <img
-                          src="/images/destination/img-02.jpg"
-                          alt="image destinations"
-                        />
-                        <div class="tg-hoverbox">
-                          <div class="tg-adventuretitle">
-                            <h2>Montagna</h2>
-                          </div>
-                        </div>
-                      </a>
-                    </figure>
-                  </div>
-                  <div class="tg-tourdestination">
-                    <figure>
-                      <a href="javascript:void(0);">
-                        <img
-                          src="/images/destination/img-03.jpg"
-                          alt="image destinations"
-                        />
-                        <div class="tg-hoverbox">
-                          <div class="tg-adventuretitle">
-                            <h2>Collina</h2>
-                          </div>
-                        </div>
-                      </a>
-                    </figure>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      <!--************************************
-					Advantures End
-			*************************************-->
-      <!--************************************
-					Features Start
-			*************************************-->
-        <section class="tg-sectionspace tg-zerotoppadding tg-haslayout">
-          <div class="container">
-            <div class="row">
-              <div class="tg-features">
-                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                  <div class="tg-feature">
-                    <div class="tg-featuretitle">
-                      <h2><span>01</span>Appartamento in riva al mare</h2>
-                    </div>
-                    <div class="tg-description">
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing
-                        elit, sed diam nonummy nibh tempor cum soluta nobis
-                        consectetuer nihil imperdiet doming...
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                  <div class="tg-feature">
-                    <div class="tg-featuretitle">
-                      <h2><span>02</span>Montagna</h2>
-                    </div>
-                    <div class="tg-description">
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing
-                        elit, sed diam nonummy nibh tempor cum soluta nobis
-                        consectetuer nihil imperdiet doming...
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                  <div class="tg-feature">
-                    <div class="tg-featuretitle">
-                      <h2><span>03</span>Collina</h2>
-                    </div>
-                    <div class="tg-description">
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing
-                        elit, sed diam nonummy nibh tempor cum soluta nobis
-                        consectetuer nihil imperdiet doming...
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      <!--************************************
-					Features End
-			*************************************-->
       <!--************************************
 					Popular Tour Start
 			*************************************-->
         <section
-          class="tg-parallax"
-          data-appear-top-offset="600"
-          data-parallax="scroll"
-          data-image-src="/images/parallax/bgparallax-01.jpg"
+          class="bg-light"
         >
           <div class="tg-sectionspace tg-haslayout">
             <div class="container">
@@ -240,7 +117,7 @@
                     id="tg-populartoursslider"
                     class="tg-populartoursslider tg-populartours owl-carousel"
                   >
-                    <div class="item tg-populartour">
+                    <div class="item tg-populartour bg-warning">
                       <figure>
                         <a href="tourbookingdetail.html"
                           ><img
@@ -267,7 +144,7 @@
                         </div>
                       </div>
                     </div>
-                    <div class="item tg-populartour">
+                    <div class="item tg-populartour bg-warning">
                       <figure>
                         <a href="tourbookingdetail.html"
                           ><img
@@ -294,7 +171,7 @@
                         </div>
                       </div>
                     </div>
-                    <div class="item tg-populartour">
+                    <div class="item tg-populartour bg-warning">
                       <figure>
                         <a href="tourbookingdetail.html"
                           ><img
@@ -322,7 +199,7 @@
                         </div>
                       </div>
                     </div>
-                    <div class="item tg-populartour">
+                    <div class="item tg-populartour bg-warning">
                       <figure>
                         <a href="tourbookingdetail.html"
                           ><img

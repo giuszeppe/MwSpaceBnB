@@ -203,7 +203,7 @@
                                 <span>
                                     <a href="#" class="">Contatta</a>
                                 </span>
-                                <span><a href="#" class="">Recensione</a></span>
+
                                 
                             </div>
                                 <a href="#" class="btn btn-danger d-flex flex-row align-items-center">
@@ -264,7 +264,7 @@
                                 <span>
                                     <a href="#" class="">Contatta</a>
                                 </span>
-                                <span><a href="#" class="">Recensione</a></span>
+
                                 
                             </div>
                                 <a href="#" class="btn btn-danger d-flex flex-row align-items-center">
@@ -324,7 +324,7 @@
                                 <span>
                                     <a href="#" class="">Contatta</a>
                                 </span>
-                                <span><a href="#" class="">Recensione</a></span>
+
                                 
                             </div>
                                 <a href="#" class="btn btn-danger d-flex flex-row align-items-center">

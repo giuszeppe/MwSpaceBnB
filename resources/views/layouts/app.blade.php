@@ -334,7 +334,7 @@
                             </div>
                             <div class="tg-navigationarea tg-headerfixed border border-dark">
                                 <strong class="tg-logo"
-                                    ><a href="index.html"
+                                    ><a href="{{ route('home') }}"
                                         ><img
                                             src="/images/logo.png"
                                             alt="company logo here" /></a
