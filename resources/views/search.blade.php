@@ -141,7 +141,7 @@
                             <div class="rb-action d-flex flex-row justify-content-between px-5">
 
                                 <span>
-                                    <a href="#" class="">Contatta</a>
+                                    <a href="#" class="">Dettagli</a>
                                 </span>
 
                                 
@@ -199,7 +199,7 @@
                             <div class="rb-action d-flex flex-row justify-content-between px-5">
 
                                 <span>
-                                    <a href="#" class="">Contatta</a>
+                                    <a href="#" class="">Dettagli</a>
                                 </span>
 
                                 
@@ -256,7 +256,7 @@
                             <div class="rb-action d-flex flex-row justify-content-between px-5">
 
                                 <span>
-                                    <a href="#" class="">Contatta</a>
+                                    <a href="#" class="">Dettagli</a>
                                 </span>
 
                                 

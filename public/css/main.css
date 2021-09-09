@@ -5389,3 +5389,12 @@ body.tg-hidescroll{overflow:hidden;}
 	padding-left:33%;
 	padding-right:33%;
 }
+/*
+
+Classes for searchbar button
+
+*/
+.tg-btn.searchbar{
+	color: #000;
+	background-color: #ffc107 !important;
+}
