@@ -73,17 +73,12 @@
                     <div class="row ">
                         <div class="col d-flex flex-row justify-content-around ">
                             <div class="rb-action d-flex flex-row justify-content-between px-5">
-
                                 <span>
                                     <a href="#" class="">22 visite</a>
                                 </span>
                                 <span><a href="#" class="">3 messaggi</a></span>
-                                
                             </div>
-                                <a href="{{route('stat')}}" class="btn btn-danger d-flex flex-row align-items-center">
-                                    <i class="fa fa-bolt" aria-hidden="true"></i>
-                                    <span class="ml-1"> STATISTICHE </span>
-                                </a>
+                                <x-button link="{!! route('stat') !!}" message="STATISTICHE"> </x-button>
                         </div>
                     </div>
                 </div>

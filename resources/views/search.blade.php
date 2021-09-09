@@ -146,10 +146,7 @@
 
                                 
                             </div>
-                                <a href="#" class="btn btn-danger d-flex flex-row align-items-center">
-                                    <i class="fa fa-bolt" aria-hidden="true"></i>
-                                    <span class="ml-1"> PRENOTA </span>
-                                </a>
+                                <x-button link="#"> </x-button>
                         </div>
                     </div>
                 </div>
@@ -207,10 +204,7 @@
 
                                 
                             </div>
-                                <a href="#" class="btn btn-danger d-flex flex-row align-items-center">
-                                    <i class="fa fa-bolt" aria-hidden="true"></i>
-                                    <span class="ml-1"> PRENOTA </span>
-                                </a>
+                                <x-button link="#"> </x-button>
                         </div>
                     </div>
                 </div>
@@ -267,10 +261,7 @@
 
                                 
                             </div>
-                                <a href="#" class="btn btn-danger d-flex flex-row align-items-center">
-                                    <i class="fa fa-bolt" aria-hidden="true"></i>
-                                    <span class="ml-1"> PRENOTA </span>
-                                </a>
+                                <x-button link="#"> </x-button>
                         </div>
                     </div>
                 </div>
