@@ -24,12 +24,6 @@
                     <div>
                         <h3>33 Strutture trovate</h3>
                         <p>Prezzi calcolati per 1 notte (data odierna) per 1 ospite</p>
-                        <span>
-                            <a href="#">
-                                Cambia date
-                                <i class="fa fa-calendar" aria-hidden="true"></i>
-                            </a>
-                        </span>
                         <select name="order" id="order select">
                             <option value="">Ordina Per</option>
                         </select>
