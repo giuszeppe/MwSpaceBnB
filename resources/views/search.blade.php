@@ -16,10 +16,10 @@
             <h1>MwSpaceBnB</h1>
         </div>
         <div class="row">
-            <div class="col-xs-4">
-                    <img src="/images/img-01.jpg">
+            <div class="col-xs-12 col-sm-4 mb-4 mb-sm-0">
+                    <img src="/images/img-01.jpg" alt="MAPPA">
             </div>
-            <div class="col-xs-8 d-flex flex-column justify-content-between">
+            <div class="col-xs-12 col-sm-8 d-flex flex-column justify-content-between">
                 <div class="container search-result bg-light pb-2">
                     <div>
                         <h3>33 Strutture trovate</h3>
@@ -37,7 +37,7 @@
             </div>
         </div>
         <div class="row mt-5">
-            <div class="col-xs-4">
+            <div class="col-xs-12 col-sm-4">
                 <form action="#" class="bg-light p-5">
                     <div class="form-group">
 
@@ -82,10 +82,10 @@
                     </div>
                 </form>
             </div>
-            <div class="col-xs-8">
+            <div class="col-xs-12 col-sm-8" style="word-break: ">
                 <div class="result-box border p-3 mb-4">
                     <div class="row rb-corpo">
-                        <div class="col-3">
+                        <div class="col-sm-3 col-xs-12">
                             <div class="result-img">
                                 <a href="#">
                                     <img src="/images/img-01.jpg" alt="">
@@ -143,7 +143,7 @@
 
                 <div class="result-box border p-3 mb-4">
                     <div class="row rb-corpo">
-                        <div class="col-3">
+                        <div class="col-sm-3 col-xs-12">
                             <div class="result-img">
                                 <a href="#">
                                     <img src="/images/img-01.jpg" alt="">
@@ -200,7 +200,7 @@
                 </div>
                 <div class="result-box border p-3">
                     <div class="row rb-corpo">
-                        <div class="col-3">
+                        <div class="col-sm-3 col-xs-123">
                             <div class="result-img">
                                 <a href="#">
                                     <img src="/images/img-01.jpg" alt="">

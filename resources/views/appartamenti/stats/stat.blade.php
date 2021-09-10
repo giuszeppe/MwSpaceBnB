@@ -16,9 +16,6 @@
             <div class="appartment-header">
                 <div class="appartment-title">
                     <h1 class="m-0 p-0">Appartamento</h1>
-                        <span class="tags-wrapper">
-                            <span class="tag mx-5">Bed and Breakfast</span>
-                        </span>
                 </div>
                 <div class="appartment-address d-flex flex-row align-items-center justify-content-between">
                     <span>VIA XX SETTEMBRE, 10 - <strong>Montaleghe(TO)</strong></span>

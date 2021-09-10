@@ -88,9 +88,6 @@
             <div class="appartment-header">
                 <div class="appartment-title">
                     <h1 class="m-0 p-0">Appartamento</h1>
-                        <span class="tags-wrapper">
-                            <span class="tag mx-5">Bed and Breakfast</span>
-                        </span>
                 </div>
                 <div class="appartment-address d-flex flex-row align-items-center justify-content-between">
                     <span>VIA XX SETTEMBRE, 10 - <strong>Montaleghe(TO)</strong></span>
@@ -101,14 +98,17 @@
             <hr class="path-separator">
         </div>
         <div class="row">
-            <div class="col-6">
+            <div class="col-sm-6 col-xs-12">
+                <img src="/images/img-01.jpg" alt="immagine rappresentativa appartamento" class="detail-img ml-2">
+            </div>
+            <div class="col-sm-6 col-xs-12">
                 <ul>
                     <li>Numero di stanze: 3</li>
                     <li>Numero di posti letto: 8 </li>
                     <li>Numero di bagni: 2</li>
                     <li>Indirizzo: Via della pescara</li>
                     <li>Metri quadrati: 60mq</li>
-                    <li>Servizi aggiuntivi:
+                    <li class="servizi-aggiuntivi">Servizi aggiuntivi:
                         <div>
                             <i class="fa fa-check" aria-hidden="true"></i>
                             Wi-Fi
@@ -127,9 +127,6 @@
                         </div>
                     </li>
                 </ul>
-            </div>
-            <div class="col-6">
-                <img src="/images/img-01.jpg" alt="immagine rappresentativa appartamento" class="detail-img ml-2">
             </div>
         </div>
     </div>

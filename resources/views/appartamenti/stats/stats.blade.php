@@ -16,7 +16,7 @@
     <div class="container-fluid" id="myContainer">
                 <div class="result-box border p-3 mb-4">
                     <div class="row rb-corpo">
-                        <div class="col-3">
+                        <div class="col-xs-12 col-sm-3 mb-3 mb-sm-0">
                             <div class="result-img">
                                 <a href="#">
                                     <img src="/images/img-01.jpg" alt="">
@@ -70,13 +70,13 @@
                         </div>
                     </div>
                     <hr>
-                    <div class="row ">
+                    <div class="row text-wrap">
                         <div class="col d-flex flex-row justify-content-around ">
-                            <div class="rb-action d-flex flex-row justify-content-between px-5">
-                                <span>
-                                    <a href="#" class="">22 visite</a>
+                            <div class="rb-action d-flex flex-column flex-sm-row justify-content-between px-5 mb-4 mb-sm-0">
+                                <span class="text-wrap">
+                                    <a href="#">22 visite</a>
                                 </span>
-                                <span><a href="#" class="">3 messaggi</a></span>
+                                <span class="text-wrap"><a href="#">3 messaggi</a></span>
                             </div>
                                 <x-button link="{!! route('stat') !!}" message="STATISTICHE"> </x-button>
                         </div>
