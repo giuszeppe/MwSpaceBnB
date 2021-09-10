@@ -15,11 +15,12 @@
                     </div>
         
                     <div class="form-group">
-                        <div class="tg-select">
+                        <div class="tg-select" >
                             <select
                                 class="selectpicker"
                                 data-live-search="true"
                                 data-width="100%"
+                                name="person_count"
                             >
                                 <option data-tokens="adul>ti">Adulti</option>
                                 <option data-tokens="2 persone">
