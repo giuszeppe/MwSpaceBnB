@@ -54,7 +54,7 @@
                     </div>
                     <div id="tg-search-submit">
                         <button class="tg-btn searchbar" type="submit">
-                            <span>find tours</span>
+                            <span>Trova appartamenti</span>
                         </button>
                     </div>
                 </fieldset>
