@@ -15,7 +15,7 @@
     <div class="container-fluid" id="myContainer">
             <div class="appartment-header">
                 <div class="appartment-title">
-                    <h1 class="m-0 p-0">Appartamento</h1>
+                    <h1 class="m-0 p-0"><a href="{{route('detail')}}">Appartamento</a></h1>
                 </div>
                 <div class="appartment-address d-flex flex-row align-items-center justify-content-between">
                     <span>VIA XX SETTEMBRE, 10 - <strong>Montaleghe(TO)</strong></span>

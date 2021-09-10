@@ -131,7 +131,7 @@
                             <div class="rb-action d-flex flex-row justify-content-between px-5">
 
                                 <span>
-                                    <a href="#" class="">Dettagli</a>
+                                    <a href="{{route('detail')}}" class="">Dettagli</a>
                                 </span>
 
                                 
@@ -189,7 +189,7 @@
                             <div class="rb-action d-flex flex-row justify-content-between px-5">
 
                                 <span>
-                                    <a href="#" class="">Dettagli</a>
+                                    <a href="{{route('detail')}}" class="">Dettagli</a>
                                 </span>
 
                                 
@@ -246,7 +246,7 @@
                             <div class="rb-action d-flex flex-row justify-content-between px-5">
 
                                 <span>
-                                    <a href="#" class="">Dettagli</a>
+                                    <a href="{{route('detail')}}" class="">Dettagli</a>
                                 </span>
 
                                 
