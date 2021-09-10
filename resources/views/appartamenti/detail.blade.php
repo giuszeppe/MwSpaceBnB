@@ -78,18 +78,12 @@
 
 <section class="tg-sectionspace tg-haslayout bg-light" style="padding-top:30px; padding-bottom:30px">
     <div class="container-fluid" id="myContainer">
-        <div class="row">
-            <a href="#" class="path-separator-text">Home</a>
-             > 
-            <a href="#" class="path-separator-text">Foligno</a>
-             >
-            <a href="#" class="path-separator-text">Centro</a>
-             >
-            <a href="#" class="path-separator-text">Mondo</a>
-            >
-            <span style="color:gray" class="path-separator-text">Appartamento</span>
-            <hr class="path-separator">
-        </div>
+        <hr class="path-separator">
+    <!--
+        Spazio per path separator
+
+                Foligno > Mondo > Centro
+    -->
         <div class="row">
             <div class="appartment-header">
                 <div class="appartment-title">
@@ -100,10 +94,7 @@
                 </div>
                 <div class="appartment-address d-flex flex-row align-items-center justify-content-between">
                     <span>VIA XX SETTEMBRE, 10 - <strong>Montaleghe(TO)</strong></span>
-                    <a href="#contact-form" class="btn btn-danger d-flex flex-row align-items-center">
-                        <i class="fa fa-bolt" aria-hidden="true"></i>
-                        <span class="ml-1"> PRENOTA </span>
-                    </a>
+                    <x-button link="#"> </x-button>
                 </div>
             </div>
             
@@ -156,9 +147,9 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Messaggio</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="message_text"></textarea>
                     </div>
-                    <input class="btn btn-primary" type="submit" value="Invia messaggio">
+                    <input class="btn btn-warning btn-lg" type="submit" value="Invia messaggio">
                 </form>
             </div>
         </div>
