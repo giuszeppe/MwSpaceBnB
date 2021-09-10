@@ -88,7 +88,7 @@
                         </div>
                     </div>
                     <div class="filtri-btn d-flex justify-content-center">
-                        <input type="submit" class="btn btn-block btn-primary">
+                        <input type="submit" class="btn btn-block btn-warning">
                     </div>
                 </form>
             </div>

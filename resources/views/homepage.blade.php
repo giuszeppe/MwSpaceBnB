@@ -65,7 +65,7 @@
                         </div>
                     </div>
                     <div id="tg-search-submit">
-                        <button class="tg-btn" type="submit">
+                        <button class="tg-btn searchbar" type="submit">
                             <span>find tours</span>
                         </button>
                     </div>

@@ -68,15 +68,15 @@ a:active,
 .tg-btnarea .tg-btn,
 .tg-pkgplanfoot .tg-btn:hover,
 .tg-btnaddtocart:hover,
-.tg-formleavecomment .tg-btn{ background:#ff7550; }
-.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{ background:#ff7550 !important;}
+.tg-formleavecomment .tg-btn{ background:#fee133; }
+.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{ background:#fee133 !important;}
 /*=============================================
 			Theme Border Color
 =============================================*/
 input:focus,
 .select select:focus,
 .form-control:focus,
-.tg-reply:hover{ border-color: #ff7550; }
+.tg-reply:hover{ border-color: #fee133; }
 /*==========================================================================================
 								Theme Secondary Colors										
 ==========================================================================================*/
