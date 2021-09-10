@@ -6,16 +6,12 @@
 
 <section class="tg-sectionspace tg-haslayout" style="padding-top:30px;">
     <div class="container-fluid" id="myContainer">
-        <div class="row">
-            <a href="#">Home</a>
-             > 
-            <a href="#">Foligno</a>
-             >
-            <a href="#">Centro</a>
-             >
-            <a href="#">Mondo</a>
-            <hr class="path-separator">
-        </div>
+        <hr class="path-separator">
+        <!--
+        Spazio per path separator
+
+                Foligno > Mondo > Centro
+        -->
         <div class="row">
             <h1>MwSpaceBnB</h1>
         </div>
