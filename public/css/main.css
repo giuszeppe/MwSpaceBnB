@@ -1282,7 +1282,9 @@ li.tg-rss a { background:#ff6600; }
 	background: #fff;
 	box-shadow: none;
 	padding: 15px 20px;
-	border-color: rgba(0, 0, 0, 0.10) !important;
+	font-size: 13px;
+    border: 1px solid #dbdbdb;
+    border-radius: 4px;
 }
 .tg-select .btn-default .bs-caret { display: none; }
 .tg-select .btn-default.active, .btn-default:active,
@@ -5396,5 +5398,15 @@ Classes for searchbar button
 */
 .tg-btn.searchbar{
 	color: #000;
-	background-color: #ffc107 !important;
+	background-color: #fee133 !important;
+}
+
+.open>.dropdown-toggle.btn-default{
+	border-color:#fee133;
+}
+.open>.dropdown-toggle.btn-default:hover{
+	border-color: #feee13;
+}
+.search-form-wrapper{
+	overflow: visible !important;
 }
