@@ -2,7 +2,7 @@
 @section('content')
     <section class="tg-sectionspace tg-haslayout bg-light" style="padding-bottom:30px">
         <div class="container-fluid" id="myContainer">
-            <h1>Modifica il tuo appartamento</h1>
+            <h1 class="h1">Modifica il tuo appartamento</h1>
                 <form action="#">
                     <div class="form-row">
                         <div class="col">
