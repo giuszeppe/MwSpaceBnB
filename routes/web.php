@@ -24,7 +24,7 @@ Route::get('/detail', function () {
     return view('appartamenti.detail');
 })->name('detail');
 
-Route::get('/stats', function () {
+Route::get('{user:username}/stats', function () {
     return view('appartamenti.stats.stats');
 })->name('stats');
 
