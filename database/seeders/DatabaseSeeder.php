@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
     {
         $n_stanze = 10;
         DB::table('users')->insert([
+            'username' => 'username',
             'name' => 'user',
             'surname' => 'user',
             'birthday' => Carbon::today(),

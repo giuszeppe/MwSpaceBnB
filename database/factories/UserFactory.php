@@ -24,6 +24,7 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
+            'username' => $this->faker->userName(),
             'name' => $this->faker->firstName(),
             'surname' => $this->faker->lastName(),
             'birthday' => Carbon::today()->subDays(rand(4380, 21900)),
