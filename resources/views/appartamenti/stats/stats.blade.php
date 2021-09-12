@@ -14,75 +14,13 @@
 
 <section class="tg-sectionspace tg-haslayout bg-light" style="padding-top:30px; padding-bottom:30px">
     <div class="container-fluid" id="myContainer">
-                <div class="result-box border p-3 mb-4">
-                    <div class="row rb-corpo">
-                        <div class="col-xs-12 col-sm-3 mb-3 mb-sm-0">
-                            <div class="result-img">
-                                <a href="#">
-                                    <img src="/images/img-01.jpg" alt="">
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <div class="col">
-                            <div class="d-flex flex-row justify-content-between">
-                                <h3>Le Flaneur</h3>
-                                <div class="btn-wrapper">
-                                    <a href="" class="btn btn-danger">
-                                        <i class="fa fa-trash" aria-hidden="true"></i>
-                                    </a>
-                                    <a href="" class="btn btn-warning">
-                                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                                    </a>
-                                    <input type="checkbox" checked data-toggle="toggle" data-size="md">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-6">
-                                    <div> 8 Stanze</div>
-                                    <div>3 Posti letto</div>
-                                    <div>5 bagni</div>
-                                    <div>95 metri quadrati</div>
-                                    <div>Indirizzo</div>
-                                </div>
-                                <div class="col-6">
-                                    <div>
-                                        <i class="fa fa-check" aria-hidden="true"></i>
-                                        Wi-Fi
-                                    </div>
-                                    <div>
-                                        <i class="fa fa-check" aria-hidden="true"></i>
-                                        Riscaldamento
-                                    </div>
-                                    <div>
-                                        <i class="fa fa-check" aria-hidden="true"></i>
-                                        Parcheggio coperto
-                                    </div>
-                                    <div>
-                                        <i class="fa fa-check" aria-hidden="true"></i>
-                                        Piscina
-                                    </div>
-                                    <div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="row text-wrap">
-                        <div class="col d-flex flex-row justify-content-around ">
-                            <div class="rb-action d-flex flex-column flex-sm-row justify-content-between px-5 mb-4 mb-sm-0">
-                                <span class="text-wrap">
-                                    <a href="#">22 visite</a>
-                                </span>
-                                <span class="text-wrap"><a href="#">3 messaggi</a></span>
-                            </div>
-                                <x-button link="{!! route('stat') !!}" message="STATISTICHE"> </x-button>
-                        </div>
-                    </div>
-                </div>
-                </div>
+	<h1 class="h1"> Tutti gli appartamenti ({{$apartments->count()}})</h1>
+	<a href="{{route('apartment.create')}}" class="btn btn-primary mb-3"> Crea </a>
+        @foreach ($apartments as $apartment)
+        <x-stats-result-box :apartment="$apartment">
+        </x-stats-result-box>
+        @endforeach
+    </div>
 </section>
 @endsection
 
