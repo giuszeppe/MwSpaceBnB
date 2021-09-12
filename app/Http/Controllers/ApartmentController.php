@@ -6,6 +6,7 @@ use App\Models\Apartment;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ApartmentController extends Controller
 {
@@ -38,7 +39,19 @@ class ApartmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'title' => 'required|string|max:255',
+            'numero_stanze' => 'required|numeric|gt:0',
+            'numero_bagni' => 'required|numeric|gt:0',
+            'numero_letti' => 'required|numeric|gt:0',
+            'metri_quadrati' => 'required|numeric|gt:0',
+            'indirizzo' => 'required|string|max:255',
+            'immagine' => 'required|image',
+            'servizi_aggiuntivi' => 'string|max:255'
+        ]);
+        $request->file("image")->store('apartments.images');
+        //$validated->immagine = Storage::url('')
+        //auth()->user()->apartments()->create($validated);
     }
 
     /**
