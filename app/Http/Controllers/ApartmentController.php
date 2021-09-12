@@ -17,7 +17,6 @@ class ApartmentController extends Controller
     public function index()
     {
         $apartments = auth()->user()->apartments;
-        dd($apartments);
         return view('appartamenti.stats.stats',compact('apartments'));
     }
 
