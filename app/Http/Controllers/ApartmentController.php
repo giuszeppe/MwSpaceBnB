@@ -12,9 +12,10 @@ class ApartmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(User $user)
     {
-        //
+        $apartments = $user->apartments;
+        return view('appartamenti.stats.stats',compact('apartments'));
     }
 
     /**
@@ -24,7 +25,7 @@ class ApartmentController extends Controller
      */
     public function create()
     {
-        //
+        return view('appartamenti.create');
     }
 
     /**
@@ -57,7 +58,7 @@ class ApartmentController extends Controller
      */
     public function edit(Apartment $apartment)
     {
-        //
+        return view('appartamenti.edit',compact('apartment'));
     }
 
     /**
@@ -80,6 +81,7 @@ class ApartmentController extends Controller
      */
     public function destroy(Apartment $apartment)
     {
-        //
+        $apartment->delete();
+        return back()->with('message','Apartment deleted successfull');
     }
 }
