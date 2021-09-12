@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApartmentController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 /*
@@ -24,7 +25,7 @@ Route::get('/detail', function () {
     return view('appartamenti.detail');
 })->name('detail');
 
-Route::get('{user:username}/stats', function () {
+Route::get('/stats', function () {
     return view('appartamenti.stats.stats');
 })->name('stats');
 
@@ -36,3 +37,4 @@ Route::get('/create', function () {
 });
 
 Auth::routes();
+Route::resource('apartment',ApartmentController::class);
