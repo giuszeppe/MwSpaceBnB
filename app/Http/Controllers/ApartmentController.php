@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Apartment;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ApartmentController extends Controller
 {
@@ -12,9 +14,10 @@ class ApartmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(User $user)
+    public function index()
     {
-        $apartments = $user->apartments;
+        $apartments = auth()->user()->apartments;
+        dd($apartments);
         return view('appartamenti.stats.stats',compact('apartments'));
     }
 
