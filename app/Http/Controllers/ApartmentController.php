@@ -55,14 +55,16 @@ class ApartmentController extends Controller
                 $extension = $request->file('immagine')->extension();
                 auth()->user()->apartments()->create($validated);
                 $apartment_id = auth()->user()->apartments()->orderByDesc('created_at')->first()->id;
-                $request->file('immagine')->storeAs('apartmentImage',  $apartment_id . '.' . $extension);
-                Apartment::find($apartment_id)->update(['immagine' => Storage::url('apartmentImage/' . $apartment_id . '.' . $extension)]);
+                $new_apartment = Apartment::find($apartment_id);
+                $request->file('immagine')->storeAs('public/apartmentImage',  $apartment_id . '.' . $extension);
+
+                $new_apartment->update([
+                    'immagine' => Storage::url('apartmentImage/' . $apartment_id . '.' . $extension),
+                    'servizi_aggiuntivi' => implode(',', $validated['servizi'])
+                ]);
                 return back()->with('success', 'Apartment Created');
             }
         }
-        //$request->file("image")->store('apartments.images');
-        //$validated->immagine = Storage::url('')
-        //auth()->user()->apartments()->create($validated);
     }
 
     /**
