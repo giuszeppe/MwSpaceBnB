@@ -18,7 +18,7 @@ class ApartmentController extends Controller
     public function index()
     {
         $apartments = auth()->user()->apartments;
-        return view('appartamenti.stats.stats',compact('apartments'));
+        return view('appartamenti.stats.stats', compact('apartments'));
     }
 
     /**
@@ -47,7 +47,8 @@ class ApartmentController extends Controller
             'metri_quadrati' => 'required|numeric|gt:0',
             'indirizzo' => 'required|string|max:255',
             'immagine' => 'required|image',
-            'servizi_aggiuntivi' => 'string|max:255'
+            'servizi' => "array",
+            'servizi.*' => 'string|distinct|max:255'
         ]);
         $request->file("image")->store('apartments.images');
         //$validated->immagine = Storage::url('')
@@ -73,7 +74,7 @@ class ApartmentController extends Controller
      */
     public function edit(Apartment $apartment)
     {
-        return view('appartamenti.edit',compact('apartment'));
+        return view('appartamenti.edit', compact('apartment'));
     }
 
     /**
@@ -97,6 +98,6 @@ class ApartmentController extends Controller
     public function destroy(Apartment $apartment)
     {
         $apartment->delete();
-        return back()->with('message','Apartment deleted successfull');
+        return back()->with('message', 'Apartment deleted successfull');
     }
 }

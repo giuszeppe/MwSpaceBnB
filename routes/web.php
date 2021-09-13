@@ -25,9 +25,7 @@ Route::get('/detail', function () {
     return view('appartamenti.detail');
 })->name('detail');
 
-Route::get('/stats', function () {
-    return view('appartamenti.stats.stats');
-})->name('stats');
+
 
 Route::get('/stats/stat', function () {
     return view('appartamenti.stats.stat');
@@ -37,4 +35,4 @@ Route::get('/create', function () {
 });
 
 Auth::routes();
-Route::resource('apartment',ApartmentController::class);
+Route::resource('apartment', ApartmentController::class);

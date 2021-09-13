@@ -95,7 +95,7 @@
                            Logout
                         </a>
                     </li> 
-                    <li><a href="{{route('stats')}}">I tuoi appartamenti</a></li>
+                    <li><a href="{{route('apartment.index')}}">I tuoi appartamenti</a></li>
                     <li><a href="{{route('search')}}">Cerca</a></li>
                 @endauth
                 @guest
@@ -232,7 +232,7 @@
                                             </li>
                                             @auth
                                                 <li class="menu-item-has-childer current-menu-item">
-                                                    <a href="{{route('stats')}}">
+                                                    <a href="{{route('apartment.index')}}">
                                                         I tuoi appartamenti
                                                     </a>
                                                 </li>
