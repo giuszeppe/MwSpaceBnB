@@ -23,11 +23,11 @@ class CreateApartmentsTable extends Migration
             $table->integer('metri_quadrati');
             $table->string('indirizzo');
             $table->string('immagine');
-            $table->boolean('active');
-            $table->decimal('latitude', 8, 6);
-            $table->decimal('longitude', 9, 6);
+            $table->boolean('active')->default(1);
+            $table->decimal('latitude', 8, 6)->default(0);
+            $table->decimal('longitude', 9, 6)->default(0);
             //comma separated value of additional services
-            $table->text('servizi_aggiuntivi');
+            $table->text('servizi_aggiuntivi')->nullable();
             $table->unsignedBigInteger('id_user');
             $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
         });
