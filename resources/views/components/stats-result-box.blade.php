@@ -3,7 +3,7 @@
         <div class="col-xs-12 col-sm-3 mb-3 mb-sm-0">
             <div class="result-img">
                 <a href="#">
-                    <img src="/images/img-01.jpg" alt="">
+                    <img src="{{$apartment->immagine}}" alt="">
                 </a>
             </div>
         </div>
