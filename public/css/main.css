@@ -5383,6 +5383,11 @@ Classes for searchbar button
 .servizi-aggiuntivi>div{
 	margin-left:10px;
 }
+.span-services{
+	display:flex;
+	flex-direction: row;
+	
+}
 @media screen and (max-width:500px) {
 	.appartment-title>h1{
 		font-size:8vw
