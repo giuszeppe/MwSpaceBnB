@@ -9,7 +9,7 @@
                     <div class="form-row">
                         <div class="col">
                             <label for="title">Title</label>
-                                <input id="title" type="text" class="form-control @error('title') is-invalid @enderror"  value="{{ old('title') }}" autocomplete="title" autofocus>
+                                <input id="title" type="text" name="title" class="form-control @error('title') is-invalid @enderror"  value="{{ old('title') }}" autocomplete="title" autofocus>
 
                                 @error('title')
                                     <span class="invalid-feedback" role="alert">
