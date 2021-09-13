@@ -12,13 +12,13 @@
             <div class="d-flex flex-row justify-content-between">
                 <h3>{{$apartment->title}}</h3>
                 <div class="btn-wrapper">
-                    <span class="btn btn-danger" onclick="event.preventDefault();document.getElementById('deleteForm').submit()">
+                    <span class="btn btn-danger" onclick="event.preventDefault();document.getElementById('deleteForm{{$apartment->id}}').submit()">
                         <i class="fa fa-trash" aria-hidden="true"></i>
                     </span>
                     <a class="btn btn-warning" href="{{route('apartment.edit',$apartment->id)}}">
                         <i class="fa fa-pencil" aria-hidden="true"></i>
                     </a>
-                    <form action="{{route('apartment.destroy',$apartment->id)}}" style="display:none" id="deleteForm" method="POST">@csrf @method('DELETE')</form>
+                    <form action="{{route('apartment.destroy',$apartment->id)}}" style="display:none" id="deleteForm{{$apartment->id}}" method="POST">@csrf @method('DELETE')</form>
                     <input type="checkbox" checked data-toggle="toggle" data-size="md">
                 </div>
             </div>
