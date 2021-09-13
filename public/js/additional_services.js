@@ -39,10 +39,11 @@ buildElement = function (count,text) {
 	wrapper.appendChild(delete_btn);
 
 
-	node.setAttribute('type','checkbox');
+	node.setAttribute('type','hidden');
+	//node.checked = true;
 	node.setAttribute('name','servizi[' + count + ']');
 	node.setAttribute('style','display:none');
-	node.appendChild(textnode);
+	node.setAttribute('value',text);
 
 	wrapper.appendChild(node);
 	list.append(wrapper);
