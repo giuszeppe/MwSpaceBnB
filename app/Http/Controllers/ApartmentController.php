@@ -52,6 +52,9 @@ class ApartmentController extends Controller
                     'servizi' => "array",
                     'servizi.*' => 'string|distinct|max:255'
                 ]);
+                if(!array_key_exists('servizi',$validated)){
+                    $validated['servizi'] = [];
+                }
                 $extension = $request->file('immagine')->extension();
                 auth()->user()->apartments()->create($validated);
                 $apartment_id = auth()->user()->apartments()->orderByDesc('created_at')->first()->id;
@@ -62,9 +65,10 @@ class ApartmentController extends Controller
                     'immagine' => Storage::url('apartmentImage/' . $apartment_id . '.' . $extension),
                     'servizi_aggiuntivi' => implode(',', $validated['servizi'])
                 ]);
-                return back()->with('success', 'Apartment Created');
+                return redirect()->route('apartment.index')->with('success', 'Apartment Created');
             }
         }
+        abort(500);
     }
 
     /**
