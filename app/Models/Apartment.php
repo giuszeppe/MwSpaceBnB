@@ -9,6 +9,17 @@ class Apartment extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'title',
+        'numero_stanze',
+        'numero_bagni',
+        'numero_letti',
+        'metri_quadrati',
+        'indirizzo',
+        'immagine',
+        'servizi_aggiuntivi',
+        'active'
+    ];
 
     public function user()
     {
@@ -16,6 +27,6 @@ class Apartment extends Model
     }
     public function messages()
     {
-        return $this->hasMany(Message::class,'id_appartamento');
+        return $this->hasMany(Message::class, 'id_appartamento');
     }
 }

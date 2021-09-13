@@ -39,18 +39,28 @@ class ApartmentController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'title' => 'required|string|max:255',
-            'numero_stanze' => 'required|numeric|gt:0',
-            'numero_bagni' => 'required|numeric|gt:0',
-            'numero_letti' => 'required|numeric|gt:0',
-            'metri_quadrati' => 'required|numeric|gt:0',
-            'indirizzo' => 'required|string|max:255',
-            'immagine' => 'required|image',
-            'servizi' => "array",
-            'servizi.*' => 'string|distinct|max:255'
-        ]);
-        $request->file("image")->store('apartments.images');
+        if ($request->hasFile('immagine')) {
+            if ($request->file('immagine')->isValid()) {
+                $validated = $request->validate([
+                    'title' => 'required|string|max:255',
+                    'numero_stanze' => 'required|numeric|gt:0',
+                    'numero_bagni' => 'required|numeric|gt:0',
+                    'numero_letti' => 'required|numeric|gt:0',
+                    'metri_quadrati' => 'required|numeric|gt:0',
+                    'indirizzo' => 'required|string|max:255',
+                    'immagine' => 'required|image|mimes:png,jpg|max:1024',
+                    'servizi' => "array",
+                    'servizi.*' => 'string|distinct|max:255'
+                ]);
+                $extension = $request->file('immagine')->extension();
+                auth()->user()->apartments()->create($validated);
+                $apartment_id = auth()->user()->apartments()->orderByDesc('created_at')->first()->id;
+                $request->file('immagine')->storeAs('apartmentImage',  $apartment_id . '.' . $extension);
+                Apartment::find($apartment_id)->update(['immagine' => Storage::url('apartmentImage/' . $apartment_id . '.' . $extension)]);
+                return back()->with('success', 'Apartment Created');
+            }
+        }
+        //$request->file("image")->store('apartments.images');
         //$validated->immagine = Storage::url('')
         //auth()->user()->apartments()->create($validated);
     }
