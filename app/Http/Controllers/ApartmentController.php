@@ -110,6 +110,6 @@ class ApartmentController extends Controller
     public function destroy(Apartment $apartment)
     {
         $apartment->delete();
-        return back()->with('message', 'Apartment deleted successfull');
+        return redirect()->route('apartment.index')->with('message', 'Apartment deleted successfull');
     }
 }

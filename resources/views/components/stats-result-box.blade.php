@@ -18,7 +18,7 @@
                     <a class="btn btn-warning" href="{{route('apartment.edit',$apartment->id)}}">
                         <i class="fa fa-pencil" aria-hidden="true"></i>
                     </a>
-                    <form action="{{route('apartment.destroy',$apartment->id)}}" style="display:none" id="deleteForm">@csrf @method('DELETE')</form>
+                    <form action="{{route('apartment.destroy',$apartment->id)}}" style="display:none" id="deleteForm" method="POST">@csrf @method('DELETE')</form>
                     <input type="checkbox" checked data-toggle="toggle" data-size="md">
                 </div>
             </div>
