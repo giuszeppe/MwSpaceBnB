@@ -79,6 +79,18 @@ class ApartmentController extends Controller
      */
     public function show(Apartment $apartment)
     {
+        $user = auth()->user();
+        if($apartment->visitors->count() == 0){
+            $user->visited()->attach($apartment->id);
+        }
+        foreach($apartment->visitors as $visitor){
+            if($user->id == $visitor->id){
+                break;
+            }
+            else{
+                $user->visited()->attach($apartment->id);
+            }
+        }
         return view('appartamenti.detail',compact('apartment'));
     }
 

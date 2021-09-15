@@ -29,4 +29,8 @@ class Apartment extends Model
     {
         return $this->hasMany(Message::class, 'id_appartamento');
     }
+    public function visitors()
+    {
+        return $this->belongsToMany(User::class);    
+    }
 }

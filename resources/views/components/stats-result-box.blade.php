@@ -45,7 +45,7 @@
                 <div class="col d-flex flex-row justify-content-around ">
                     <div class="rb-action d-flex flex-column flex-sm-row justify-content-between px-5 mb-4 mb-sm-0">
                         <span class="text-wrap">
-                            <a href="{{route('apartment.stat',$apartment->id)}}">22 visite</a>
+                            <a href="{{route('apartment.stat',$apartment->id)}}">{{$apartment->visitors->count()}} visite</a>
                         </span>
                         <span class="text-wrap"><a href="{{route('apartment.stat',$apartment->id)}}">{{$apartment->messages->count()}} {{$apartment->messages->count() > 1 || $apartment->messages->count() == 0 ? "messaggi" : "messaggio"}}</a></span>
                     </div>

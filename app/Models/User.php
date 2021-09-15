@@ -49,4 +49,7 @@ class User extends Authenticatable
     {
         return $this->hasMany(Apartment::class, 'id_user');
     }
+    public function visited(){
+        return $this->belongsToMany(Apartment::class);
+    }
 }
