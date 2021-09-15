@@ -39,7 +39,7 @@
                     
                         @foreach ($apartment->messages as $messaggio)
                         <tr>
-                            <td><a href="mailto: {{$messaggio->email_mittente}}" class=""></a></td>
+                            <td><a href="mailto: {{$messaggio->email_mittente}}" class="">{{$messaggio->email_mittente}}</a></td>
                             <td>{{$messaggio->corpo}}</td>
                         </tr>
                         @endforeach
