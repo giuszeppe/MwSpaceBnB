@@ -21,7 +21,6 @@ buildElement = function (count,text) {
 		let list = document.getElementById('servizi_aggiuntivi')
 		let name = delete_btn.name;
 		let elems = list.cloneNode(true).children;
-		console.log(elems)
 		list.innerHTML = "";
 
 		console.log(elems)
@@ -55,4 +54,30 @@ document.getElementById('add_btn').onclick = function(){
 	let text = document.getElementById('servizio').value;
 	buildElement(count, text);
 
+}
+
+
+window.onload = (event) => {
+	btns = document.querySelectorAll('button[name^=servizio]')
+	console.log(btns);
+	for(let delete_btn of btns) {
+		delete_btn.onclick = function () {
+			event.preventDefault();
+			let count = 0;
+			let list = document.getElementById('servizi_aggiuntivi')
+			let name = delete_btn.name;
+			let elems = list.cloneNode(true).children;
+			list.innerHTML = "";
+
+			console.log(elems)
+			for(elem of elems){
+				if(elem.id == name){
+					continue;
+				} else {
+					buildElement(count,elem.children[0].textContent);
+					count++;
+				}
+			}
+		}
+	}
 }

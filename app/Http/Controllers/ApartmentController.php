@@ -102,7 +102,29 @@ class ApartmentController extends Controller
      */
     public function update(Request $request, Apartment $apartment)
     {
-        //
+        $validated = $request->validate([
+            'title' => 'string|max:255',
+            'numero_stanze' => 'numeric|gt:0',
+            'numero_bagni' => 'numeric|gt:0',
+            'numero_letti' => 'numeric|gt:0',
+            'metri_quadrati' => 'numeric|gt:0',
+            'indirizzo' => 'string|max:255',
+            'immagine' => 'image|mimes:png,jpg|max:1024',
+            'servizi' => "array",
+            'servizi.*' => 'string|distinct|max:255'
+        ]);
+        if(array_key_exists('servizi',$validated)){
+            $validated['servizi_aggiuntivi'] = implode(',',$validated['servizi']);
+        }
+        if ($request->hasFile('immagine')) {
+            if ($request->file('immagine')->isValid()) {
+                $extension = $request->file('immagine')->extension();
+                $request->file('immagine')->storeAs('public/apartmentImage',  $apartment->id . '.' . $extension);
+                $validated['immagine'] = Storage::url('apartmentImage/'. $apartment->id . '.' . $extension);
+            }
+        }
+        $apartment->update($validated);
+        return redirect()->route('apartment.index')->with('success', 'Apartment Updated');
     }
 
     /**
