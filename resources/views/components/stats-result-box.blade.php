@@ -32,10 +32,12 @@
                 </div>
                 <div class="col-6">
                     @foreach (explode(',',$apartment->servizi_aggiuntivi) as $servizio)
+                        @if($servizio != '')
                         <div>
                             <i class="fa fa-check" aria-hidden="true"></i>
                             {{$servizio}}
-                        </div>   
+                        </div>
+                        @endif
                     @endforeach
  
                 </div>
