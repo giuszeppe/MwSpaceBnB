@@ -32,4 +32,5 @@ Route::get('/stats/stat', function () {
 
 Auth::routes();
 Route::resource('apartment', ApartmentController::class);
+Route::get('/apartment/{apartment}/message',[ApartmentController::class,'message'])->name('message.send');
 Route::get('/apartment/{apartment}/stat',[ApartmentController::class,'stat'])->name('apartment.stat');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Apartment;
+use App\Models\Message;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -80,15 +81,17 @@ class ApartmentController extends Controller
     public function show(Apartment $apartment)
     {
         $user = auth()->user();
-        if($apartment->visitors->count() == 0){
-            $user->visited()->attach($apartment->id);
-        }
-        foreach($apartment->visitors as $visitor){
-            if($user->id == $visitor->id){
-                break;
-            }
-            else{
+        if($user != null){
+            if($apartment->visitors->count() == 0){
                 $user->visited()->attach($apartment->id);
+            }
+            foreach($apartment->visitors as $visitor){
+                if($user->id == $visitor->id){
+                    break;
+                }
+                else{
+                    $user->visited()->attach($apartment->id);
+                }
             }
         }
         return view('appartamenti.detail',compact('apartment'));
@@ -156,5 +159,15 @@ class ApartmentController extends Controller
     public function stat(Apartment $apartment)
     {
         return view('appartamenti.stats.stat',compact('apartment'));
+    }
+
+    public function message(Request $request, Apartment $apartment)
+    {
+        $validated = $request->validate([
+            'email_mittente' => "required|email|string|max:255",
+            'corpo' => "required|string"
+        ]);
+        $apartment->messages()->create($validated);
+        return back()->with('success','Messaggio inviato');
     }
 }
