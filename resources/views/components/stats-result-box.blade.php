@@ -47,7 +47,7 @@
                         <span class="text-wrap">
                             <a href="#">22 visite</a>
                         </span>
-                        <span class="text-wrap"><a href="#">{{$apartment->messages->count()}} {{$apartment->messages->count() > 1 ? "messaggi" : "messaggio"}}</a></span>
+                        <span class="text-wrap"><a href="#">{{$apartment->messages->count()}} {{$apartment->messages->count() > 1 || $apartment->messages->count() == 0 ? "messaggi" : "messaggio"}}</a></span>
                     </div>
                         <x-button link="{!! route('stat') !!}" message="STATISTICHE"> </x-button>
                 </div>

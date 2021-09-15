@@ -30,9 +30,7 @@ Route::get('/detail', function () {
 Route::get('/stats/stat', function () {
     return view('appartamenti.stats.stat');
 })->name('stat');
-Route::get('/create', function () {
-    return view('appartamenti.create');
-});
+
 
 Auth::routes();
 Route::resource('apartment', ApartmentController::class);

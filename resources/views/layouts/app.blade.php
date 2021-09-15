@@ -91,7 +91,7 @@
                 @auth
                     <li>
                         <a href="#"
-                           onclick="document.getElementById('logout-form').submit();">
+                           onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                            Logout
                         </a>
                     </li> 
