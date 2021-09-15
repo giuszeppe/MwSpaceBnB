@@ -24,20 +24,28 @@
             
             <hr class="path-separator">
 
-        <table>
-            <thead>
-                <th>Email</th>
-                <th>Messaggio</th>
-            </thead>
-            <tbody>
-                @foreach ($apartment->messages as $messaggio)
-                <tr>
-                    <td><a href="mailto: {{$messaggio->email_mittente}}" class=""></a></td>
-                    <td>{{$messaggio->corpo}}</td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
+        @if ($apartment->messages->count() == 0)
+            <div class="badge badge-danger">
+                Non hai ancora ricevuto messaggi
+            </div>
+                    
+        @else
+            <table>
+                <thead>
+                    <th>Email</th>
+                    <th>Messaggio</th>
+                </thead>
+                <tbody>
+                    
+                        @foreach ($apartment->messages as $messaggio)
+                        <tr>
+                            <td><a href="mailto: {{$messaggio->email_mittente}}" class=""></a></td>
+                            <td>{{$messaggio->corpo}}</td>
+                        </tr>
+                        @endforeach
+                </tbody>
+            </table>
+        @endif
     </div>            
 </section>
 @endsection
