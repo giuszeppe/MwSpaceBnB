@@ -21,9 +21,7 @@ Route::get('/search', function () {
     return view('search');
 })->name('search');
 
-Route::get('/detail', function () {
-    return view('appartamenti.detail');
-})->name('detail');
+
 
 
 
@@ -34,3 +32,4 @@ Route::get('/stats/stat', function () {
 
 Auth::routes();
 Route::resource('apartment', ApartmentController::class);
+Route::get('/apartment/{apartment}/stat',[ApartmentController::class,'stat'])->name('apartment.stat');

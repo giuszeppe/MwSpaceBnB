@@ -79,7 +79,7 @@ class ApartmentController extends Controller
      */
     public function show(Apartment $apartment)
     {
-        //
+        return view('appartamenti.detail',compact('apartment'));
     }
 
     /**
@@ -140,5 +140,9 @@ class ApartmentController extends Controller
     {
         $apartment->delete();
         return redirect()->route('apartment.index')->with('message', 'Apartment deleted successfull');
+    }
+    public function stat(Apartment $apartment)
+    {
+        return view('appartamenti.stats.stat',compact('apartment'));
     }
 }

@@ -10,7 +10,7 @@
         
         <div class="col">
             <div class="d-flex flex-row justify-content-between">
-                <h3>{{$apartment->title}}</h3>
+                <h3><a href="{{route('apartment.show',$apartment->id)}}" class="">{{$apartment->title}}</a></h3>
                 <div class="btn-wrapper">
                     <span class="btn btn-danger" onclick="event.preventDefault();document.getElementById('deleteForm{{$apartment->id}}').submit()">
                         <i class="fa fa-trash" aria-hidden="true"></i>
@@ -45,11 +45,11 @@
                 <div class="col d-flex flex-row justify-content-around ">
                     <div class="rb-action d-flex flex-column flex-sm-row justify-content-between px-5 mb-4 mb-sm-0">
                         <span class="text-wrap">
-                            <a href="#">22 visite</a>
+                            <a href="{{route('apartment.stat',$apartment->id)}}">22 visite</a>
                         </span>
-                        <span class="text-wrap"><a href="#">{{$apartment->messages->count()}} {{$apartment->messages->count() > 1 || $apartment->messages->count() == 0 ? "messaggi" : "messaggio"}}</a></span>
+                        <span class="text-wrap"><a href="{{route('apartment.stat',$apartment->id)}}">{{$apartment->messages->count()}} {{$apartment->messages->count() > 1 || $apartment->messages->count() == 0 ? "messaggi" : "messaggio"}}</a></span>
                     </div>
-                        <x-button link="{!! route('stat') !!}" message="STATISTICHE"> </x-button>
+                        <x-button link="{{ route('apartment.stat',$apartment->id) }}" message="STATISTICHE"> </x-button>
                 </div>
             </div>
         </div>

@@ -5,70 +5,8 @@
     SEARCH BAR START
 
 -->
-<section class="tg-sectionspace" style="padding-bottom:30px">
-    <div class="container">
-        <div class="row">
-            <form class="tg-formtheme tg-formtrip">
-                <fieldset class="search-form-wrapper">
-                    <div class="form-group">
-                        <div class="tg-input">
-                            <input
-                                type="text"
-                                name="address"
-                                class="tg-input-text"
-                                placeholder="Dove vuoi alloggiare?"
-                            />
-                        </div>
-                    </div>
-        
-                    <div class="form-group">
-                        <div class="tg-select">
-                            <select
-                                class="selectpicker"
-                                data-live-search="true"
-                                data-width="100%"
-                            >
-                                <option data-tokens="adul>ti">Adulti</option>
-                                <option data-tokens="2 persone">
-                                    2 persone
-                                </option>
-                                <option data-tokens="3 persone">
-                                    3 persone
-                                </option>
-                                <option data-tokens="4 persone">
-                                    4 persone
-                                </option>
-                                <option data-tokens="5 persone">
-                                    5 persone
-                                </option>
-                                <option data-tokens="6 persone">
-                                    6 persone
-                                </option>
-                                <option data-tokens="7 persone">
-                                    7 persone
-                                </option>
-                                <option data-tokens="8 persone">
-                                    8 persone
-                                </option>
-                                <option data-tokens="9 persone">
-                                    9 persone
-                                </option>
-                                <option data-tokens="10 persone">
-                                    10 persone
-                                </option>
-                            </select>
-                        </div>
-                    </div>
-                    <div id="tg-search-submit">
-                        <button class="tg-btn" type="submit">
-                            <span>find tours</span>
-                        </button>
-                    </div>
-                </fieldset>
-            </form>
-        </div>
-    </div>
-</section>
+
+<x-searchbar> </x-searchbar>
 
 <!--
 
@@ -87,11 +25,13 @@
         <div class="row">
             <div class="appartment-header">
                 <div class="appartment-title">
-                    <h1 class="m-0 p-0">Appartamento</h1>
+                    <h1 class="m-0 p-0">{{$apartment->title}}</h1>
                 </div>
                 <div class="appartment-address d-flex flex-row align-items-center justify-content-between">
-                    <span>VIA XX SETTEMBRE, 10 - <strong>Montaleghe(TO)</strong></span>
-                    <x-button link="#"> </x-button>
+                    <span>{{$apartment->indirizzo}}</span>
+
+                    <!-- Contact button-->
+                    <x-button link="#submitButton"></x-button>
                 </div>
             </div>
             
@@ -99,32 +39,22 @@
         </div>
         <div class="row">
             <div class="col-sm-6 col-xs-12">
-                <img src="/images/img-01.jpg" alt="immagine rappresentativa appartamento" class="detail-img ml-2">
+                <img src="{{$apartment->immagine}}" alt="immagine rappresentativa appartamento" class="detail-img ml-2">
             </div>
             <div class="col-sm-6 col-xs-12">
                 <ul>
-                    <li>Numero di stanze: 3</li>
-                    <li>Numero di posti letto: 8 </li>
-                    <li>Numero di bagni: 2</li>
-                    <li>Indirizzo: Via della pescara</li>
-                    <li>Metri quadrati: 60mq</li>
+                    <li>Numero di stanze: {{$apartment->numero_stanze}}</li>
+                    <li>Numero di posti letto: {{$apartment->numero_letti}} </li>
+                    <li>Numero di bagni: {{$apartment->numero_bagni}}</li>
+                    <li>Indirizzo: {{$apartment->indirizzo}}</li>
+                    <li>Metri quadrati: {{$apartment->metri_quadrati}}</li>
                     <li class="servizi-aggiuntivi">Servizi aggiuntivi:
-                        <div>
-                            <i class="fa fa-check" aria-hidden="true"></i>
-                            Wi-Fi
-                        </div>
-                        <div>
-                            <i class="fa fa-check" aria-hidden="true"></i>
-                            Riscaldamento
-                        </div>
-                        <div>
-                            <i class="fa fa-check" aria-hidden="true"></i>
-                            Parcheggio coperto
-                        </div>
-                        <div>
-                            <i class="fa fa-check" aria-hidden="true"></i>
-                            Piscina
-                        </div>
+                        @foreach (explode(',',$apartment->servizi_aggiuntivi) as $servizio)
+                            <div>
+                                <i class="fa fa-check" aria-hidden="true"></i>
+                                {{$servizio}}
+                            </div> 
+                        @endforeach
                     </li>
                 </ul>
             </div>
@@ -146,7 +76,7 @@
                         <label for="exampleFormControlTextarea1">Messaggio</label>
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="message_text"></textarea>
                     </div>
-                    <input class="btn btn-warning btn-lg" type="submit" value="Invia messaggio">
+                    <input class="btn btn-warning btn-lg" type="submit" value="Invia messaggio" id="submitButton">
                 </form>
             </div>
         </div>

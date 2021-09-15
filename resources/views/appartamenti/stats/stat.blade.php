@@ -15,10 +15,10 @@
     <div class="container-fluid" id="myContainer">
             <div class="appartment-header">
                 <div class="appartment-title">
-                    <h1 class="m-0 p-0"><a href="{{route('detail')}}">Appartamento</a></h1>
+                    <h1 class="m-0 p-0"><a href="{{route('apartment.show',$apartment->id)}}">{{$apartment->title}}</a></h1>
                 </div>
                 <div class="appartment-address d-flex flex-row align-items-center justify-content-between">
-                    <span>VIA XX SETTEMBRE, 10 - <strong>Montaleghe(TO)</strong></span>
+                    <span>{{$apartment->indirizzo}}</span>
                 </div>
             </div>
             
@@ -30,22 +30,12 @@
                 <th>Messaggio</th>
             </thead>
             <tbody>
-                <tr> 
-                    <td> <a href="mailto: email@example.com"> email@example.com </a> </td>
-                    <td>Vorrei saperne di più...</td>
+                @foreach ($apartment->messages as $messaggio)
+                <tr>
+                    <td><a href="mailto: {{$messaggio->email_mittente}}" class=""></a></td>
+                    <td>{{$messaggio->corpo}}</td>
                 </tr>
-                <tr> 
-                    <td> <a href="mailto: email@example.com"> email@example.com </a> </td>
-                    <td>Vorrei saperne di più...</td>
-                </tr>
-                <tr> 
-                    <td> <a href="mailto: email@example.com"> email@example.com </a> </td>
-                    <td>Vorrei saperne di più...</td>
-                </tr>
-                <tr> 
-                    <td> <a href="mailto: email@example.com"> email@example.com </a> </td>
-                    <td>Vorrei saperne di più...</td>
-                </tr>
+                @endforeach
             </tbody>
         </table>
     </div>            
