@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Apartment;
+use App\Models\Message;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -156,5 +157,15 @@ class ApartmentController extends Controller
     public function stat(Apartment $apartment)
     {
         return view('appartamenti.stats.stat',compact('apartment'));
+    }
+
+    public function message(Request $request, Apartment $apartment)
+    {
+        $validated = $request->validate([
+            'email_mittente' => "required|email|string|max:255",
+            'corpo' => "required|string"
+        ]);
+        $apartment->messages()->create($validated);
+        return back()->with('success','Messaggio inviato');
     }
 }
