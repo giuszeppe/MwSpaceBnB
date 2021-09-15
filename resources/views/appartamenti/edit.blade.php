@@ -116,6 +116,15 @@
                             </ul>
                         </div>
                     </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="active" class="mb-1">Attivo</label>
+                            <input type="checkbox" {{$apartment->active == 1 ? "checked" : ""}} data-toggle="toggle" data-size="md" name="active">
+                        </div>
+                        
+                    </div>
+
                     <div class="form-row">
                             <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6 mx-0 px-0">
                                 <input class="form-control" type="submit" id="formSubmit" value="Applica modifiche">

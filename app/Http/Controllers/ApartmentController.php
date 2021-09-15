@@ -111,11 +111,14 @@ class ApartmentController extends Controller
             'indirizzo' => 'string|max:255',
             'immagine' => 'image|mimes:png,jpg|max:1024',
             'servizi' => "array",
-            'servizi.*' => 'string|distinct|max:255'
+            'servizi.*' => 'string|distinct|max:255',
+            'active' => ""
         ]);
         if(array_key_exists('servizi',$validated)){
             $validated['servizi_aggiuntivi'] = implode(',',$validated['servizi']);
         }
+        $validated['active'] = array_key_exists('active',$validated) ? 1 : 0;
+
         if ($request->hasFile('immagine')) {
             if ($request->file('immagine')->isValid()) {
                 $extension = $request->file('immagine')->extension();

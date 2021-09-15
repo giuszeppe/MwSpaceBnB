@@ -19,7 +19,7 @@
                         <i class="fa fa-pencil" aria-hidden="true"></i>
                     </a>
                     <form action="{{route('apartment.destroy',$apartment->id)}}" style="display:none" id="deleteForm{{$apartment->id}}" method="POST">@csrf @method('DELETE')</form>
-                    <input type="checkbox" checked data-toggle="toggle" data-size="md">
+                    <span class="badge @if($apartment->active == 1)badge-success @else badge-danger @endif">{{$apartment->active==1 ? "on" : "off"}}</span>
                 </div>
             </div>
             <div class="row">
