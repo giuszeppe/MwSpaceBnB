@@ -7,7 +7,7 @@
 -->
 
 <x-searchbar> </x-searchbar>
-
+<x-alert> </x-alert>
 <!--
 
     SEARCH BAR END

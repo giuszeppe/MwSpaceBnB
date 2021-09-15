@@ -2,6 +2,7 @@
 
 @section('content')
 
+    <x-alert> </x-alert>
     </section>
     <!--************************************
 			 Home Slider Start
