@@ -66,7 +66,7 @@ class ApartmentController extends Controller
                     'immagine' => Storage::url('apartmentImage/' . $apartment_id . '.' . $extension),
                     'servizi_aggiuntivi' => implode(',', $validated['servizi'])
                 ]);
-                return redirect()->route('apartment.index')->with('success', 'Apartment Created');
+                return redirect()->route('apartment.index')->with(['type'=> 'success', 'message' => 'Appartamento creato']);
             }
         }
         abort(500);
@@ -142,7 +142,7 @@ class ApartmentController extends Controller
             }
         }
         $apartment->update($validated);
-        return redirect()->route('apartment.index')->with('success', 'Apartment Updated');
+        return redirect()->route('apartment.index')->with(['type' => 'success', 'message' => 'Appartamento aggiornato']);
     }
 
     /**
@@ -154,7 +154,7 @@ class ApartmentController extends Controller
     public function destroy(Apartment $apartment)
     {
         $apartment->delete();
-        return redirect()->route('apartment.index')->with('message', 'Apartment deleted successfull');
+        return redirect()->route('apartment.index')->with(['type'=>'message', 'message'=>'Appartamento eliminato con successo']);
     }
     public function stat(Apartment $apartment)
     {
@@ -168,6 +168,6 @@ class ApartmentController extends Controller
             'corpo' => "required|string"
         ]);
         $apartment->messages()->create($validated);
-        return back()->with('success','Messaggio inviato');
+        return back()->with(['type'=>'success','message'=>'Messaggio inviato']);
     }
 }
