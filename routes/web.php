@@ -17,9 +17,8 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', function () {
     return view('homepage');
 })->name('home');
-Route::get('/search', function () {
-    return view('search');
-})->name('search');
+Route::get('/search', [ApartmentController::class, 'getSearch'])->name('getSearch');
+Route::post('/search', [ApartmentController::class, 'postSearch'])->name('postSearch');
 
 
 
@@ -32,5 +31,5 @@ Route::get('/stats/stat', function () {
 
 Auth::routes();
 Route::resource('apartment', ApartmentController::class);
-Route::get('/apartment/{apartment}/message',[ApartmentController::class,'message'])->name('message.send');
-Route::get('/apartment/{apartment}/stat',[ApartmentController::class,'stat'])->name('apartment.stat');
+Route::get('/apartment/{apartment}/message', [ApartmentController::class, 'message'])->name('message.send');
+Route::get('/apartment/{apartment}/stat', [ApartmentController::class, 'stat'])->name('apartment.stat');

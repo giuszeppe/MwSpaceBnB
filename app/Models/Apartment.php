@@ -31,6 +31,6 @@ class Apartment extends Model
     }
     public function visitors()
     {
-        return $this->belongsToMany(User::class);    
+        return $this->belongsToMany(User::class);
     }
 }
