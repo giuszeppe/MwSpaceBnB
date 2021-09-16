@@ -96,7 +96,7 @@
                         </a>
                     </li> 
                     <li><a href="{{route('apartment.index')}}">I tuoi appartamenti</a></li>
-                    <li><a href="{{route('search')}}">Cerca</a></li>
+                    <li><a href="{{route('getSearch')}}">Cerca</a></li>
                 @endauth
                 @guest
                     <li><a href="{{route('register')}}">Registrati</a></li>
@@ -237,7 +237,7 @@
                                                     </a>
                                                 </li>
                                                 <li class="menu-item-has-childer current-menu-item">
-                                                    <a href="{{route('search')}}">
+                                                    <a href="{{route('getSearch')}}">
                                                         Cerca
                                                     </a>
                                                 </li>
