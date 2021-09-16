@@ -7,6 +7,7 @@ use App\Models\Message;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class ApartmentController extends Controller
@@ -53,7 +54,7 @@ class ApartmentController extends Controller
                     'servizi' => "array",
                     'servizi.*' => 'string|distinct|max:255'
                 ]);
-                if(!array_key_exists('servizi',$validated)){
+                if (!array_key_exists('servizi', $validated)) {
                     $validated['servizi'] = [];
                 }
                 $extension = $request->file('immagine')->extension();
@@ -66,7 +67,7 @@ class ApartmentController extends Controller
                     'immagine' => Storage::url('apartmentImage/' . $apartment_id . '.' . $extension),
                     'servizi_aggiuntivi' => implode(',', $validated['servizi'])
                 ]);
-                return redirect()->route('apartment.index')->with(['type'=> 'success', 'message' => 'Appartamento creato']);
+                return redirect()->route('apartment.index')->with(['type' => 'success', 'message' => 'Appartamento creato']);
             }
         }
         abort(500);
@@ -81,20 +82,19 @@ class ApartmentController extends Controller
     public function show(Apartment $apartment)
     {
         $user = auth()->user();
-        if($user != null){
-            if($apartment->visitors->count() == 0){
+        if ($user != null) {
+            if ($apartment->visitors->count() == 0) {
                 $user->visited()->attach($apartment->id);
             }
-            foreach($apartment->visitors as $visitor){
-                if($user->id == $visitor->id){
+            foreach ($apartment->visitors as $visitor) {
+                if ($user->id == $visitor->id) {
                     break;
-                }
-                else{
+                } else {
                     $user->visited()->attach($apartment->id);
                 }
             }
         }
-        return view('appartamenti.detail',compact('apartment'));
+        return view('appartamenti.detail', compact('apartment'));
     }
 
     /**
@@ -129,16 +129,16 @@ class ApartmentController extends Controller
             'servizi.*' => 'string|distinct|max:255',
             'active' => ""
         ]);
-        if(array_key_exists('servizi',$validated)){
-            $validated['servizi_aggiuntivi'] = implode(',',$validated['servizi']);
+        if (array_key_exists('servizi', $validated)) {
+            $validated['servizi_aggiuntivi'] = implode(',', $validated['servizi']);
         }
-        $validated['active'] = array_key_exists('active',$validated) ? 1 : 0;
+        $validated['active'] = array_key_exists('active', $validated) ? 1 : 0;
 
         if ($request->hasFile('immagine')) {
             if ($request->file('immagine')->isValid()) {
                 $extension = $request->file('immagine')->extension();
                 $request->file('immagine')->storeAs('public/apartmentImage',  $apartment->id . '.' . $extension);
-                $validated['immagine'] = Storage::url('apartmentImage/'. $apartment->id . '.' . $extension);
+                $validated['immagine'] = Storage::url('apartmentImage/' . $apartment->id . '.' . $extension);
             }
         }
         $apartment->update($validated);
@@ -154,11 +154,11 @@ class ApartmentController extends Controller
     public function destroy(Apartment $apartment)
     {
         $apartment->delete();
-        return redirect()->route('apartment.index')->with(['type'=>'message', 'message'=>'Appartamento eliminato con successo']);
+        return redirect()->route('apartment.index')->with(['type' => 'message', 'message' => 'Appartamento eliminato con successo']);
     }
     public function stat(Apartment $apartment)
     {
-        return view('appartamenti.stats.stat',compact('apartment'));
+        return view('appartamenti.stats.stat', compact('apartment'));
     }
 
     public function message(Request $request, Apartment $apartment)
@@ -168,6 +168,59 @@ class ApartmentController extends Controller
             'corpo' => "required|string"
         ]);
         $apartment->messages()->create($validated);
-        return back()->with(['type'=>'success','message'=>'Messaggio inviato']);
+        return back()->with(['type' => 'success', 'message' => 'Messaggio inviato']);
+    }
+    public function postSearch(Request $request)
+    {
+        $order = null;
+
+        $validated = $request->validate([
+            'title' => 'string|max:255|nullable',
+            'numero_bagni' => 'numeric|gt:0|nullable',
+            'numero_letti' => 'numeric|gt:0|nullable',
+            'numero_stanze' => 'numeric|gt:0|nullable',
+            'metri_quadrati' => 'numeric|gt:0|nullable',
+            'servizi' => '',
+            'order' => 'string|nullable'
+        ]);
+        $condArray = [];
+        foreach (array_keys($validated) as $key) {
+            $value = $validated[$key];
+            if (explode('_', $key)[0] == "numero" || explode('_', $key)[0] == 'metri') {
+                if ($validated[$key] != null) {
+                    $condArray[] = [$key, '>=', $validated[$key]];
+                }
+            }
+            if ($key == "servizi") {
+                foreach ($validated[$key] as $servizio) {
+                    $condArray[] = ['servizi_aggiuntivi', 'like', '%' . $servizio . "%"];
+                }
+            }
+        }
+
+        if ($validated['title'] != null)
+            $condArray[] = ['title', 'like', '%' . $validated['title'] . "%"];
+
+        $condArray[] = ['active', '=', 1];
+
+        if ($validated['order'] != null) {
+            $order = $validated['order'];
+            $explodedOrder = explode('_', $order);
+            $orderBy = $explodedOrder[0] . '_' . $explodedOrder[1];
+            $verso = $explodedOrder[2];
+            $apartments = Apartment::where($condArray)->orderBy($orderBy, $verso)->get();
+        } else {
+            $apartments = Apartment::where($condArray)->get();
+        }
+        $request->session()->flashInput($validated);
+        $servizi = DB::table('servizi')->get();
+        return view('search', compact('servizi', 'apartments', 'order'));
+    }
+    public function getSearch()
+    {
+        $apartments = Apartment::where('active', 1)->take(5)->get();
+        $servizi = DB::table('servizi')->get();
+        $order = "";
+        return view('search', compact('servizi', 'apartments', 'order'));
     }
 }
