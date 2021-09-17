@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ApartmentController;
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 /*
@@ -26,6 +27,10 @@ Route::resource('apartment', ApartmentController::class)->middleware('own');
 Route::get('/apartment/{apartment}/message', [ApartmentController::class, 'message'])->name('message.send');
 Route::get('/apartment/{apartment}/stat', [ApartmentController::class, 'stat'])->middleware('own')->name('apartment.stat');
 Route::get('apartment/{apartment}', [ApartmentController::class, 'show'])->name('apartment.show');
-Route::get('apartment/', [ApartmentController::class, 'index'])->name('apartment.index');
-Route::get('apartment/create', [ApartmentController::class, 'create'])->name('apartment.create');
-Route::get('apartment/store', [ApartmentController::class, 'store'])->name('apartment.store');
+
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('apartment/', [ApartmentController::class, 'index'])->name('apartment.index')->middleware('auth');
+    Route::get('apartment/create', [ApartmentController::class, 'create'])->name('apartment.create');
+    Route::post('apartment', [ApartmentController::class, 'store'])->name('apartment.store');
+});
