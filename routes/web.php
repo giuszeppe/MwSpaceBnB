@@ -15,9 +15,7 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('homepage');
-})->name('home');
+Route::get('/', [ApartmentController::class, 'home'])->name('home');
 Route::get('/search', [ApartmentController::class, 'getSearch'])->name('getSearch');
 Route::post('/search', [ApartmentController::class, 'postSearch'])->name('postSearch');
 
