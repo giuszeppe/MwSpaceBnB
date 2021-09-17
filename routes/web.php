@@ -15,16 +15,20 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
+Auth::routes();
+
+
 Route::get('/', [ApartmentController::class, 'home'])->name('home');
 Route::get('/search', [ApartmentController::class, 'getSearch'])->name('getSearch');
 Route::post('/search', [ApartmentController::class, 'postSearch'])->name('postSearch');
 
 
-Auth::routes();
 Route::resource('apartment', ApartmentController::class)->middleware('own');
-Route::get('/apartment/{apartment}/message', [ApartmentController::class, 'message'])->name('message.send');
 Route::get('/apartment/{apartment}/stat', [ApartmentController::class, 'stat'])->middleware('own')->name('apartment.stat');
+
 Route::get('apartment/{apartment}', [ApartmentController::class, 'show'])->name('apartment.show');
+Route::get('/apartment/{apartment}/message', [ApartmentController::class, 'message'])->name('message.send');
+
 
 
 Route::group(['middleware' => 'auth'], function () {
