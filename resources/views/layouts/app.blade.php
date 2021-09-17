@@ -96,8 +96,8 @@
                         </a>
                     </li> 
                     <li><a href="{{route('apartment.index')}}">I tuoi appartamenti</a></li>
-                    <li><a href="{{route('getSearch')}}">Cerca</a></li>
                 @endauth
+                    <li><a href="{{route('getSearch')}}">Cerca</a></li>
                 @guest
                     <li><a href="{{route('register')}}">Registrati</a></li>
                     <li><a href="{{route('login')}}">Login</a></li>
@@ -236,13 +236,13 @@
                                                         I tuoi appartamenti
                                                     </a>
                                                 </li>
+
+                                            @endauth
                                                 <li class="menu-item-has-childer current-menu-item">
                                                     <a href="{{route('getSearch')}}">
                                                         Cerca
                                                     </a>
                                                 </li>
-
-                                            @endauth
 
                                         </ul>
                                     </div>
