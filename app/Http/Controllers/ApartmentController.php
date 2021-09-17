@@ -17,6 +17,14 @@ class ApartmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function home()
+    {
+        $apartments = Apartment::query()
+            ->orderBy('created_at', 'desc')
+            ->take(4)
+            ->get();
+        return view('homepage', compact('apartments'));
+    }
     public function index()
     {
         $apartments = auth()->user()->apartments;
