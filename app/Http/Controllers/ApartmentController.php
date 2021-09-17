@@ -30,7 +30,8 @@ class ApartmentController extends Controller
      */
     public function create()
     {
-        return view('appartamenti.create');
+        $servizi = DB::table('servizi')->get();
+        return view('appartamenti.create', compact("servizi"));
     }
 
     /**
@@ -52,11 +53,15 @@ class ApartmentController extends Controller
                     'indirizzo' => 'required|string|max:255',
                     'immagine' => 'required|image|mimes:png,jpg|max:1024',
                     'servizi' => "array",
-                    'servizi.*' => 'string|distinct|max:255'
+                    'servizi.*' => 'string|distinct|max:255',
+                    'serviziDefault' => 'array',
+                    'serviziDefault.*' => 'string|distinct|max:255'
                 ]);
                 if (!array_key_exists('servizi', $validated)) {
                     $validated['servizi'] = [];
                 }
+                $validated['serviziDefault'] = !array_key_exists('serviziDefault', $validated) ? [] : $validated['serviziDefault'];
+
                 $extension = $request->file('immagine')->extension();
                 auth()->user()->apartments()->create($validated);
                 $apartment_id = auth()->user()->apartments()->orderByDesc('created_at')->first()->id;
@@ -65,7 +70,7 @@ class ApartmentController extends Controller
 
                 $new_apartment->update([
                     'immagine' => Storage::url('apartmentImage/' . $apartment_id . '.' . $extension),
-                    'servizi_aggiuntivi' => implode(',', $validated['servizi'])
+                    'servizi_aggiuntivi' => implode(',', array_merge($validated['servizi'], $validated['serviziDefault']))
                 ]);
                 return redirect()->route('apartment.index')->with(['type' => 'success', 'message' => 'Appartamento creato']);
             }
@@ -105,7 +110,12 @@ class ApartmentController extends Controller
      */
     public function edit(Apartment $apartment)
     {
-        return view('appartamenti.edit', compact('apartment'));
+        $serviziColl = DB::table('servizi')->get();
+        $servizi = [];
+        foreach ($serviziColl as $servizio) {
+            $servizi[] = $servizio->nome_servizio;
+        }
+        return view('appartamenti.edit', compact('apartment', 'servizi'));
     }
 
     /**
@@ -127,11 +137,19 @@ class ApartmentController extends Controller
             'immagine' => 'image|mimes:png,jpg|max:1024',
             'servizi' => "array",
             'servizi.*' => 'string|distinct|max:255',
-            'active' => ""
+            'active' => "",
+            'serviziDefault' => 'array',
+            'serviziDefault.*' => 'string|distinct|max:255'
         ]);
+        $validated['servizi_aggiuntivi'] = [];
         if (array_key_exists('servizi', $validated)) {
-            $validated['servizi_aggiuntivi'] = implode(',', $validated['servizi']);
+            $validated['servizi_aggiuntivi'] = $validated['servizi'];
         }
+        if (array_key_exists('serviziDefault', $validated)) {
+            $validated['servizi_aggiuntivi'] = array_merge($validated['servizi_aggiuntivi'], $validated['serviziDefault']);
+        }
+        $validated['servizi_aggiuntivi'] = implode(',', $validated['servizi_aggiuntivi']);
+
         $validated['active'] = array_key_exists('active', $validated) ? 1 : 0;
 
         if ($request->hasFile('immagine')) {

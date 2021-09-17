@@ -89,6 +89,17 @@
                         </div>
                     </div>
                     <div class="form-row">
+                        <div class="form-group d-flex flex-row ">
+                            @foreach ($servizi as $servizio)
+                                @if($loop->index % 4 == 0) <?php $offset = 0 ?> <span class="d-flex flex-column mr-4"> @endif
+                                    <?php $offset += 1 ?>
+                                    <span>
+                                        <input type="checkbox" name="serviziDefault[{{$loop->index}}]" value="{{$servizio->nome_servizio}}">
+                                        {{$servizio->nome_servizio}}
+                                    </span>
+                               @if($offset == 4) </span> @endif
+                            @endforeach
+                        </div>
                         <div class="form-group">
                             <div class="input-group">
                                 
@@ -99,6 +110,7 @@
                                     </button>
                                 </div>
                             </div>
+
                             <ul id="servizi_aggiuntivi">
                                 
                             </ul>

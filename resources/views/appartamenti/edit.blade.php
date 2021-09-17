@@ -90,6 +90,23 @@
                         </div>
                     </div>
                     <div class="form-row">
+                        <div class="form-group d-flex flex-row ">
+                            @foreach ($servizi as $servizio)
+                                @if($loop->index % 4 == 0) <?php $offset = 0 ?> <span class="d-flex flex-column mr-4"> @endif
+                                    <?php $offset += 1 ?>
+                                    <span>
+                                        <input 
+                                            type="checkbox" 
+                                            name="serviziDefault[{{$loop->index}}]" 
+                                            value="{{$servizio}}" 
+                                            @if(in_array($servizio,explode(',',$apartment->servizi_aggiuntivi))) checked @endif
+                                        >
+                                        {{$servizio}}
+
+                                    </span>
+                                @if($offset == 4) </span> @endif
+                            @endforeach
+                        </div>
                         <div class="form-group">
                             <div class="input-group">
                                 
@@ -102,15 +119,17 @@
                             </div>
                             <ul id="servizi_aggiuntivi">
                                @foreach (explode(',',$apartment->servizi_aggiuntivi) as $servizio)
-                                    <span class="span-services" id="servizio{{$loop->index}}">
-                                        <li>
-                                            {{$servizio}}
-                                        </li>
-                                        <button class="btn btn-danger btn-sm mt-2 mb-2 ml-3" name="servizio{{$loop->index}}">
-                                            <i class="fa fa-times" aria-hidden="true"></i>
-                                        </button>
-                                        <input type="hidden" name="servizi[{{$loop->index}}]" style="display:none" value="{{$servizio}}">
-                                    </span>
+                                    @if(!in_array($servizio,$servizi))
+                                        <span class="span-services" id="servizio{{$loop->index}}">
+                                            <li>
+                                                {{$servizio}}
+                                            </li>
+                                            <button class="btn btn-danger btn-sm mt-2 mb-2 ml-3" name="servizio{{$loop->index}}">
+                                                <i class="fa fa-times" aria-hidden="true"></i>
+                                            </button>
+                                            <input type="hidden" name="servizi[{{$loop->index}}]" style="display:none" value="{{$servizio}}">
+                                        </span>
+                                    @endif
                                    
                                @endforeach 
                             </ul>
