@@ -31,14 +31,7 @@
                     <div>{{$apartment->indirizzo}}</div>
                 </div>
                 <div class="col-6">
-                    @foreach (explode(',',$apartment->servizi_aggiuntivi) as $servizio)
-                        @if($servizio != '')
-                            <div>
-                                <i class="fa fa-check" aria-hidden="true"></i>
-                                {{dd($servizio)}}
-                            </div>
-                        @endif
-                    @endforeach
+                   <x-servizi-aggiuntivi :apartment="$apartment"> </x-servizi-aggiuntivi> 
  
                 </div>
             </div>

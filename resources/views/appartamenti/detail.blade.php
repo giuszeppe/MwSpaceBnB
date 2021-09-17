@@ -49,14 +49,7 @@
                     <li>Indirizzo: {{$apartment->indirizzo}}</li>
                     <li>Metri quadrati: {{$apartment->metri_quadrati}}</li>
                     <li class="servizi-aggiuntivi">Servizi aggiuntivi:
-                        @foreach (explode(',',$apartment->servizi_aggiuntivi) as $servizio)
-                            @if($servizio != '')
-                                <div>
-                                    <i class="fa fa-check" aria-hidden="true"></i>
-                                    {{$servizio}}
-                                </div> 
-                            @endif
-                        @endforeach
+                        <x-servizi-aggiuntivi :apartment="$apartment"> </x-servizi-aggiuntivi>
                     </li>
                 </ul>
             </div>
