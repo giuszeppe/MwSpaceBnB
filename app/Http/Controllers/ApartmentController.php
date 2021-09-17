@@ -228,6 +228,7 @@ class ApartmentController extends Controller
             $condArray[] = ['title', 'like', '%' . $validated['title'] . "%"];
 
         $condArray[] = ['active', '=', 1];
+        $validated['order'] = isset($validated['order']) ? $validated['order'] : null;
 
         if ($validated['order'] != null) {
             $order = $validated['order'];

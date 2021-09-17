@@ -14,13 +14,14 @@
               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <h1>Cerca il tuo appartamento</h1>
                 <h2>Ce ne sono per tutti i gusti</h2>
-            <form class="tg-formtheme tg-formtrip">
+            <form class="tg-formtheme tg-formtrip" action={{route('postSearch')}} method="POST">
+              @csrf
                 <fieldset class="search-form-wrapper">
                     <div class="form-group">
                         <div class="tg-input">
                             <input
                                 type="text"
-                                name="address"
+                                name="title"
                                 class="tg-input-text"
                                 placeholder="Dove vuoi alloggiare?"
                             />
