@@ -1211,7 +1211,7 @@ li.tg-rss a { background:#ff6600; }
 }
 .tg-formtrip .form-group {
 	margin: 0;
-	width: 30%;
+	width: 50%;
 	float: left;
 	padding: 0 5px;
 }
@@ -5388,9 +5388,85 @@ Classes for searchbar button
 	flex-direction: row;
 	
 }
-@media screen and (max-width:500px) {
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+.wrapper{
+  max-width: 100%;
+}
+.wrapper .search-input{
+  width: 100%;
+  border-radius: 5px;
+  border: #000 1px solid;
+  	background: #fff;
+  position: relative;
+}
+
+.search-input:hover{
+  border-color:#e0a800;
+
+}
+
+.wrapper .search-input.active{
+	border-radius: 5px 5px 0px 0px;
+}
+.autocom-box{
+	box-shadow:  0 0 0 1px #e0a800;
+	background: #fff;
+	z-index: 10000;
+	position: absolute;
+}
+.search-input input{
+  height: 49px;
+  width: 100%;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+}
+.search-input.active input{
+  border-radius: 5px 5px 0 0;
+}
+.search-input .autocom-box{
+  padding: 0;
+  opacity: 0;
+  pointer-events: none;
+  overflow-y: auto;
+}
+.search-input.active .autocom-box{
+  padding: 10px 8px;
+  width: 100%;
+  max-height: 400px;
+  opacity: 1;
+  pointer-events: auto;
+}
+.autocom-box li{
+  list-style: none;
+  padding: 8px 12px;
+  display: none;
+  width: 100%;
+  cursor: default;
+  border-radius: 3px;
+  color:black;
+  text-align: left;
+}
+
+.search-input.active .autocom-box li{
+  display: block;
+}
+.autocom-box li:hover{
+  background: #efefef;
+}
+
+
+@media screen and (max-width:576px) {
 	.appartment-title>h1{
 		font-size:8vw
+	}
+	.search-form-wrapper{
+		flex-direction:column;
+	}
+	.search-input{
+		width:100% !important;
 	}
 }
 @media screen and (max-width:992px) {
