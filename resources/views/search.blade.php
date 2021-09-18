@@ -47,7 +47,12 @@
             <div class="col-xs-12 col-sm-4">
 
                     <div class="form-group bg-light p-5">
-                        
+                                                
+                        <div class="filtri-row">
+                            <div class="filtri-label">Titolo appartamento</div>
+                            <div class="filtri-limit"><input type="text" name="title" form="searchForm" class="form-control" value={{old('title')}}></div>
+                        </div>
+
                         <div class="filtri-row">
                             <div class="filtri-label">Numero minimo di stanze</div>
                             <div class="filtri-limit"><input type="number" name="numero_stanze" form="searchForm" class="form-control" value={{old('numero_stanze')}}></div>

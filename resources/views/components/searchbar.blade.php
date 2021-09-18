@@ -1,3 +1,4 @@
+
 <section class="tg-sectionspace" style="padding-bottom:30px">
     <div class="container">
         <div class="row">
@@ -5,13 +6,13 @@
                 @csrf
                 <fieldset class="search-form-wrapper">
                     <div class="form-group">
-                        <div class="tg-input">
-                            <input
-                                type="text"
-                                name="title"
-                                class="tg-input-text"
-                                placeholder="Dove vuoi alloggiare?"
-                            />
+                        <div class="wrapper">
+                            <div class="search-input">
+                                <input type="text" placeholder="Indirizzo..." id="search-box">
+                                <div class="autocom-box">
+                                    <!-- here list are inserted from javascript -->
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div id="tg-search-submit">
@@ -24,4 +25,3 @@
         </div>
     </div>
 </section>
-
