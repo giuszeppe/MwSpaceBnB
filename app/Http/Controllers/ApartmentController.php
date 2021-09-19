@@ -6,7 +6,6 @@ use App\Models\Apartment;
 use App\Models\Message;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
@@ -59,11 +58,13 @@ class ApartmentController extends Controller
                     'numero_letti' => 'required|numeric|gt:0',
                     'metri_quadrati' => 'required|numeric|gt:0',
                     'indirizzo' => 'required|string|max:255',
-                    'immagine' => 'required|image|mimes:png,jpg|max:1024',
+                    'immagine' => 'required|image|mimes:png,jpg|max:5000',
                     'servizi' => "array",
                     'servizi.*' => 'string|distinct|max:255',
                     'serviziDefault' => 'array',
-                    'serviziDefault.*' => 'string|distinct|max:255'
+                    'serviziDefault.*' => 'string|distinct|max:255',
+                    'latitude' => 'numeric|nullable',
+                    'longitude' => 'numeric|nullable',
                 ]);
                 if (!array_key_exists('servizi', $validated)) {
                     $validated['servizi'] = [];
@@ -142,6 +143,8 @@ class ApartmentController extends Controller
             'numero_letti' => 'numeric|gt:0',
             'metri_quadrati' => 'numeric|gt:0',
             'indirizzo' => 'string|max:255',
+            'latitude' => 'numeric',
+            'longitude' => 'numeric',
             'immagine' => 'image|mimes:png,jpg|max:1024',
             'servizi' => "array",
             'servizi.*' => 'string|distinct|max:255',
@@ -179,6 +182,8 @@ class ApartmentController extends Controller
      */
     public function destroy(Apartment $apartment)
     {
+
+        Storage::delete('public/apartmentImage/' . explode('/',$apartment->immagine)[3]);
         $apartment->delete();
         return redirect()->route('apartment.index')->with(['type' => 'success', 'message' => 'Appartamento eliminato con successo']);
     }
