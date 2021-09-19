@@ -17,28 +17,48 @@ $(document).mouseup(function(e)
     }
 });
 
+function place_if_exist(prop) {
+  if (prop != undefined) return ', ' + prop;
+  else return '';
+}
+
 $("#search-box").keyup(function() {
   $.ajax({
     type: "GET",
-    url: "https://photon.komoot.io/api/?q=" + $("#search-box").val(),
+    url: "https://photon.komoot.io/api/?q=" + $("#search-box").val() + "&lang=it" ,
 
     success: function(results) {
+      suggBox.innerHTML = "";
+      console.log(results);
 
-      var aList = results.features;
-      var aOptions = [];
-      let htmlVal = '';
+      let aList = results.features;
+      
       for (i = 0; i < aList.length; i++) {
         let elem = document.createElement('span');
-        optKey = aList[i].geometry.coordinates[0] + ',' + aList[i].geometry.coordinates[1];
-        optLabel = aList[i].properties.name + ', ' + aList[i].properties.city + ', ' + aList[i].properties.postcode;
-        aOptions.push({
-          "value": optKey,
-          "label": optLabel
-        });
-        let li = document.createElement('li')
-        li.innerHTML = `${optLabel}`;
+        prop = aList[i].properties; 
+        /*if(prop.osm_value == "country" ){ 
+        optLabel = prop.country + ', ' + prop.countrycode;
+        } else if(prop.osm_value == "city" || prop.osm_value == "administrative" ){
+          optLabel = prop.name + ', ' +  prop.state + ', ' + prop.country + ' ' + prop.countrycode; 
+        } else if (prop.osm_value == "locality") {
+          optLabel = prop.name + ', ' + prop.country + ' ' + prop.countrycode;
+        } else if (prop.osm_value == 'village') {
+          optLabel = prop.name + ', ' + prop.county + ', ' + prop.country + ' ' + prop.countrycode;
+        } else if (prop.osm_value == 'station') {
+          optLabel = prop.name + ', ' + prop.street + ', ' + prop.county + ', ' + prop.country;
+        } else {
+          optLabel = prop.name + ', ' + prop.country + ' ' + prop.countrycode;
+        }*/
 
-        elem.appendChild(li); // add each value to htmlVal
+        optLabel = prop.name + place_if_exist(prop.street) + place_if_exist(prop.district) + place_if_exist(prop.locality) + place_if_exist(prop.city) 
+        + place_if_exist(prop.county) + place_if_exist(prop.state) + place_if_exist(prop.country) + place_if_exist(prop.countrycode);
+
+        uniq = [...new Set(optLabel.split(','))].join(',');
+
+        let li = document.createElement('li')
+        li.innerHTML = `${uniq}`;
+
+        elem.appendChild(li);
         elem.setAttribute('onclick',"select(this)");
         suggBox.appendChild(elem);
         searchWrapper.classList.add('active')
@@ -49,7 +69,37 @@ $("#search-box").keyup(function() {
 
 function select(element){
     let selectData = element.textContent;
-    inputBox.value = selectData;
-    //hide autocom box
-    searchWrapper.classList.remove('active');
+
+    let parentNode = element.parentNode.parentNode;
+    let wrapperNode = document.createElement('div');
+    wrapperNode.setAttribute('id', 'coordinate');
+    wrapperNode.setAttribute('style', 'display:none');
+    console.log(parentNode);
+    $.ajax({
+      type:"GET",
+      url:"https://photon.komoot.io/api/?q=" + element.textContent + "&limit=1" + "&lang=it",
+
+      success: function (results) {
+        childNode = document.getElementById('coordinate');
+        if(childNode != undefined) parentNode.removeChild(childNode);
+        list = results.features;
+        coord = results.features[0].geometry.coordinates;
+        console.log(coord);
+        hiddenLat = document.createElement('input');
+        hiddenLong  = document.createElement('input');
+        let arr = [hiddenLong,hiddenLat];
+        arr.map((elem,index) => {
+          let name = index == 0 ? 'long' : 'lat' ;
+          elem.setAttribute('value', coord[index]);
+          elem.setAttribute('type','hidden');
+          elem.setAttribute('name',name);
+          wrapperNode.appendChild(elem)
+        });
+        parentNode.appendChild(wrapperNode);
+
+        inputBox.value = selectData;
+        //hide autocom box
+        searchWrapper.classList.remove('active');
+      }
+    })
 }
