@@ -18,7 +18,7 @@ $(document).mouseup(function(e)
 });
 
 function place_if_exist(prop) {
-  if (prop != undefined) return ', ' + prop;
+  if (prop != undefined) return ',' + prop;
   else return '';
 }
 
@@ -53,7 +53,7 @@ $("#search-box").keyup(function() {
         optLabel = prop.name + place_if_exist(prop.street) + place_if_exist(prop.district) + place_if_exist(prop.locality) + place_if_exist(prop.city) 
         + place_if_exist(prop.county) + place_if_exist(prop.state) + place_if_exist(prop.country) + place_if_exist(prop.countrycode);
 
-        uniq = [...new Set(optLabel.split(','))].join(',');
+        uniq = [...new Set(optLabel.split(','))].join(', ');
 
         let li = document.createElement('li')
         li.innerHTML = `${uniq}`;
@@ -89,10 +89,11 @@ function select(element){
         hiddenLong  = document.createElement('input');
         let arr = [hiddenLong,hiddenLat];
         arr.map((elem,index) => {
-          let name = index == 0 ? 'long' : 'lat' ;
+          let name = index == 0 ? 'longitude' : 'latitude' ;
           elem.setAttribute('value', coord[index]);
           elem.setAttribute('type','hidden');
           elem.setAttribute('name',name);
+          elem.classList.add('form-control')
           wrapperNode.appendChild(elem)
         });
         parentNode.appendChild(wrapperNode);

@@ -5411,10 +5411,13 @@ Classes for searchbar button
 }
 .autocom-box{
 	border-radius: 0px 0px 5px 5px;
-	box-shadow:  0 0 0 1px #e0a800;
+	box-shadow:  0 0 0 1px #000;
 	background: #fff;
 	z-index: 10000;
 	position: absolute;
+}
+.autocom-box:hover{
+	box-shadow: 0 0 0 1px #e0a800;
 }
 .search-input input{
   height: 49px;
@@ -5422,7 +5425,7 @@ Classes for searchbar button
   outline: none;
   border: none;
   border-radius: 5px;
-  font-size: 16px;
+  font-size: 14px;
 }
 .search-input.active input{
   border-radius: 5px 5px 0 0;
