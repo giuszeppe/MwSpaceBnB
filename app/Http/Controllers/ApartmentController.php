@@ -206,6 +206,7 @@ class ApartmentController extends Controller
         $order = null;
 
         $validated = $request->validate([
+            'indirizzo' => 'string|max:255|nullable',
             'title' => 'string|max:255|nullable',
             'numero_bagni' => 'numeric|gt:0|nullable',
             'numero_letti' => 'numeric|gt:0|nullable',
@@ -227,11 +228,13 @@ class ApartmentController extends Controller
                     $condArray[] = ['servizi_aggiuntivi', 'like', '%' . $servizio . "%"];
                 }
             }
+            if($key == 'title') {
+                $condArray[] = ['title', 'like', '%' . $validated[$key] . "%"];
+            }
+            if($key == 'indirizzo'){
+                $condArray[] = ['indirizzo', 'like', '%' . $validated[$key] . "%"];
+            }
         }
-
-        if ($validated['title'] != null)
-            $condArray[] = ['title', 'like', '%' . $validated['title'] . "%"];
-
         $condArray[] = ['active', '=', 1];
         $validated['order'] = isset($validated['order']) ? $validated['order'] : null;
 

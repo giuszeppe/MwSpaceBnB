@@ -2,7 +2,7 @@
                     <div class="form-group">
                         <div class="wrapper">
                             <div class="search-input">
-                                <input type="text" placeholder="Indirizzo..." id="search-box" name="indirizzo" class="form-control @error('indirizzo') is-invalid @enderror" required>
+                                <input type="text" placeholder="Indirizzo..." id="search-box" value={{old('indirizzo')}} name="indirizzo" class="form-control @error('indirizzo') is-invalid @enderror" required>
 
                                 <div class="autocom-box">
                                     <!-- here list are inserted from javascript -->
