@@ -207,6 +207,8 @@ class ApartmentController extends Controller
 
         $validated = $request->validate([
             'indirizzo' => 'string|max:255|nullable',
+            'latitude' => 'numeric|nullable',
+            'longitude' => 'numeric|nullable',
             'title' => 'string|max:255|nullable',
             'numero_bagni' => 'numeric|gt:0|nullable',
             'numero_letti' => 'numeric|gt:0|nullable',
@@ -249,6 +251,8 @@ class ApartmentController extends Controller
         }
         $request->session()->flashInput($validated);
         $servizi = DB::table('servizi')->get();
+        if(isset($validated['latitude']) && isset($validated['longitude']))
+            $coordinates = ['latitude' => $validated['latitude'], 'longitude' => $validated['longitude']];
         return view('search', compact('servizi', 'apartments', 'order'));
     }
     public function getSearch()

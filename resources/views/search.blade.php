@@ -1,8 +1,10 @@
 @extends('layouts.app') @section('content')
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
 
 
-<x-searchbar> </x-searchbar>
-
+<x-searchbar required="false"> </x-searchbar>
 
 <section class="tg-sectionspace tg-haslayout" style="padding-top:30px;">
     <div class="container-fluid" id="myContainer">
@@ -16,9 +18,7 @@
             <h1>MwSpaceBnB</h1>
         </div>
         <div class="row">
-            <div class="col-xs-12 col-sm-4 mb-4 mb-sm-0">
-                    <img src="/images/img-01.jpg" alt="MAPPA">
-            </div>
+            <div id="mapid" class="col-xs-12 col-sm-4 mb-4 mb-sm-0" style="height: 150px"> </div>
             <div class="col-xs-12 col-sm-8 d-flex flex-column justify-content-between">
                 <div class="container search-result bg-light pb-2">
                     <div>
@@ -140,4 +140,10 @@
         </div>
     </div>
 </section>
+
+ <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+   <script src="/js/map.js" View: /home/giuseppe/Documenti/GitHub Repo/MwSpaceBnB/resources/views/components/address-input.blade.php)
+   http://127.0.0.1:8000/ ></script>
 @endsection
