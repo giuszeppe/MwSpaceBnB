@@ -5410,6 +5410,7 @@ Classes for searchbar button
 	border-radius: 5px 5px 0px 0px;
 }
 .autocom-box{
+	border-radius: 0px 0px 5px 5px;
 	box-shadow:  0 0 0 1px #e0a800;
 	background: #fff;
 	z-index: 10000;
