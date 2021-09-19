@@ -5,7 +5,7 @@
             <form class="tg-formtheme tg-formtrip" id="searchForm" action="{{route('postSearch')}}" method="POST">
                 @csrf
                 <fieldset class="search-form-wrapper">
-                    <x-address-input> </x-address-input>
+                    <x-address-input :required="$required"> </x-address-input>
                     <div id="tg-search-submit">
                         <button class="tg-btn searchbar" type="submit">
                             <span>Trova appartamenti</span>

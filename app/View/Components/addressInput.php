@@ -11,9 +11,10 @@ class addressInput extends Component
      *
      * @return void
      */
-    public function __construct()
+    public $required;
+    public function __construct($required = "true")
     {
-        //
+        $this->required = $required;
     }
 
     /**
