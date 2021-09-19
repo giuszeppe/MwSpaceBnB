@@ -9,7 +9,7 @@
                     <div class="form-row">
                         <div class="col">
                             <label for="title">Title</label>
-                                <input id="title" type="text" name="title" class="form-control @error('title') is-invalid @enderror"  value="{{ old('title') }}" autocomplete="title" autofocus>
+                                <input id="title" type="text" name="title" class="form-control @error('title') is-invalid @enderror"  value="{{ old('title') }}" autocomplete="title" autofocus required>
 
                                 @error('title')
                                     <span class="invalid-feedback" role="alert">
@@ -69,12 +69,8 @@
                     <div class="form-row">
                         <div class="form-group">
                             <label for="indirizzo">Indirizzo</label>
-                            <input type="text" class="form-control @error('indirizzo') is-invalid @enderror" value="{{old('indirizzo')}}" id="indirizzo" name="indirizzo" required>
-                            @error('indirizzo')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
+                            <x-address-input> </x-address-input>
+
                         </div>
                     </div>
                     <div class="form-row">
