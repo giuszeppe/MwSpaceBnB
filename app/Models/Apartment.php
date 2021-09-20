@@ -18,7 +18,10 @@ class Apartment extends Model
         'indirizzo',
         'immagine',
         'servizi_aggiuntivi',
-        'active'
+        'active',
+        'latitude',
+        'longitude',
+
     ];
 
     public function user()
