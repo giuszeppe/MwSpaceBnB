@@ -183,7 +183,7 @@ class ApartmentController extends Controller
     public function destroy(Apartment $apartment)
     {
 
-        Storage::delete('public/apartmentImage/' . explode('/',$apartment->immagine)[3]);
+        Storage::delete('public/apartmentImage/' . explode('/', $apartment->immagine)[3]);
         $apartment->delete();
         return redirect()->route('apartment.index')->with(['type' => 'success', 'message' => 'Appartamento eliminato con successo']);
     }
@@ -230,10 +230,10 @@ class ApartmentController extends Controller
                     $condArray[] = ['servizi_aggiuntivi', 'like', '%' . $servizio . "%"];
                 }
             }
-            if($key == 'title') {
+            if ($key == 'title') {
                 $condArray[] = ['title', 'like', '%' . $validated[$key] . "%"];
             }
-            if($key == 'indirizzo'){
+            if ($key == 'indirizzo') {
                 $condArray[] = ['indirizzo', 'like', '%' . $validated[$key] . "%"];
             }
         }
@@ -251,15 +251,19 @@ class ApartmentController extends Controller
         }
         $request->session()->flashInput($validated);
         $servizi = DB::table('servizi')->get();
-        if(isset($validated['latitude']) && isset($validated['longitude']))
+
+        $coordinates = ['latitude' => 43.13, 'longitude' => 12.2883];
+        if (isset($validated['latitude']) && isset($validated['longitude']))
             $coordinates = ['latitude' => $validated['latitude'], 'longitude' => $validated['longitude']];
-        return view('search', compact('servizi', 'apartments', 'order'));
+
+        return view('search', compact('servizi', 'apartments', 'order', 'coordinates'));
     }
     public function getSearch()
     {
         $apartments = Apartment::where('active', 1)->take(5)->get();
         $servizi = DB::table('servizi')->get();
         $order = "";
-        return view('search', compact('servizi', 'apartments', 'order'));
+        $coordinates = ['latitude' => 43.13, 'longitude' => 12.2883];
+        return view('search', compact('servizi', 'apartments', 'order', 'coordinates'));
     }
 }
