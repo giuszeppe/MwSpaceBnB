@@ -67,17 +67,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="indirizzo">Indirizzo</label>
-                            <input type="text" class="form-control @error('indirizzo') is-invalid @enderror" value="{{old('indirizzo') ?? $apartment->indirizzo}}" id="indirizzo" name="indirizzo" >
-                            @error('indirizzo')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-                    </div>
+                    <x-address-input> </x-address-input>
                     <div class="form-row">
                         <div class="form-group">
                             <label for="formFile" class="form-label">Carica un immagine</label>
