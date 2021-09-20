@@ -19,7 +19,7 @@
             <h1>MwSpaceBnB</h1>
         </div>
         <div class="row">
-            <div id="mapid" class="col-xs-12 col-sm-4 mb-4 mb-sm-0" style="height: 150px"> </div>
+            <div id="mapid" class="col-xs-12 col-sm-4 mb-4 mb-sm-0" style="height: 200px; z-index:1"> </div>
             <div class="col-xs-12 col-sm-8 d-flex flex-column justify-content-between">
                 <div class="container search-result bg-light pb-2">
                     <div>

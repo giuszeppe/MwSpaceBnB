@@ -83,7 +83,7 @@
         </div>
         <div class="row mt-3">
             <div class="col-12">
-                <div id="mapid" style="height:500px">
+                <div id="mapid" style="height:500px; z-index:1">
 
                 </div>
             </div>
