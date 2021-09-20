@@ -2,6 +2,7 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
     integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
     crossorigin=""/>
+    
 
 
 <x-searchbar required="false"> </x-searchbar>
@@ -84,21 +85,24 @@
                         <input type="submit" class="btn btn-block btn-warning" form="searchForm">
                     </div>
             </div>
-            <div class="col-xs-12 col-sm-8" style="word-break: ">
+            <div class="col-xs-12 col-sm-8" id="result-wrapper">
                 @foreach ($apartments as $apartment)
-                        
+                
                     <div class="result-box border p-3 mb-4">
+                        <input type="hidden" name="lat" value="{{$apartment->latitude}}">
+                        <input type="hidden" name="long" value="{{$apartment->longitude}}">
+                        <input type="hidden" name="title" value="{{$apartment->title}}">
                         <div class="row rb-corpo">
                             <div class="col-sm-3 col-xs-12">
                                 <div class="result-img">
-                                    <a href="#">
+                                    <a href="">
                                         <img src="{{$apartment->immagine}}" alt="immagine rappresentativo appartamento">
                                     </a>
                                 </div>
                             </div>
 
                             <div class="col">
-                                        <h3><a href="{{route('apartment.show',$apartment->id)}}">{{$apartment->title}}</a></h3>
+                                        <h3 class="title"><a href="{{route('apartment.show',$apartment->id)}}">{{$apartment->title}}</a></h3>
                                 <div class="row">
                                     <div class="col-6">
                                         <div>{{$apartment->numero_stanze}} stanze</div>
@@ -144,5 +148,6 @@
  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
    crossorigin=""></script>
-   <script src="/js/map.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/OverlappingMarkerSpiderfier-Leaflet/0.2.6/oms.min.js"></script>
+   <script src="/js/map.js" latitude="{{$coordinates['latitude']}}" longitude="{{$coordinates['longitude']}}"> </script>
 @endsection
