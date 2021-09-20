@@ -67,7 +67,7 @@
                             </div>
                         </div>
                     </div>
-                    <x-address-input> </x-address-input>
+                    <x-address-input :value="$apartment->indirizzo" required="false"> </x-address-input>
                     <div class="form-row">
                         <div class="form-group">
                             <label for="formFile" class="form-label">Carica un immagine</label>
@@ -109,7 +109,7 @@
                             </div>
                             <ul id="servizi_aggiuntivi">
                                @foreach (explode(',',$apartment->servizi_aggiuntivi) as $servizio)
-                                    @if(!in_array($servizio,$servizi))
+                                    @if(in_array($servizio,$servizi))
                                         <span class="span-services" id="servizio{{$loop->index}}">
                                             <li>
                                                 {{$servizio}}

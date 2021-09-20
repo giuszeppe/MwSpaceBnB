@@ -137,20 +137,20 @@ class ApartmentController extends Controller
     public function update(Request $request, Apartment $apartment)
     {
         $validated = $request->validate([
-            'title' => 'string|max:255',
-            'numero_stanze' => 'numeric|gt:0',
-            'numero_bagni' => 'numeric|gt:0',
-            'numero_letti' => 'numeric|gt:0',
-            'metri_quadrati' => 'numeric|gt:0',
-            'indirizzo' => 'string|max:255',
-            'latitude' => 'numeric',
-            'longitude' => 'numeric',
-            'immagine' => 'image|mimes:png,jpg|max:1024',
-            'servizi' => "array",
-            'servizi.*' => 'string|distinct|max:255',
-            'active' => "",
-            'serviziDefault' => 'array',
-            'serviziDefault.*' => 'string|distinct|max:255'
+            'title' => 'string|max:255|nullable',
+            'numero_stanze' => 'numeric|gt:0|nullable',
+            'numero_bagni' => 'numeric|gt:0|nullable',
+            'numero_letti' => 'numeric|gt:0|nullable',
+            'metri_quadrati' => 'numeric|gt:0|nullable',
+            'indirizzo' => 'string|max:255|nullable',
+            'latitude' => 'numeric|nullable',
+            'longitude' => 'numeric|nullable',
+            'immagine' => 'image|mimes:png,jpg|max:1024|nullable',
+            'servizi' => "array|nullable",
+            'servizi.*' => 'string|distinct|max:255|nullable',
+            'active' => "nullable",
+            'serviziDefault' => 'array|nullable',
+            'serviziDefault.*' => 'string|distinct|max:255|nullable'
         ]);
         $validated['servizi_aggiuntivi'] = [];
         if (array_key_exists('servizi', $validated)) {
