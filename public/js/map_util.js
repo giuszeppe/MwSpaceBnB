@@ -29,10 +29,9 @@ $("#search-box").keyup(function() {
 
     success: function(results) {
       suggBox.innerHTML = "";
-      console.log(results);
 
       let aList = results.features;
-      
+      let seen = [];
       for (i = 0; i < aList.length; i++) {
         let elem = document.createElement('span');
         prop = aList[i].properties; 
@@ -52,16 +51,20 @@ $("#search-box").keyup(function() {
 
         optLabel = prop.name + place_if_exist(prop.street) + place_if_exist(prop.district) + place_if_exist(prop.locality) + place_if_exist(prop.city) 
         + place_if_exist(prop.county) + place_if_exist(prop.state) + place_if_exist(prop.country) + place_if_exist(prop.countrycode);
+        console.log(seen.includes(optLabel));
+        if (!seen.includes(optLabel)){
+          seen.push(optLabel);
+          uniq = [...new Set(optLabel.split(','))].join(', ');
 
-        uniq = [...new Set(optLabel.split(','))].join(', ');
 
-        let li = document.createElement('li')
-        li.innerHTML = `${uniq}`;
+          let li = document.createElement('li')
+          li.innerHTML = `${uniq}`;
 
-        elem.appendChild(li);
-        elem.setAttribute('onclick',"select(this)");
-        suggBox.appendChild(elem);
-        searchWrapper.classList.add('active')
+          elem.appendChild(li);
+          elem.setAttribute('onclick',"select(this)");
+          suggBox.appendChild(elem);
+          searchWrapper.classList.add('active')
+        }
       }
     }
   });
@@ -74,7 +77,6 @@ function select(element){
     let wrapperNode = document.createElement('div');
     wrapperNode.setAttribute('id', 'coordinate');
     wrapperNode.setAttribute('style', 'display:none');
-    console.log(parentNode);
     $.ajax({
       type:"GET",
       url:"https://photon.komoot.io/api/?q=" + element.textContent + "&limit=1" + "&lang=it",
@@ -84,7 +86,7 @@ function select(element){
         if(childNode != undefined) parentNode.removeChild(childNode);
         list = results.features;
         coord = results.features[0].geometry.coordinates;
-        console.log(coord);
+
         hiddenLat = document.createElement('input');
         hiddenLong  = document.createElement('input');
         let arr = [hiddenLong,hiddenLat];
