@@ -27,7 +27,7 @@ class ApartmentSeeder extends Seeder
             'latitude' => 0,
             'longitude' => 0,
             'id_user' => 1,
-            'servizi_aggiuntivi' => 'WiFi,Posto Auto'
+            'servizi_aggiuntivi' => 'WiFi,Posto auto'
         ]);
     }
 }
