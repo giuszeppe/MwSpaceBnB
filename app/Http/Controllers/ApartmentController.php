@@ -220,26 +220,27 @@ class ApartmentController extends Controller
         $condArray = [];
         foreach (array_keys($validated) as $key) {
             $value = $validated[$key];
-            if (explode('_', $key)[0] == "numero" || explode('_', $key)[0] == 'metri') {
-                if ($validated[$key] != null) {
-                    $condArray[] = [$key, '>=', $validated[$key]];
+            if ($value != null) {
+                if (explode('_', $key)[0] == "numero" || explode('_', $key)[0] == 'metri') {
+                    if ($validated[$key] != null) {
+                        $condArray[] = [$key, '>=', $validated[$key]];
+                    }
                 }
-            }
-            if ($key == "servizi") {
-                foreach ($validated[$key] as $servizio) {
-                    $condArray[] = ['servizi_aggiuntivi', 'like', '%' . $servizio . "%"];
+                if ($key == "servizi") {
+                    foreach ($validated[$key] as $servizio) {
+                        $condArray[] = ['servizi_aggiuntivi', 'like', '%' . $servizio . "%"];
+                    }
                 }
-            }
-            if ($key == 'title') {
-                $condArray[] = ['title', 'like', '%' . $validated[$key] . "%"];
-            }
-            if ($key == 'indirizzo') {
-                $condArray[] = ['indirizzo', 'like', '%' . $validated[$key] . "%"];
+                if ($key == 'title') {
+                    $condArray[] = ['title', 'like', '%' . $validated[$key] . "%"];
+                }
+                if ($key == 'indirizzo') {
+                    $condArray[] = ['indirizzo', 'like', '%' . $validated[$key] . "%"];
+                }
             }
         }
         $condArray[] = ['active', '=', 1];
         $validated['order'] = isset($validated['order']) ? $validated['order'] : null;
-
         if ($validated['order'] != null) {
             $order = $validated['order'];
             $explodedOrder = explode('_', $order);
