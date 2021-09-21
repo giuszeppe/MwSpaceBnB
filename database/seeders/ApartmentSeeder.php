@@ -23,7 +23,7 @@ class ApartmentSeeder extends Seeder
             'metri_quadrati' => $n_stanze * rand(40, 80),
             'indirizzo' => "Via Pietro Vannucci, 53",
             'immagine' => "img",
-            'active' => rand(0, 1),
+            'active' => 1,
             'latitude' => 0,
             'longitude' => 0,
             'id_user' => 1,

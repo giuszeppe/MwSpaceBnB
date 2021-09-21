@@ -31,7 +31,7 @@ class ApartmentFactory extends Factory
             'metri_quadrati' => $n_stanze * rand(40, 80),
             'indirizzo' => $this->faker->address(),
             'immagine' => $this->faker->imageUrl,
-            'active' => rand(0, 1),
+            'active' => 1,
             'latitude' => 0,
             'longitude' => 0,
             'id_user' => User::factory(),
