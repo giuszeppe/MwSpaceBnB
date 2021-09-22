@@ -19,9 +19,9 @@
             <h1>MwSpaceBnB</h1>
         </div>
         <div class="row">
-            <div id="mapid" class="col-xs-12 col-sm-4 mb-4 mb-sm-0" style="height: 200px; z-index:1"> </div>
+            <div id="mapid" class="col-xs-12 col-sm-4 mb-4 mb-sm-0 shadow-div" style="height: 200px; z-index:1"> </div>
             <div class="col-xs-12 col-sm-8 d-flex flex-column justify-content-between">
-                <div class="container search-result bg-light pb-2">
+                <div class="container search-result bg-light pb-2 shadow-div">
                     <div>
                         <h3>{{$apartments->count()}} Strutture trovate</h3>
                         <select name="order" id="order select" form="searchForm">
@@ -38,17 +38,14 @@
                     </div>
                 </div>
                 <div>
-                    <p class="m-0">
-                        {{$apartments->count()}} ricerche trovate con i parametri specificati.
-                    </p>
                 </div>
             </div>
         </div>
         <div class="row mt-5">
             <div class="col-xs-12 col-sm-4">
 
-                    <div class="form-group bg-light p-5">
-                                                
+                    <div class="form-group bg-light p-5 shadow-div">
+                        <h3>Filtri</h3>    
                         <div class="filtri-row">
                             <div class="filtri-label">Titolo appartamento</div>
                             <div class="filtri-limit"><input type="text" name="title" form="searchForm" class="form-control" value={{old('title')}}></div>
@@ -70,8 +67,9 @@
                             <div class="filtri-label">Numero minimo di metri quadrati</div>
                             <div class="filtri-limit"><input type="number" name="metri_quadrati"  form="searchForm" class="form-control" value={{old('metri_quadrati')}}></div>
                         </div>
+            <hr class="path-separator">
                         <div class="filtri-row">
-                            <div class="filtri-label">Servizi</div>
+                            <div class="filtri-label"><h3>Servizi</h3></div>
                             @foreach ($servizi as $servizio)
                                 <div class="filtri-chechbox">
                                     <label for="servizio[{{$loop->index}}]"> {{$servizio->nome_servizio}}

@@ -1,5 +1,5 @@
 
-<div class="form-group">
+<div class="form-group mr-sm-3">
     <div class="wrapper">
         <div class="search-input">
             <input type="text" 

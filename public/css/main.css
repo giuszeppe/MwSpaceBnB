@@ -5316,6 +5316,9 @@ body.tg-hidescroll{overflow:hidden;}
 	border-radius: 5px;
 	cursor: pointer;
 }
+.myImg:hover{
+	opacity:0.7;
+}
 
 .rb-action{
 	width:100%;
@@ -5382,7 +5385,7 @@ Classes for searchbar button
 .wrapper .search-input{
   width: 100%;
   border-radius: 5px;
-  border: #000 1px solid;
+  border: #dee2e6 1px solid;
   	background: #fff;
   position: relative;
 }
@@ -5446,6 +5449,63 @@ Classes for searchbar button
 .autocom-box li:hover{
   background: #efefef;
 }
+.shadow-div{
+  box-shadow: rgba(0, 0, 0, 0.30) 0px 0px 5px;
+  border-radius: 5px;
+}
+
+.search-form-wrapper>.form-group{
+	width:200% ;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+label {
+  cursor: pointer;
+}
+
+
+input[type="checkbox"] {
+  position: relative;
+  top: 2px;
+  box-sizing: content-box;
+  width: 14px;
+  height: 14px;
+  margin: 0 5px 0 0;
+  cursor: pointer;
+  -webkit-appearance: none;
+  border-radius: 2px;
+  background-color: #fff;
+  border: 1px solid #b7b7b7;
+}
+
+input[type="checkbox"]:before {
+  content: '';
+  display: block;
+}
+
+input[type="checkbox"]:checked:before {
+  width: 4px;
+  height: 9px;
+  margin: 0px 4px;
+  border-bottom: 2px solid #fff;
+  border-right: 2px solid #fff;
+  transform: rotate(45deg);
+}
+input[type="checkbox"]:checked{
+  background-color:#e0a800;
+}
+
 
 
 @media screen and (max-width:576px) {
