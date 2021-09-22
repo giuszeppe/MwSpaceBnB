@@ -6,7 +6,8 @@
             placeholder="Indirizzo..." 
             id="search-box" 
             value="{{old('indirizzo') ?? $value ?? ''}}" 
-            name="indirizzo" class="form-control @error('indirizzo') is-invalid @enderror" 
+            name="indirizzo" 
+            class="form-control @error('indirizzo') is-invalid @enderror" 
             autocomplete="off"
             {{$required == "true" ? 'required' : ''}}
             >
