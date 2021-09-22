@@ -92,6 +92,7 @@
                         <input type="hidden" name="lat" value="{{$apartment->latitude}}">
                         <input type="hidden" name="long" value="{{$apartment->longitude}}">
                         <input type="hidden" name="title" value="{{$apartment->title}}">
+                        <input type="hidden" name="id" value="{{$apartment->id}}">
                         <div class="row rb-corpo">
                             <div class="col-sm-3 col-xs-12">
                                 <div class="result-img">

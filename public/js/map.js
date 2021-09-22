@@ -34,11 +34,12 @@ try{
         let lat = inputs[0].value;
         let long = inputs[1].value;
         let title = inputs[2].value;
+        let id = inputs[3].value;
         console.log(parseFloat(lat), parseFloat(long));
         if(parseFloat(lat) != 0 && parseFloat(long) != 0){
             console.log(lat);
             var marker = new L.marker([parseFloat(lat),parseFloat(long)]);
-            marker.desc = `<b>${title}</b>`;
+            marker.desc = `<b><a href="apartment/${id}">${title}</a></b>`;
             mymap.addLayer(marker);
             oms.addMarker(marker);
         }
