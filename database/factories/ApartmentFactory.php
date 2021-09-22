@@ -29,13 +29,13 @@ class ApartmentFactory extends Factory
             'numero_bagni' => ceil($n_stanze / rand(3, 10)),
             'numero_letti' => rand(1, 6),
             'metri_quadrati' => $n_stanze * rand(40, 80),
-            'indirizzo' => $this->faker->address(),
+            'indirizzo' => 'Via Camillo Bozza, Il Rigo, Corciano, Perugia, Umbria, Italia, IT',
             'immagine' => $this->faker->imageUrl,
             'active' => rand(0, 1),
-            'latitude' => 0,
-            'longitude' => 0,
+            'latitude' => 43.0998,
+            'longitude' => 12.3024559,
             'id_user' => User::factory(),
-            'servizi_aggiuntivi' => 'WiFi,Posto Auto'
+            'servizi_aggiuntivi' => 'WiFi,Posto auto'
         ];
     }
 }

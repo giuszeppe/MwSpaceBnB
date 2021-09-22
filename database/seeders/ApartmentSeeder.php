@@ -24,10 +24,10 @@ class ApartmentSeeder extends Seeder
             'indirizzo' => "Via Pietro Vannucci, 53",
             'immagine' => "img",
             'active' => rand(0, 1),
-            'latitude' => 0,
-            'longitude' => 0,
+            'latitude' => 43.1,
+            'longitude' => 12.2883,
             'id_user' => 1,
-            'servizi_aggiuntivi' => 'WiFi,Posto Auto'
+            'servizi_aggiuntivi' => 'WiFi,Posto auto'
         ]);
     }
 }
