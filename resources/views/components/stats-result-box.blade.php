@@ -2,8 +2,8 @@
     <div class="row rb-corpo">
         <div class="col-xs-12 col-sm-3 mb-3 mb-sm-0">
             <div class="result-img">
-                <a href="#">
-                    <img src="{{$apartment->immagine}}" alt="">
+                <a href="{{route('apartment.show',$apartment->id)}}">
+                    <x-modal-image :apartment="$apartment"> </x-modal-image>
                 </a>
             </div>
         </div>
@@ -31,8 +31,7 @@
                     <div>{{$apartment->indirizzo}}</div>
                 </div>
                 <div class="col-6">
-                   <x-servizi-aggiuntivi :apartment="$apartment"> </x-servizi-aggiuntivi> 
- 
+                        <x-servizi-aggiuntivi :apartment="$apartment"> </x-servizi-aggiuntivi> 
                 </div>
             </div>
             <hr>

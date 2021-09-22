@@ -96,8 +96,8 @@
                         <div class="row rb-corpo">
                             <div class="col-sm-3 col-xs-12">
                                 <div class="result-img">
-                                    <a href="">
-                                        <img src="{{$apartment->immagine}}" alt="immagine rappresentativo appartamento">
+                                    <a href="{{route('apartment.show',$apartment->id)}}">
+                                        <x-modal-image :apartment="$apartment"> </x-modal-image>
                                     </a>
                                 </div>
                             </div>

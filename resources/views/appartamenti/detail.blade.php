@@ -4,6 +4,7 @@
     integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
     crossorigin=""/>
     
+<link rel="stylesheet" href="/css/modal_image.css">
 <!--
 
     SEARCH BAR START
@@ -43,7 +44,9 @@
         </div>
         <div class="row">
             <div class="col-sm-6 col-xs-12">
-                <img src="{{$apartment->immagine}}" alt="immagine rappresentativa appartamento" class="detail-img ml-2">
+                <div class="result-img">
+                    <x-modal-image :apartment="$apartment"> </x-modal-image>
+                </div>
             </div>
             <div class="col-sm-6 col-xs-12">
                 <ul>
@@ -95,4 +98,5 @@
    crossorigin=""></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/OverlappingMarkerSpiderfier-Leaflet/0.2.6/oms.min.js"></script>
 <script src="/js/map.js" latitude = "{{$apartment->latitude}}" longitude="{{$apartment->longitude}}" title="{{$apartment->title}}"></script>
+<script src="/js/modal_image.js"></script>
 @endsection
