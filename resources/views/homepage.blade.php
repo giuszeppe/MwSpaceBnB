@@ -55,7 +55,7 @@
                   >
                   @foreach ($apartments as $apartment)
                     
-                    <div class="item tg-populartour bg-warning">
+                    <div class="item tg-populartour bg-warning shadow-div">
                       <figure class="result-img">
                           <a href="{{route('apartment.show',$apartment->id)}}">
                             <x-modal-image :apartment="$apartment"> </x-modal-image>
