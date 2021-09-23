@@ -72,13 +72,33 @@
                             <div class="filtri-label"><h3>Servizi</h3></div>
                             @foreach ($servizi as $servizio)
                                 <div class="filtri-chechbox">
-                                    <label for="servizio[{{$loop->index}}]"> {{$servizio->nome_servizio}}
-                                        <input type="checkbox" name="servizi[{{$loop->index}}]" id="servizio[{{$loop->index}}]" value="{{$servizio->nome_servizio}}" @if(old('servizi') != null) @if(in_array($loop->index,array_keys(old('servizi')))) checked @endif @endif form="searchForm">
-                                    </label>
+
+                                    @if(old('servizi') != null)
+                                        <x-checkbox 
+                                            :label="$servizio->nome_servizio" 
+                                            name="servizi[{{$loop->index}}]" 
+                                            id="servizio[{{$loop->index}}]" 
+                                            :value="$servizio->nome_servizio" 
+                                            form="searchForm"
+                                            :loop_index="$loop->index"
+                                            checked="{{array_key_exists($loop->index,old('servizi'))}}"
+                                        > 
+                                        </x-checkbox>
+                                    @else
+                                        <x-checkbox 
+                                            :label="$servizio->nome_servizio" 
+                                            name="servizi[{{$loop->index}}]" 
+                                            id="servizio[{{$loop->index}}]" 
+                                            :value="$servizio->nome_servizio" 
+                                            form="searchForm"
+                                            :loop_index="$loop->index"
+                                        > 
+                                        </x-checkbox>
+                                    @endif
                                 </div>
                             @endforeach
-                        </div>
-                    </div>
+                            </div>
+                       </div>
                     <div class="filtri-btn d-flex justify-content-center">
                         <input type="submit" class="btn btn-block btn-warning" form="searchForm">
                     </div>

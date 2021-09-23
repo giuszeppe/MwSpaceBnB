@@ -27,6 +27,7 @@
         <link rel="stylesheet" href="/css/color.css" />
         <link rel="stylesheet" href="/css/responsive.css" />
         <link rel="stylesheet" href="/css/animation.css">
+        <link rel="stylesheet" href="/css/input_field.css">
         {{--<link rel="stylesheet" href="/css/input_field.css">--}}
         <script src="/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
         <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
