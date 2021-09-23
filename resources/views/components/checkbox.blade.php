@@ -1,6 +1,6 @@
 <label>
     <input type="checkbox"
-    {{$value != null ? "value=" . $value  : null}} 
+    {!!$value != null ? "value='{$value}'"  : null!!} 
     {{$id != null ? "id=" . $id : null}} 
     {{$class != null ? "class=" . $class  : null}} 
     {{$name != null ? "name=" . $name   : null}} 

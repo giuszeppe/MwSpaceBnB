@@ -92,12 +92,10 @@
                                             @if(in_array($servizio,explode(',',$apartment->servizi_aggiuntivi))) checked @endif
                                         >--}}
                                         <x-checkbox
-                                            type="checkbox" 
                                             name="serviziDefault[{{$loop->index}}]" 
-                                            value="{{$servizio}}" 
-                                            label="{{$servizio}}"
+                                            :value="$servizio" 
+                                            :label="$servizio"
                                             checked="{{in_array($servizio,explode(',',$apartment->servizi_aggiuntivi))}}"
-
                                         > </x-checkbox>
 
                                     </span>
@@ -116,7 +114,7 @@
                             </div>
                             <ul id="servizi_aggiuntivi">
                                @foreach (explode(',',$apartment->servizi_aggiuntivi) as $servizio)
-                                    @if(in_array($servizio,$servizi))
+                                    @if(!in_array($servizio,$servizi))
                                         <span class="span-services" id="servizio{{$loop->index}}">
                                             <li>
                                                 {{$servizio}}
