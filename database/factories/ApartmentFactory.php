@@ -35,7 +35,7 @@ class ApartmentFactory extends Factory
             'latitude' => 43.0998,
             'longitude' => 12.3024559,
             'id_user' => User::factory(),
-            'servizi_aggiuntivi' => 'WiFi,Posto auto'
+            'servizi_aggiuntivi' => 'Wi-fi,Posto auto'
         ];
     }
 }
