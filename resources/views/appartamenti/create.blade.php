@@ -90,8 +90,12 @@
                                 @if($loop->index % 4 == 0) <?php $offset = 0 ?> <span class="d-flex flex-column mr-4"> @endif
                                     <?php $offset += 1 ?>
                                     <span>
+                                        <x-checkbox 
+                                            name="serviziDefault[{{$loop->index}}]" 
+                                            value="{{$servizio->nome_servizio}}" 
+                                            label="{{$servizio->nome_servizio}}"> 
+                                        </x-checkbox>
                                         <input type="checkbox" name="serviziDefault[{{$loop->index}}]" value="{{$servizio->nome_servizio}}">
-                                        {{$servizio->nome_servizio}}
                                     </span>
                                @if($offset == 4) </span> @endif
                             @endforeach
