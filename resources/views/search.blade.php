@@ -22,19 +22,30 @@
             <div id="mapid" class="col-xs-12 col-sm-4 mb-4 mb-sm-0 shadow-div" style="height: 200px; z-index:1"> </div>
             <div class="col-xs-12 col-sm-8 d-flex flex-column justify-content-between">
                 <div class="container search-result bg-light pb-2 shadow-div">
+                    <h3>{{$apartments->count()}} Strutture trovate</h3>
                     <div>
-                        <h3>{{$apartments->count()}} Strutture trovate</h3>
-                        <select name="order" id="order select" form="searchForm">
-                            <option value="">--Ordina Per--</option>
-                            <option value="numero_letti_asc" {{$order == 'numero_letti_asc' ? 'selected' : ''}}>Numero letti crescente</option>
-                            <option value="numero_letti_desc" {{$order == 'numero_letti_desc' ? 'selected' : ''}}>Numero letti decrescente</option>
-                            <option value="numero_bagni_asc" {{$order == 'numero_bagni_asc' ? 'selected' : ''}}>Numero bagni crescente</option>
-                            <option value="numero_bagni_desc" {{$order == 'numero_bagni_desc' ? 'selected' : ''}}>Numero letti descrescente</option>
-                            <option value="numero_stanze_asc" {{$order == 'numero_stanze_asc' ? 'selected' : ''}}>Numero stanze crescente</option>
-                            <option value="numero_stanze_desc" {{$order == 'numero_stanze_desc' ? 'selected' : ''}}>Numero stanze descrescente</option>
-                            <option value="metri_quadrati_asc" {{$order == 'metri_quadrati_asc' ? 'selected' : ''}}>Metri quadrati crescente</option>
-                            <option value="metri_quadrati_desc" {{$order == 'metri_quadrati_desc' ? 'selected' : ''}}>Metri quadrati decrescente</option>
-                        </select>
+                        <div class="container-fluid mr-sm-3 mb-2">
+                            <select name="order" id="order select" form="searchForm">
+                                <option value="">--Ordina Per--</option>
+                                <option value="numero_letti_asc" {{$order  == 'numero_letti_asc' ? 'selected' : ''}}>Numero letti crescente</option>
+                                <option value="numero_letti_desc" {{$order  == 'numero_letti_desc' ? 'selected' : ''}}>Numero letti decrescente</option>
+                                <option value="numero_bagni_asc" {{$order  == 'numero_bagni_asc' ? 'selected' : ''}}>Numero bagni crescente</option>
+                                <option value="numero_bagni_desc" {{$order == 'numero_bagni_desc' ? 'selected' : ''}}>Numero letti descrescente</option>
+                                <option value="numero_stanze_asc" {{$order == 'numero_stanze_asc' ? 'selected' : ''}}>Numero stanze crescente</option>
+                                <option value="numero_stanze_desc" {{$order == 'numero_stanze_desc' ? 'selected' : ''}}>Numero stanze descrescente</option>
+                                <option value="metri_quadrati_asc" {{$order == 'metri_quadrati_asc' ? 'selected' : ''}}>Metri quadrati crescente</option>
+                                <option value="metri_quadrati_desc" {{$order  == 'metri_quadrati_desc' ? 'selected' : ''}}>Metri quadrati decrescente</option>
+                            </select>
+                        </div>
+                        <div class="container-fluid">
+                            <select name="distance" id="distance_select" form="searchForm">
+                                <option value="0">--Range ricerca(KM)--</option>
+                                <option value="0" {{$distance === 0 ? 'selected' : ''}}>0km</option>
+                                <option value="1" {{$distance == 1 ? 'selected' : ''}}>1km</option>
+                                <option value="10" {{$distance == 10 ? 'selected' : ''}}>10km</option>
+                                <option value="100" {{$distance  == 100 ? 'selected' : ''}}>100km</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
                 <div>

@@ -9,6 +9,18 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
+
+function forgetById($collection, $id)
+{
+    foreach ($collection as $key => $item) {
+        if ($item->id == $id) {
+            $collection->forget($key);
+            break;
+        }
+    }
+    return $collection;
+}
+
 class ApartmentController extends Controller
 {
     /**
@@ -201,6 +213,7 @@ class ApartmentController extends Controller
         $apartment->messages()->create($validated);
         return back()->with(['type' => 'success', 'message' => 'Messaggio inviato']);
     }
+
     public function postSearch(Request $request)
     {
         $order = null;
@@ -215,7 +228,8 @@ class ApartmentController extends Controller
             'numero_stanze' => 'numeric|gt:0|nullable',
             'metri_quadrati' => 'numeric|gt:0|nullable',
             'servizi' => '',
-            'order' => 'string|nullable'
+            'order' => 'string|nullable',
+            'distance' => 'string|nullable'
         ]);
         $condArray = [];
         foreach (array_keys($validated) as $key) {
@@ -234,13 +248,16 @@ class ApartmentController extends Controller
                 if ($key == 'title') {
                     $condArray[] = ['title', 'like', '%' . $validated[$key] . "%"];
                 }
-                if ($key == 'indirizzo') {
-                    $condArray[] = ['indirizzo', 'like', '%' . $validated[$key] . "%"];
-                }
             }
         }
         $condArray[] = ['active', '=', 1];
+
         $validated['order'] = isset($validated['order']) ? $validated['order'] : null;
+        $distance = isset($validated['distance']) ? intVal($validated['distance']) : 1;
+
+
+
+
 
         if ($validated['order'] != null) {
             $order = $validated['order'];
@@ -255,24 +272,39 @@ class ApartmentController extends Controller
         $servizi = DB::table('servizi')->get();
 
         $coordinates = ['latitude' => 43.13, 'longitude' => 12.2883];
+
         if (isset($validated['latitude']) && isset($validated['longitude'])) {
             $coordinates = ['latitude' => $validated['latitude'], 'longitude' => $validated['longitude']];
+            $apartByDistance = Apartment::getByDistance($validated['latitude'], $validated['longitude'], $distance);
+
+            if ($apartByDistance != []) {
+                $found_apartments = collect([]);
+                foreach ($apartByDistance as $found) {
+                    $id = $found->id;
+                    if ($apartments->contains($id)) {
+                        $found_apartments->push($apartments->find($id));
+                    }
+                }
+                $apartments = $found_apartments;
+            } else {
+                $apartments = collect([]);
+            }
         } else if ($apartments->first() != null) {
             $coordinates = ['latitude' => $apartments->first()->latitude, 'longitude' => $apartments->first()->longitude];
         }
-
-        return view('search', compact('servizi', 'apartments', 'order', 'coordinates'));
+        return view('search', compact('servizi', 'apartments', 'order', 'coordinates', 'distance'));
     }
     public function getSearch()
     {
+        $order = null;
+        $distance = null;
         $apartments = Apartment::where('active', 1)->take(5)->get();
         $servizi = DB::table('servizi')->get();
-        $order = "";
         if ($apartments->first() != null) {
             $coordinates = ['latitude' => $apartments->first()->latitude, 'longitude' => $apartments->first()->longitude];
         } else {
             $coordinates = ['latitude' => 43.13, 'longitude' => 12.2883];
         }
-        return view('search', compact('servizi', 'apartments', 'order', 'coordinates'));
+        return view('search', compact('servizi', 'apartments', 'coordinates', 'order', 'distance'));
     }
 }
