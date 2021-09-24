@@ -255,8 +255,11 @@ class ApartmentController extends Controller
         $servizi = DB::table('servizi')->get();
 
         $coordinates = ['latitude' => 43.13, 'longitude' => 12.2883];
-        if (isset($validated['latitude']) && isset($validated['longitude']))
+        if (isset($validated['latitude']) && isset($validated['longitude'])) {
             $coordinates = ['latitude' => $validated['latitude'], 'longitude' => $validated['longitude']];
+        } else if ($apartments->first() != null) {
+            $coordinates = ['latitude' => $apartments->first()->latitude, 'longitude' => $apartments->first()->longitude];
+        }
 
         return view('search', compact('servizi', 'apartments', 'order', 'coordinates'));
     }
@@ -265,7 +268,11 @@ class ApartmentController extends Controller
         $apartments = Apartment::where('active', 1)->take(5)->get();
         $servizi = DB::table('servizi')->get();
         $order = "";
-        $coordinates = ['latitude' => 43.13, 'longitude' => 12.2883];
+        if ($apartments->first() != null) {
+            $coordinates = ['latitude' => $apartments->first()->latitude, 'longitude' => $apartments->first()->longitude];
+        } else {
+            $coordinates = ['latitude' => 43.13, 'longitude' => 12.2883];
+        }
         return view('search', compact('servizi', 'apartments', 'order', 'coordinates'));
     }
 }
