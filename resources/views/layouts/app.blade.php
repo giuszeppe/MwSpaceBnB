@@ -97,7 +97,7 @@
                     </li> 
                     <li><a href="{{route('apartment.index')}}">I tuoi appartamenti</a></li>
                 @endauth
-                    <li><a href="{{route('getSearch')}}">Cerca</a></li>
+                    <li><a href="{{route('getSearch')}}">Tutti gli appartamenti</a></li>
                 @guest
                     <li><a href="{{route('register')}}">Registrati</a></li>
                     <li><a href="{{route('login')}}">Login</a></li>
@@ -240,7 +240,7 @@
                                             @endauth
                                                 <li class="menu-item-has-childer current-menu-item">
                                                     <a href="{{route('getSearch')}}">
-                                                        Cerca
+                                                        Tutti gli appartamenti
                                                     </a>
                                                 </li>
 
