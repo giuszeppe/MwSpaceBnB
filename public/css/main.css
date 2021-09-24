@@ -5304,6 +5304,19 @@ body.tg-hidescroll{overflow:hidden;}
 .search-result{
 	border: #000 2px;
 }
+
+.search-result>div>div>select{
+	width:100% !important;
+}
+.search-result>div{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.search-result>div>div{
+	padding: 0px;
+
+}
 .filtri-row{
 	padding-bottom:30px;
 }
@@ -5471,6 +5484,9 @@ Classes for searchbar button
 	.search-input{
 		width:100% !important;
 		margin-bottom:10px;
+	}
+	.search-result>div{
+		flex-direction: column;
 	}
 }
 @media screen and (max-width:992px) {
