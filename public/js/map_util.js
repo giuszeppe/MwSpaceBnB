@@ -35,23 +35,9 @@ $("#search-box").keyup(function() {
       for (i = 0; i < aList.length; i++) {
         let elem = document.createElement('span');
         prop = aList[i].properties; 
-        /*if(prop.osm_value == "country" ){ 
-        optLabel = prop.country + ', ' + prop.countrycode;
-        } else if(prop.osm_value == "city" || prop.osm_value == "administrative" ){
-          optLabel = prop.name + ', ' +  prop.state + ', ' + prop.country + ' ' + prop.countrycode; 
-        } else if (prop.osm_value == "locality") {
-          optLabel = prop.name + ', ' + prop.country + ' ' + prop.countrycode;
-        } else if (prop.osm_value == 'village') {
-          optLabel = prop.name + ', ' + prop.county + ', ' + prop.country + ' ' + prop.countrycode;
-        } else if (prop.osm_value == 'station') {
-          optLabel = prop.name + ', ' + prop.street + ', ' + prop.county + ', ' + prop.country;
-        } else {
-          optLabel = prop.name + ', ' + prop.country + ' ' + prop.countrycode;
-        }*/
 
         optLabel = prop.name + place_if_exist(prop.street) + place_if_exist(prop.district) + place_if_exist(prop.locality) + place_if_exist(prop.city) 
         + place_if_exist(prop.county) + place_if_exist(prop.state) + place_if_exist(prop.country) + place_if_exist(prop.countrycode);
-        console.log(seen.includes(optLabel));
         if (!seen.includes(optLabel)){
           seen.push(optLabel);
           uniq = [...new Set(optLabel.split(','))].join(', ');
@@ -74,16 +60,14 @@ function select(element){
     let selectData = element.textContent;
 
     let parentNode = element.parentNode.parentNode;
-    let wrapperNode = document.createElement('div');
-    wrapperNode.setAttribute('id', 'coordinate');
-    wrapperNode.setAttribute('style', 'display:none');
+    let wrapperNode = document.getElementById('coordinate');
     $.ajax({
       type:"GET",
       url:"https://photon.komoot.io/api/?q=" + element.textContent + "&limit=1" + "&lang=it",
 
       success: function (results) {
         childNode = document.getElementById('coordinate');
-        if(childNode != undefined) parentNode.removeChild(childNode);
+        if(childNode != undefined) childNode.replaceChildren();
         list = results.features;
         coord = results.features[0].geometry.coordinates;
 
@@ -95,7 +79,6 @@ function select(element){
           elem.setAttribute('value', coord[index]);
           elem.setAttribute('type','hidden');
           elem.setAttribute('name',name);
-          elem.classList.add('form-control')
           wrapperNode.appendChild(elem)
         });
         parentNode.appendChild(wrapperNode);

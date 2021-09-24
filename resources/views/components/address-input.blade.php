@@ -14,6 +14,12 @@
             <div class="autocom-box">
                 <!-- here list are inserted from javascript -->
             </div>
+            <div id="coordinate" style="display:none">
+                @if (old('indirizzo') !== null)
+                    <input type="hidden" name="longitude" value="{{old('longitude')}}">
+                    <input type="hidden" name="latitude" value="{{old('latitude')}}">
+                @endif
+            </div>
         </div>
         @error('indirizzo')
             <span class="invalid-feedback" role="alert">
