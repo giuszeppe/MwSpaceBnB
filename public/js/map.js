@@ -50,3 +50,12 @@ try{
         var marker = L.marker([parseFloat(latitude),parseFloat(longitude)]).addTo(mymap);
         marker.bindPopup(`<b>${title}</b>`).openPopup();
 }
+
+function focusOnMap(lat,long) {
+
+  $("html, body").animate({ scrollTop: 0 }, 500);
+  setTimeout(() => {
+    mymap.flyTo(new L.LatLng(lat,long), 12)
+    
+  }, 800);
+}

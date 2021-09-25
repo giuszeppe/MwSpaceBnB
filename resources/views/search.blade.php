@@ -157,13 +157,16 @@
                         </div>
                         <hr>
                         <div class="row ">
-                            <div class="col d-flex flex-row justify-content-around ">
+                            <div class="col d-flex flex-row justify-content-between ">
                                 <div class="rb-action d-flex flex-row justify-content-between px-5">
                                     <span>
                                         <a href="{{route('apartment.show',$apartment->id)}}">Dettagli</a>
                                     </span>
                                 </div>
+                                <div class="d-flex flex-column flex-sm-row">
+                                    <x-button link="#mapid" class="mr-0 mr-sm-3 mb-3 mb-sm-0" message="Vedi sulla mappa" onclick="event.preventDefault();focusOnMap({{$apartment->latitude}},{{$apartment->longitude}})"> </x-button>
                                     <x-button link="{{route('apartment.show',$apartment->id)}}"> </x-button>
+                                </div>
                             </div>
                         </div>
                     </div>
