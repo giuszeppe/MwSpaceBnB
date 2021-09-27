@@ -28,6 +28,7 @@
         <link rel="stylesheet" href="/css/responsive.css" />
         <link rel="stylesheet" href="/css/animation.css">
         <link rel="stylesheet" href="/css/input_field.css">
+        <link rel="stylesheet" href="/css/modalLogin.css">
         {{--<link rel="stylesheet" href="/css/input_field.css">--}}
         <script src="/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
         <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
@@ -103,7 +104,7 @@
                     <li><a href="{{route('getSearch')}}">Tutti gli appartamenti</a></li>
                 @guest
                     <li><a href="{{route('register')}}">Registrati</a></li>
-                    <li><a href="{{route('login')}}">Login</a></li>
+                    <li><a onclick="document.getElementById('modalLogin').style.display='block';">Login</a></li>
                 @endguest
             </ul>
         </nav>
@@ -166,21 +167,23 @@
                                 @guest
                                     <div class="tg-socialsignin">
                                         <div class="tg-userbox">
-                                            <a
+                                            <button
                                                 id="tg-btnsignin"
                                                 class="tg-btn"
-                                                href="{{route('register')}}"
-                                                ><span>Register</span>
-                                            </a>
+                                                onclick="document.getElementById('modalRegister').style.display='block';"
+                                                >
+                                                <span>Register</span>
+                                            </button>
                                         </div>
 
                                         <div class="tg-userbox">
-                                            <a
-                                                id="tg-btnsignin"
-                                                class="tg-btn"
-                                                href="{{route('login')}}"
-                                                ><span>Login</span>
-                                            </a>
+                                            <button 
+                                                id="tg-btnsignin" 
+                                                class="tg-btn" 
+                                                onclick="document.getElementById('modalLogin').style.display='block';"
+                                                >
+                                                <span>Login</span>
+                                            </button>
                                         </div>
                                     </div>
                                 @endguest
@@ -259,7 +262,26 @@
 <!--************************************
     Header End
 *************************************-->
+
+<!--************************************
+    Modal Login start
+*************************************-->
+
+@include('modals.login')
          
+<!--************************************
+    Modal login end
+*************************************-->
+
+<!--************************************
+    Modal Register start
+*************************************-->
+
+@include('modals.register')
+         
+<!--************************************
+    Modal Register end
+*************************************-->
 <!--************************************
     Main Content Start
 *************************************-->
@@ -543,6 +565,24 @@
         <script src="/js/main.js"></script>
         <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
         <script src="/js/map_util.js"></script>
+        <script>
+            @if($errors->hasBag('register') || session('show') == 'register')
+                document.getElementById('modalRegister').style.display="block";
+            @elseif($errors->has('email') || $errors->has('password') || session('show') == 'login')
+                document.getElementById('modalLogin').style.display="block";
+                
+            @endif
+
+            let modalLogin = document.getElementById('modalLogin');
+            let modalRegister = document.getElementById('modalRegister');
+
+            window.onclick = function(event) {
+                if(event.target == modalLogin)
+                    modalLogin.style.display="none";
+                else if(event.target == modalRegister)
+                    modalRegister.style.display="none";
+            }
+        </script> 
     </body>
 
 
