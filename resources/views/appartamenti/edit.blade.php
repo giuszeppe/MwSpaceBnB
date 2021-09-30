@@ -67,17 +67,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="indirizzo">Indirizzo</label>
-                            <input type="text" class="form-control @error('indirizzo') is-invalid @enderror" value="{{old('indirizzo') ?? $apartment->indirizzo}}" id="indirizzo" name="indirizzo" >
-                            @error('indirizzo')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-                    </div>
+                    <x-address-input :value="$apartment->indirizzo" required="false"> </x-address-input>
                     <div class="form-row">
                         <div class="form-group">
                             <label for="formFile" class="form-label">Carica un immagine</label>
@@ -95,13 +85,18 @@
                                 @if($loop->index % 4 == 0) <?php $offset = 0 ?> <span class="d-flex flex-column mr-4"> @endif
                                     <?php $offset += 1 ?>
                                     <span>
-                                        <input 
+                                        {{--<input 
                                             type="checkbox" 
                                             name="serviziDefault[{{$loop->index}}]" 
                                             value="{{$servizio}}" 
                                             @if(in_array($servizio,explode(',',$apartment->servizi_aggiuntivi))) checked @endif
-                                        >
-                                        {{$servizio}}
+                                        >--}}
+                                        <x-checkbox
+                                            name="serviziDefault[{{$loop->index}}]" 
+                                            :value="$servizio" 
+                                            :label="$servizio"
+                                            checked="{{in_array($servizio,explode(',',$apartment->servizi_aggiuntivi))}}"
+                                        > </x-checkbox>
 
                                     </span>
                                 @if($offset == 4) </span> @endif

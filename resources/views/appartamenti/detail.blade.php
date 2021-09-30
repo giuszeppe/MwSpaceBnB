@@ -1,5 +1,10 @@
 
 @extends('layouts.app') @section('content')
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+    
+<link rel="stylesheet" href="/css/modal_image.css">
 <!--
 
     SEARCH BAR START
@@ -39,7 +44,9 @@
         </div>
         <div class="row">
             <div class="col-sm-6 col-xs-12">
-                <img src="{{$apartment->immagine}}" alt="immagine rappresentativa appartamento" class="detail-img ml-2">
+                <div class="result-img">
+                    <x-modal-image :apartment="$apartment"> </x-modal-image>
+                </div>
             </div>
             <div class="col-sm-6 col-xs-12">
                 <ul>
@@ -77,6 +84,19 @@
                 </form>
             </div>
         </div>
+        <div class="row mt-3">
+            <div class="col-12">
+                <div id="mapid" style="height:500px; z-index:1">
+
+                </div>
+            </div>
+        </div>
     </div>
 </section>
+ <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/OverlappingMarkerSpiderfier-Leaflet/0.2.6/oms.min.js"></script>
+<script src="/js/map.js" latitude = "{{$apartment->latitude}}" longitude="{{$apartment->longitude}}" title="{{$apartment->title}}"></script>
+<script src="/js/modal_image.js"></script>
 @endsection

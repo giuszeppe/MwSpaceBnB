@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Apartment extends Model
 {
@@ -18,8 +19,20 @@ class Apartment extends Model
         'indirizzo',
         'immagine',
         'servizi_aggiuntivi',
-        'active'
+        'active',
+        'latitude',
+        'longitude',
     ];
+    public static function getByDistance($lat, $lng, $distance)
+    {
+        $results = DB::select(DB::raw('
+        SELECT id, ( 6371 * acos( cos( radians(' . $lat . ') ) * cos( radians( latitude ) ) * cos( radians( longitude ) - radians(' . $lng . ') ) + sin( radians(' . $lat . ') ) * sin( radians(latitude) ) ) ) 
+        AS distance 
+        FROM apartments
+        HAVING distance < ' . $distance . ' 
+        ORDER BY distance'));
+        return $results;
+    }
 
     public function user()
     {

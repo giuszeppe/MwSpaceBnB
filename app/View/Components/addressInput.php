@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class Searchbar extends Component
+class addressInput extends Component
 {
     /**
      * Create a new component instance.
@@ -12,9 +12,11 @@ class Searchbar extends Component
      * @return void
      */
     public $required;
-    public function __construct($required = "true")
+    public $value;
+    public function __construct($required = "true", $value = "")
     {
         $this->required = $required;
+        $this->value = $value;
     }
 
     /**
@@ -24,6 +26,6 @@ class Searchbar extends Component
      */
     public function render()
     {
-        return view('components.searchbar');
+        return view('components.address-input');
     }
 }

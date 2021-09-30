@@ -6,9 +6,20 @@ use App\Models\Apartment;
 use App\Models\Message;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+
+
+function forgetById($collection, $id)
+{
+    foreach ($collection as $key => $item) {
+        if ($item->id == $id) {
+            $collection->forget($key);
+            break;
+        }
+    }
+    return $collection;
+}
 
 class ApartmentController extends Controller
 {
@@ -59,11 +70,13 @@ class ApartmentController extends Controller
                     'numero_letti' => 'required|numeric|gt:0',
                     'metri_quadrati' => 'required|numeric|gt:0',
                     'indirizzo' => 'required|string|max:255',
-                    'immagine' => 'required|image|mimes:png,jpg|max:1024',
+                    'immagine' => 'required|image|mimes:png,jpg|max:5000',
                     'servizi' => "array",
                     'servizi.*' => 'string|distinct|max:255',
                     'serviziDefault' => 'array',
-                    'serviziDefault.*' => 'string|distinct|max:255'
+                    'serviziDefault.*' => 'string|distinct|max:255',
+                    'latitude' => 'numeric|nullable',
+                    'longitude' => 'numeric|nullable',
                 ]);
                 if (!array_key_exists('servizi', $validated)) {
                     $validated['servizi'] = [];
@@ -136,18 +149,20 @@ class ApartmentController extends Controller
     public function update(Request $request, Apartment $apartment)
     {
         $validated = $request->validate([
-            'title' => 'string|max:255',
-            'numero_stanze' => 'numeric|gt:0',
-            'numero_bagni' => 'numeric|gt:0',
-            'numero_letti' => 'numeric|gt:0',
-            'metri_quadrati' => 'numeric|gt:0',
-            'indirizzo' => 'string|max:255',
-            'immagine' => 'image|mimes:png,jpg|max:1024',
-            'servizi' => "array",
-            'servizi.*' => 'string|distinct|max:255',
-            'active' => "",
-            'serviziDefault' => 'array',
-            'serviziDefault.*' => 'string|distinct|max:255'
+            'title' => 'string|max:255|nullable',
+            'numero_stanze' => 'numeric|gt:0|nullable',
+            'numero_bagni' => 'numeric|gt:0|nullable',
+            'numero_letti' => 'numeric|gt:0|nullable',
+            'metri_quadrati' => 'numeric|gt:0|nullable',
+            'indirizzo' => 'string|max:255|nullable',
+            'latitude' => 'numeric|nullable',
+            'longitude' => 'numeric|nullable',
+            'immagine' => 'image|mimes:png,jpg|max:1024|nullable',
+            'servizi' => "array|nullable",
+            'servizi.*' => 'string|distinct|max:255|nullable',
+            'active' => "nullable",
+            'serviziDefault' => 'array|nullable',
+            'serviziDefault.*' => 'string|distinct|max:255|nullable'
         ]);
         $validated['servizi_aggiuntivi'] = [];
         if (array_key_exists('servizi', $validated)) {
@@ -179,6 +194,8 @@ class ApartmentController extends Controller
      */
     public function destroy(Apartment $apartment)
     {
+
+        Storage::delete('public/apartmentImage/' . explode('/', $apartment->immagine)[3]);
         $apartment->delete();
         return redirect()->route('apartment.index')->with(['type' => 'success', 'message' => 'Appartamento eliminato con successo']);
     }
@@ -196,18 +213,23 @@ class ApartmentController extends Controller
         $apartment->messages()->create($validated);
         return back()->with(['type' => 'success', 'message' => 'Messaggio inviato']);
     }
+
     public function postSearch(Request $request)
     {
         $order = null;
 
         $validated = $request->validate([
+            'indirizzo' => 'string|max:255|nullable',
+            'latitude' => 'numeric|nullable',
+            'longitude' => 'numeric|nullable',
             'title' => 'string|max:255|nullable',
             'numero_bagni' => 'numeric|gt:0|nullable',
             'numero_letti' => 'numeric|gt:0|nullable',
             'numero_stanze' => 'numeric|gt:0|nullable',
             'metri_quadrati' => 'numeric|gt:0|nullable',
             'servizi' => '',
-            'order' => 'string|nullable'
+            'order' => 'string|nullable',
+            'distance' => 'string|nullable'
         ]);
         $condArray = [];
         foreach (array_keys($validated) as $key) {
@@ -223,14 +245,19 @@ class ApartmentController extends Controller
                         $condArray[] = ['servizi_aggiuntivi', 'like', '%' . $servizio . "%"];
                     }
                 }
+                if ($key == 'title') {
+                    $condArray[] = ['title', 'like', '%' . $validated[$key] . "%"];
+                }
             }
         }
-
-        if ($validated['title'] != null)
-            $condArray[] = ['title', 'like', '%' . $validated['title'] . "%"];
-
         $condArray[] = ['active', '=', 1];
+
         $validated['order'] = isset($validated['order']) ? $validated['order'] : null;
+        $distance = isset($validated['distance']) ? intVal($validated['distance']) : 1;
+
+
+
+
 
         if ($validated['order'] != null) {
             $order = $validated['order'];
@@ -243,13 +270,41 @@ class ApartmentController extends Controller
         }
         $request->session()->flashInput($validated);
         $servizi = DB::table('servizi')->get();
-        return view('search', compact('servizi', 'apartments', 'order'));
+
+        $coordinates = ['latitude' => 43.13, 'longitude' => 12.2883];
+
+        if (isset($validated['latitude']) && isset($validated['longitude'])) {
+            $coordinates = ['latitude' => $validated['latitude'], 'longitude' => $validated['longitude']];
+            $apartByDistance = Apartment::getByDistance($validated['latitude'], $validated['longitude'], $distance);
+
+            if ($apartByDistance != []) {
+                $found_apartments = collect([]);
+                foreach ($apartByDistance as $found) {
+                    $id = $found->id;
+                    if ($apartments->contains($id)) {
+                        $found_apartments->push($apartments->find($id));
+                    }
+                }
+                $apartments = $found_apartments;
+            } else {
+                $apartments = collect([]);
+            }
+        } else if ($apartments->first() != null) {
+            $coordinates = ['latitude' => $apartments->first()->latitude, 'longitude' => $apartments->first()->longitude];
+        }
+        return view('search', compact('servizi', 'apartments', 'order', 'coordinates', 'distance'));
     }
     public function getSearch()
     {
+        $order = null;
+        $distance = null;
         $apartments = Apartment::where('active', 1)->take(5)->get();
         $servizi = DB::table('servizi')->get();
-        $order = "";
-        return view('search', compact('servizi', 'apartments', 'order'));
+        if ($apartments->first() != null) {
+            $coordinates = ['latitude' => $apartments->first()->latitude, 'longitude' => $apartments->first()->longitude];
+        } else {
+            $coordinates = ['latitude' => 43.13, 'longitude' => 12.2883];
+        }
+        return view('search', compact('servizi', 'apartments', 'coordinates', 'order', 'distance'));
     }
 }

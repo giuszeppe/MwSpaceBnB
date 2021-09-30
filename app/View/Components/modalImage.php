@@ -2,19 +2,20 @@
 
 namespace App\View\Components;
 
+use App\Models\Apartment;
 use Illuminate\View\Component;
 
-class Searchbar extends Component
+class modalImage extends Component
 {
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public $required;
-    public function __construct($required = "true")
+    public $apartment;
+    public function __construct($apartment)
     {
-        $this->required = $required;
+        $this->apartment = $apartment;
     }
 
     /**
@@ -24,6 +25,6 @@ class Searchbar extends Component
      */
     public function render()
     {
-        return view('components.searchbar');
+        return view('components.modal-image');
     }
 }

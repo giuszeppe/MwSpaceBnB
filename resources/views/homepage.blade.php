@@ -9,35 +9,7 @@
 		*************************************-->
       <div class="tg-bannerholder">
         <div class="tg-slidercontent">
-          <div class="container">
-            <div class="row">
-              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <h1>Cerca il tuo appartamento</h1>
-                <h2>Ce ne sono per tutti i gusti</h2>
-            <form class="tg-formtheme tg-formtrip" action={{route('postSearch')}} method="POST">
-              @csrf
-                <fieldset class="search-form-wrapper">
-                    <div class="form-group">
-                        <div class="tg-input">
-                            <input
-                                type="text"
-                                name="title"
-                                class="tg-input-text"
-                                placeholder="Dove vuoi alloggiare?"
-                            />
-                        </div>
-                    </div>
-        
-                    <div id="tg-search-submit">
-                        <button class="tg-btn searchbar" type="submit">
-                            <span>Trova appartamenti</span>
-                        </button>
-                    </div>
-                </fieldset>
-            </form>
-              </div>
-            </div>
-          </div>
+            <x-searchbar> </x-searchbar>
         </div>
         <div id="tg-homeslider" class="tg-homeslider owl-carousel tg-haslayout">
           <figure
@@ -83,13 +55,11 @@
                   >
                   @foreach ($apartments as $apartment)
                     
-                    <div class="item tg-populartour bg-warning">
-                      <figure>
-                        <a href="tourbookingdetail.html"
-                          ><img
-                            src="{{$apartment->immagine}}"
-                            alt="{{$apartment->title}}"
-                        /></a>
+                    <div class="item tg-populartour bg-warning shadow-div">
+                      <figure class="result-img">
+                          <a href="{{route('apartment.show',$apartment->id)}}">
+                            <x-modal-image :apartment="$apartment"> </x-modal-image>
+                          </a>
                       </figure>
                       <div class="tg-populartourcontent">
                         <div class="tg-populartourtitle">
